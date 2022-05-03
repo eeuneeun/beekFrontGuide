@@ -78,7 +78,7 @@
             .desc .guide_menus li {width: 30%; display: flex; flex-direction: column; align-items: center; justify-content: center;}
                 .desc .guide_menus li img{width: 125px; height: 100px;}
                 .desc .guide_menus dt,
-                .desc .guide_menus dd{text-align: center;margin-top: 25px;}
+                .desc .guide_menus dd{text-align: center;margin-top: 25px; padding: 0 20px;}
 
                 .container .guide_menus dt button{font-weight:700; opacity: 0.8;}
                 .container .guide_menus dt button:hover{opacity: 1;}
