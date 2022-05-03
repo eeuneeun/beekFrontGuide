@@ -3,7 +3,7 @@
 
 html,body{width:100%;}
 html{overflow-y:scroll; overflow-x: hidden;}
-html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,header,nav,aside,footer,option,a,.header,.gnb, .login-box, .footer, .inner,.btn-box,input, article, section{margin:0; padding:0; font-size: 17px; letter-spacing: -1px; box-sizing: border-box; font-family: 'Nanum Gothic', sans-serif; -webkit-font-size-adjust:none;  }
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,header,nav,aside,footer,option,a,.header,.gnb, .login-box,span,.footer, .inner,.btn-box,input, article, section{margin:0; padding:0; font-size: 17px; letter-spacing: -1px; box-sizing: border-box; font-family: 'Nanum Gothic', sans-serif; -webkit-font-size-adjust:none;  }
 body,h1,h2,h3,h4,input,button{color:#000;-webkit-font-size-adjust: 100%;}
 body{background-color:#fff;*word-break:break-all;-ms-word-break:break-all; font-family:'Nanum Gothic', sans-serif, 'Calibri', 'MalgunGothic', 'sans-serif';text-align:left; }
 
@@ -107,7 +107,8 @@ nput[type="text"]:focus,textarea:focus,input[type="file"]:focus,button:focus,inp
 
 .flex_col_center{display: flex; flex-direction: column; align-items: center; }
 
-
+/* util ui */
+.badge{display: inline-block; width: 25px; height: 25px; background: #e95509; text-align: center; color: #fff; border-radius: 50%; font-size: 13px; padding: 3px 0;}
 
 
 
