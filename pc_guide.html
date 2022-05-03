@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/code-default.css">
+    <link rel="stylesheet" href="./assets/code-atom-one-dark.css">
+    <link rel="stylesheet" href="./assets/wac_ver1.css">
+
+    <script src="./js/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    <script src="./js/jquery.utils.js"></script>
+    <script src="./js/wac.js"></script>
+    <script src="./js/common.js"></script>
+    <script> //$(document).ready(function() { $.mobile.ajaxLinksEnabled = false; }); </script>
+
+
+
+    <title>롯데마트 웹접근성 가이드</title>
+</head>
+<body class="wac-guide pc">
+  <!-- gnb start -->
+  <header class="gnb">
+      <!-- inner start -->
+      <div class="inner">
+          <h1>
+              <a href="./index.html" class="pc">
+                <img src="./assets/img/main-logo.png" alt="lottemart 로고">접근성 가이드
+              </a>
+              <a href="./index.html" class="mobile"><img src="./assets/img/logo.png" alt="lottemart 로고"></a>
+          </h1>
+
+          <ul class="device active">
+              <li>
+                  <a href="./pc_guide.html" class="pc-guide">PC 지침 보기</a>
+              </li>
+              <li class="gnb-bar"></li>
+              <li>
+                  <a href="./mobile_guide.html" class="mobile-guide">Mobile 지침 보기</a>
+              </li>
+              <li class="gnb-bar"></li>
+              <li>
+                  <a href="./wac_focus.html" class="focus-guide">초점 이동에 관련</a>
+              </li>
+          </ul>
+
+          <span class="menu-btn">
+            <a href="#">
+              <img src="./assets/img/menu-btn.png" alt="메뉴 버튼">
+            </a>
+          </span>
+
+
+          <div class="guide_version_wrap">
+           <label for="guide_version">Guide 버전보기</label>
+           <select class="guide_version" id="guide_version">
+             <option>Guide 버전1</option>
+             <option>Guide 버전2</option>
+           </select>
+         </div>
+      </div>
+      <!-- inner end -->
+  </header>
+  <!-- gnb end -->
+
+        <nav class="btn-fixed-top" id="goTopBtn">
+            <a href="#top"></a>
+        </nav>
+        <!-- container start -->
+        <div class="container gnb-active" id="top">
+            <!-- inner start -->
+            <div class="inner">
+                <!-- lnb start -->
+                <nav class="lnb" role="dialog" aria-live="assertive" aria-modal="true" aria-labelledby="local-navigation">
+                    <h2 class="depth1-menu active" id="local-navigation">
+                        <a href="javascript:;" role="button">PC 접근성 24개 검사지침</a>
+                        <i class="glyphicon glyphicon-menu-down lnb-icon open"></i>
+                    </h2>
+                    <ul class="depth2-menu">
+                        <li><a href="#item01">1. 이미지에 대한 적절한 대체텍스트 제공</a></li>
+                        <li><a href="#item02">2. 자막제공</a></li>
+                        <li><a href="#item03">3. 색에 무관한 콘텐츠 인식</a></li>
+                        <li><a href="#item04">4. 명확한 지시사항 제공</a></li>
+                        <li><a href="#item05">5. 텍스트 콘텐츠의 명도 대비</a></li>
+                        <li><a href="#item06">6. 자동 재생 금지</a></li>
+                        <li><a href="#item07">7. 콘텐츠 간의 구분</a></li>
+                        <li><a href="#item08">8. 키보드 사용 보장 (입력장치 접근성)</a></li>
+                        <li><a href="#item09">9. 초점이동</a></li>
+                        <li><a href="#item10">10. 조작가능</a></li>
+                        <li><a href="#item11">11. 응답시간 조절</a></li>
+                        <li><a href="#item12">12. 정지기능 제공 </a></li>
+                        <li><a href="#item13">13. 깜빡임과 번쩍임 사용 제한 </a></li>
+                        <li><a href="#item14">14. 반복영역 건너뛰기</a></li>
+                        <li><a href="#item15">15. 타이틀 및 제목 제공</a></li>
+                        <li><a href="#item16">16. 적절한 링크 텍스트</a></li>
+                        <li><a href="#item17">17. 기본 언어 표시</a></li>
+                        <li><a href="#item18">18. 사용자 요구에 따른 실행</a></li>
+                        <li><a href="#item19">19. 콘텐츠의 선형화 (콘텐츠의 선형 구조)</a></li>
+                        <li><a href="#item20">20. 표의 구성</a></li>
+                        <li><a href="#item21">21. 레이블 제공</a></li>
+                        <li><a href="#item22">22. 오류정정</a></li>
+                        <li><a href="#item23">23. 마크업오류방지</a></li>
+                        <li><a href="#item24">24. 웹 애플리케이션 접근성 준수</a></li>
+                    </ul>
+                </nav>
+                <!-- lnb end -->
+
+                <!-- contents start -->
+                <div class="contents">
+                    <!-- #wacExample start -->
+                    <div id="wacExample" class="article">
+                        <h3>PC 접근성 검사항목</h3>
+                        <p>
+                            - PC 웹 접근성 지침에서 검사항목 별, 검사방법을 한 눈에 파악할 수 있도록 별도 정리하여 제공합니다.
+                        </p>
+
+                        <div class="text-alter" id="item01">
+                            <h4 class="active">
+                                <em class="numbering">1</em>
+                                <span>이미지에 대한 적절한 대체텍스트 제공</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 텍스트 아닌 콘텐츠는 그 의미나 용도를 이해할 수 있도록 대체 텍스트를 제공해야 한다.<br>
+                                    &CenterDot; 대체 텍스트는 중복으로 제공하지 않는다.
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            &lt;img&gt;, &lt;input type=”image”&gt;, &lt;area&gt;, &lt;applet&gt; : alt 속성으로 의미나 용도를 이해할 수 있도록 적절한 대체 텍스트 제공 합니다.
+                                        </li>
+                                        <li>
+                                            배경이미지 (IR기법) : 의미있는 배경 이미지를 사용하였을 경우, 배경이미지에 대한 대체 텍스트 제공 합니다.
+                                        </li>
+                                        <li>
+                                            링크, 버튼 : 아이콘을 포함한 용도가 명확한 이미지 링크, 이미지 버튼 등은 핵심기능에 대한 설명을 구체적으로 대체 텍스트 제공 합니다.
+                                        </li>
+                                        <li>
+                                            웹 애플리케이션을 제공할 때, 동등한 기능을 수행 할 수 있는 대체 콘텐츠를 함께 제공 합니다.
+                                        </li>
+                                        <li>
+                                            단순 장식이나 시각적인 형태를 위한 의미없는 이미지는 대체 텍스트를 공백문자로 제공 합니다.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        &lt;img&gt;, &lt;input type=”image”&gt;, &lt;area&gt;, &lt;applet&gt; 요소의 alt 속성 유무 체크
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        alt 속성 값이 있는 &lt;img&gt;, &lt;input type=”image”&gt;, &lt;area&gt;, &lt;applet&gt; 요소 중 alt값을 적절한 대체 텍스트로 제공하였는지 체크<br>
+                                        IR 기법내 적절한 대체 텍스트를 제공 하였는지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="expect">
+                                    <h5>기대효과</h5>
+                                    <ul>
+                                        <li>시각장애 또는 지적장애 등으로 인해 시각적으로 정보를 습득하는데 어려움을 겪는 사용자들이 화면낭독프로그램과 같은 보조기술을 사용하여 해당 콘텐츠를 음성을 통해 들을 수 있으므로 최소한의 접근권을 보장받을 수 있게 된다.</li>
+                                        <li>사용자들을 위해 텍스트 아닌 콘텐츠를 텍스트로 표시하거나 대체 텍스트를 수화로 번역함으로써 해당 콘텐츠에 접근할 수 있다. 시청각 중복 장애인들 역시 텍스트 아닌 콘텐츠에 대응하는 대체 텍스트를 점자로 변환하는 보조기술을 이용하여 해당 콘텐츠에 대한 접근권을 보장받을 수 있다.</li>
+                                        <li>콘텐츠에 적절한 대체 텍스트를 제공한 경우 시각으로 제공받는 정보가 불충분하여 사용자가 콘텐츠의 핵심내용을 인지할 수 없거나 잘못된 정보를 제공받음으로써 겪게 되는 불필요한 혼동을 줄일 수 있다.</li>
+                                        <li>대체 텍스트를 제공함으로써 텍스트 아닌 콘텐츠에 대한 검색이 가능하게 된다.
+                                        <li> 의미가 있는 배경 이미지가 의미하는 대체 텍스트를 보조기술 사용자가 인지할 수 있어 콘텐츠의 이해와 사용이 가능하게 된다.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>alt 속성을 이용한 제공방법 (일반적인 방법)</h5>
+                                    <p>
+                                        - 롯데마트 로고 이미지의 대체텍스트 제공
+                                    </p>
+                                    <img src="http://image.lottemart.com/v3/images/layout/h1_logo_01.gif" alt="롯데마트 Mall 새로운 생활의 큐레이터">
+
+                                    <pre><code class="html">&lt;img src="http://image.lottemart.com/v3/images/layout/h1_logo_01.gif" alt="롯데마트 Mall 새로운 생활의 큐레이터"&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>alt 속성을 이용한 제공방법 (일반적인 방법)</h5>
+                                    <p>
+                                        - 메인 슬라이드 이미지 적용 예시 : 이미지가 제공하는 모든 내용을 alt 속성에 제공하여 이미지의 정보를 이해할 수 있음
+
+                                    </p>
+                                    <img src="./assets/img/alter-text.png" alt="메인 슬라이드 이미지 적용 예시">
+
+                                    <pre><code class="html">&lt;img src="http://image.lottemart.com/lim/static_root/images/front/contents/banner/2018/20181207015150210.jpg" alt="M쿠폰 회원 특별 혜택전 최대 20%  추가할인 상품 다모았다! " width="1600" height="500"&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>Image Map</h5>
+                                    <p>
+                                        - HOT PICK! 기획전 이미지 맵에 대하여 대체 텍스트 제공<br>
+                                        - 여러 개가 합쳐진 한 이미지에 대해 접근을 원활히 하기 위해서 대체 텍스트를 제공해야 한다.<br>
+                                        - 이미지 맵을 사용할 때는 큰 이미지 전체에 대한 대체 텍스트와 부분 영역에 대한 대체 텍스트를 반드시 넣어 주어야 한다.
+                                    </p>
+                                    <img src="./assets/img/img-map.png" alt="이미지 맵 대체 텍스트 제공">
+
+                                    <pre><code class="html">&lt;img src="//simage.lottemart.com/lm2/images/contents/2019/01/C2060001_000000000765_1030_576.jpg" usemap="#hotpick_C2060001_000000000765" class="thumb" alt="FOOD" width="1030" height="576"&gt;
+&lt;map name="hotpick_C2060001_000000000765"&gt;
+    &lt;area shape="rect" coords="1,1,515,575" href="http://www.lottemart.com/plan/planDetail.do?CategoryID=C2060001&amp;MkdpSeq=000000000765" alt="즉석 도정 블렌딩 米 나만의 쌀 레시피"&gt;
+    &lt;area shape="rect" coords="515,1,1028,287" href="http://www.lottemart.com/plan/planDetail.do?CategoryID=C2060002&amp;MkdpSeq=000000000916" alt="이탈리아 고품격 파스타 디벨라 이탈리아 식탁으로 초대"&gt;
+    &lt;area shape="rect" coords="515,287,772,575" href="http://www.lottemart.com/plan/planDetail.do?CategoryID=C2060002&amp;MkdpSeq=000000000913" alt="따뜻한 차와 커피 찬바람과 미세먼지의 밀당"&gt;
+    &lt;area shape="rect" coords="772,287,1028,575" href="http://www.lottemart.com/plan/planDetail.do?CategoryID=C2060001&amp;MkdpSeq=000000000751" alt="간편 채소, 컷팅 과일 요리가 제일 쉬웠어요"&gt;
+&lt;/map&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>IR 기법</h5>
+                                    <p>
+                                        - 일러스트 지도에 대하여 대체 텍스트 제공<br>
+                                        - 이미지에 내용이 많은 경우 alt 속성의 값은 이미지 제목 정도로 제공하고, 이미지의 바로 다음에 이미지 내용과 구조 정보를 담은 HTML을 숨겨서 제공한다<br>
+                                        - <em class="alert-red">주의사항</em> : 숨김텍스트 제공 시 visibility:hidden / display:none 은 스크린리더기 마다 인식 여부가 다르므로 사용하지 않아야 함
+                                    </p>
+                                    <img src="./assets/img/ir-text.png" alt="IR 기법의 대체 텍스트 제공">
+
+                                    <pre><code class="html">&lt;p&gt;&lt;img src="//simage.lottemart.com/lm2/images/contents/2018/03/C2060008_000000000022_980_layer.png" alt="주유소 찾아오는길"&gt;&lt;button class="layerFunc"&gt;닫기&lt;/button&gt;&lt;/p&gt;
+
+&lt;div class="blind"&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;주유소 찾아오는길, 주소: 경기 용인시 기흥구 진산로 116, 전화번호 : 031-266-2500&lt;/dt&gt;
+        &lt;dd&gt;진입로 진입후 좌측노선은 주유및픽업 이용, 우측노선은 픽업및마트이용(주유불가) 노선이며 행복드림 주유소에서 픽업 하시면 됩니다.&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>의미있는 배경 이미지</h5>
+                                    <p>
+                                        - css 스타일 시트등으로 이미지를 백그라운 이미지로 보여주는 경우 HTML은 이미지와 동일한 내용을 숨김 텍스트로 보여준다.<br>
+                                        - <em class="alert-red">주의사항</em> : 숨김텍스트 제공 시 visibility:hidden / display:none 은 스크린리더기 마다 인식 여부가 다르므로 사용하지 않아야 한다.
+                                    </p>
+                                    <img src="./assets/img/alter-text02.png" alt="아이콘 이미지 대체 텍스트 제공">
+
+                                    <pre><code class="html">&lt;i class="icon-goods-discount"&gt;&lt;em class="number"&gt;30&lt;/em&gt; &lt;span class="blind"&gt;% 할인&lt;/span&gt;&lt;/i&gt;
+&lt;i class="icon-goods-type1"&gt;살수록 더싸게&lt;/i&gt;
+&lt;i class="icon-band-delivery1"&gt;매장배송&lt;/i&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>버튼 이미지 숨김 텍스트 제공</h5>
+                                    <p>
+                                        - 백그라운드 이미지 형식으로 불러오는 버튼<br>
+                                        - css 스타일 시트 등으로 이미지를 백그라운드 이미지로 보여주는 경우, HTML은 이미지와 동일한 내용을 숨김 텍스트로 보여준다.<br>
+                                        - <em class="alert-red">주의사항</em> : 숨김텍스트 제공 시 visibility:hidden / display:none 은 스크린리더기 마다 인식 여부가 다르므로 사용하지 않아야 함
+                                    </p>
+                                    <img src="./assets/img/img-btn.png" alt="배경 이미지 형식으로 불러오는 버튼에 대하여 blind 태그를 이용하여 대체 텍스트 제공">
+
+                                    <pre><code class="html">&lt;a href="javascript:;" data-button-name="btnAddWish" data-category-id="C0010144" data-product-code="8809332398425" title="위시리스트 담기" class="dibs "&gt;
+&lt;span class="blind"&gt;위시리스트&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;button id="basketBtn_8809332398425" title="장바구니 담기" type="button" class="btn-basket" data-prod-cd="8809332398425" data-category-id="C0010144" data-is-sold-out="false" data-max-qty="999" data-min-qty="1" data-method="basket" data-is-manufacturing-product="false" data-option-yn="N" data-prod-type-cd="01" data-prod-title="정관장 홍삼진본(40ML*20포)"&gt;&lt;/button&gt;
+
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>상품 이미지 대체 텍스트 제공</h5>
+                                    <p>
+                                        - 상품이미지의 대체 텍스트는 상품명과 동일하게 제공한다.<br>
+                                        - 관리자 페이지를 통해 등록하는 경우 관리자 페이지에 해당 상품의 alt값을 넣을 수 있도록 제공 되어야 한다.
+
+                                    </p>
+                                    <img src="./assets/img/prod-alter-text.png" alt="상품이미지의 대체 텍스트 제공">
+
+                                    <pre><code class="html">&lt;a href="javascript:;" onclick="goProductDetail('C001002600060004', 'D000003277491', 'N'); return false;" data-cid="C001002600060004" data-pid="D000003277491" data-title="3M 주방 수세미 모음(2/3/10입)&lt;br&gt;(일반형/원데이형)" tabindex="0"&gt;
+	&lt;img src="http://image.lottemart.com/lim/static_root/images/prodimg/D0000/D000003277491_1_375.jpg" onerror="this.src='http://image.lottemart.com/v3/images/layout/noimg_prod_500x500.jpg';" alt="3M 주방 수세미 모음(2/3/10입)&lt;br&gt;(일반형/원데이형)" class="thumb"&gt;
+&lt;/a&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>QR코드 이미지 대체 텍스트 제공</h5>
+                                    <p>
+                                        - QR코드 등과 같이 시각적인 정보만으로 확인이 가능한 콘텐츠는 이동 주소 정보 등을 대체 텍스트 또는 설명, 링크 등으로 제공해야 한다.
+                                    </p>
+                                    <img src="./assets/img/qr-text.png" alt="QR코드 이미지 대체 텍스트 제공">
+
+                                    <pre><code class="html">&lt;img src="http://image.lottemart.com/v3/images/layout/img_cs_ltmmoguide_16.jpg" alt="롯데마트몰 모바일 앱 다운로드 바로가기 QR코드"&gt;
+
+&lt;img src="http://image.lottemart.com/v3/images/layout/img_cs_ltmmoguide_17.jpg" alt="m.lottemart.com 모바일 웹 이동 QR코드"&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                        <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>상품평 평점 이미지 정보 제공</h5>
+                                        <p>
+                                            - 하나의 이미지로 처리하고 대체 텍스트에 평점을 인지할 수 있도록 제공한다
+                                        </p>
+                                        <img src="./assets/img/sat-point-text.png" alt="상품평 평점 별점 이미지에대한 정보 제공">
+
+                                        <pre><code class="html">&lt;p class="customer"&gt;
+    &lt;strong class="tit"&gt;고객만족도&lt;/strong&gt;
+    &lt;em class="score" id="reviewScore"&gt;9.6&lt;/em&gt;
+    &lt;span class="ico-star-type1"&gt;
+        &lt;em style="width:96%;"&gt;9.6 / 10점 만점&lt;/em&gt;
+    &lt;/span&gt;
+&lt;/p&gt;
+                                       </code></pre>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="video-caption" id="item02">
+                            <h4 class="active">
+                                <em class="numbering">2</em>
+                                <span>자막제공</span>
+                                <i class="open"></i>
+                            </h4>
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 광고성 콘텐츠(자막이 없는 동영상) 의 내용설명 글을 제공한다.<br>
+                                    &CenterDot; 음성이 없는 경우 : 영상에 대한 설명글 제공<br>
+                                    &CenterDot; 음성이 있는 경우 : 영상에 대한 원고 또는 싱크되는 자막 제공<br>
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                           멀티미디어 콘텐츠를 장애인도 비장애인과 동등하게 인식할 수 있도록 제작해야 한다.
+                                        </li>
+                                        <li>
+                                            가장 바람직한 방법은 닫힌 자막을 오디오와 동기화시켜 제공하는 것이다.
+                                        </li>
+                                        <li>
+                                            대체 수단 제공 : 자막제공 / 대본제공 / 수화제공 중 한 가지 이상의 대체 수단을 제공해야 한다
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                        <dt>자동검사방법</dt>
+                                        <dd>
+                                            -
+                                        </dd>
+
+                                        <dt>수동검사방법</dt>
+                                        <dd>
+                                            멀티미디어 콘텐츠에 대한 자막, 원고, 수화 제공 유무 체크
+                                        </dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="color" id="item03">
+                            <h4 class="active">
+                                <em class="numbering">3</em>
+                                <span>색에 무관한 콘텐츠 인식</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 컨텐츠는 색에 관계없이 인식될 수 있어야 한다.<br>
+                                    &CenterDot; 특정한 색을 구분할 수 없는 사용자나 흑백 디스플레이 사용자 등이 색을 배제하여도 컨텐츠를 인식할 수 있도록 제공해야 한다.
+
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            콘텐츠(그래프, 차트, 지도 등)는 색에 관계없이 인식될 수 있게 제공해야 한다.
+                                        </li>
+                                        <li>
+                                            콘텐츠에서 제공하는 모든 정보는 색을 배제하여도 특정한 색을 구별할 수 없는 사용자나 흑백 디스플레이 사용자, 흑백 인쇄물을 보는 사용자가 해당 콘텐츠를 인식할 수 있도록 제공해야 한다.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        색상만으로 콘텐츠(그래프, 차트, 지도, 페이지 네비게이션 등)을 분별 하도록 제공 했는지 체크<br>
+                                        페이지 네비게이션, 메뉴, 현재 위치 등의 정보를 명암, 패턴 등의 변화없이 색상만으로 제공 했는지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>색맹이나 색약자도 알아 볼 수 있는 고객센터의 상담현황</h5>
+                                    <p>
+                                        - 고객센터의 상담현황 안내 부분의 색을 뚜렷한 색상 차이로 제공하여 색맹이나 색약자도 알아 볼 수 있음.<br>
+
+                                        - 다른 모양이나 패턴 등의 차이가 없이 색상의 차이만으로 구별되는 요소는 색맹이나 색약자가 알아보기 어려움.<br>
+                                        - 콘텐츠에서 제공하는 모든 정보는 색을 배제하여도 특정한 색을 구별할 수 없는 사용자나 흑백 디스플레이 사용자, 흑백 인쇄물을 보는 사용자가 해당 콘텐츠를 인식할 수 있도록 제공.
+
+                                    </p>
+
+                                    <img src="./assets/img/color-show.png" alt="전고객센터의 상담현황 안내 부분의 컬러와 흑백 이미지" style="width:100%">
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>색맹이나 색약자도 알아 볼 수 있는 롯데마트의 상품 리스트</h5>
+                                    <p>
+                                        - 롯데마트의 상품 리스트는 영역별로 뚜렷한 색상차이를 두고 제공하여 색맹이나 색약자도 알아 볼 수 있음.<br>
+
+                                        - 다른 모양이나 패턴 등의 차이가 없이 색상의 차이만으로 구별되는 요소는 색맹이나 색약자가 알아보기 어려움.<br>
+                                        - 콘텐츠에서 제공하는 모든 정보는 색을 배제하여도 특정한 색을 구별할 수 없는 사용자나 흑백 디스플레이 사용자, 흑백 인쇄물을 보는 사용자가 해당 콘텐츠를 인식할 수 있도록 제공.
+
+                                    </p>
+
+                                    <img src="./assets/img/color-show02.png" alt="롯데마트 상품 리스트의 컬러와 흑백 이미지" style="width:100%">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="indicator" id="item04">
+                            <h4 class="active">
+                                <em class="numbering">4</em>
+                                <span>명확한 지시사항 제공</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                &CenterDot; 지시사항은 모양, 크기, 위치, 방향, 색, 소리 등에 관계없이 인식될 수 있어야 한다.<br>
+                                &CenterDot; 특정한 감각(시각, 청각 등)에 의존하여 지시사항을 제공할 경우 해당 감각에 장애가 있다면 인식할 수 없으므로, 다른 감각을 통해서도 인식할 수 있도록 지시사항을 제공해야 한다.<br>
+                                &CenterDot; 지시사항 정보를 특정 감각(색, 크기, 모양, 방향 등)에만 의존하여 제공했는지 체크<br>
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            특정 감각(색, 크기, 모양, 방향 등)에만 의존하여 제공하지 않아야 함
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        지시 사항 정보를 특정 감각(색, 크기, 모양, 방향 등)에만 의존하여 제공했는지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>더보기 버튼의 명시</h5>
+                                    <p>
+                                        - 메인화면 전문관 영역의 더보기 버튼 링크의 기능에 대해 정확히 어떤 것을 더 보는 것인지에 대해 설명하는 대체 텍스트를 제공
+                                    </p>
+
+                                    <img src="./assets/img/link-text03.png" alt="전문관 더보기 버튼에대해 타이틀 툴탭이 뜬 이미지">
+                                    <pre><code>&lt;button type="button" class="md-more" title="메인 전문관 영역의 숨겨진 영역을 열어주는 더보기 버튼"&gt;더보기&lt;/button&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>이벤트 참여 버튼의 명시</h5>
+                                    <p>
+                                        - “위에 있는 버튼을 누르십시오” 등 화면 표시 위치나 “빨간색을 누르십시오” 등 색을 매개로 한 전달을 하지 않도록 함.
+                                    </p>
+
+                                    <img src="./assets/img/event-btn.png" alt="이벤트 버튼을 누르시오 라고 명시된 설명문">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item05">
+                            <h4 class="active">
+                                <em class="numbering">5</em>
+                                <span>텍스트 콘텐츠의 명도 대비</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 전경 콘텐츠와 배경은 4.5:1 이상의 명도 대비를 유지한다.<br>
+                                    &CenterDot; 전경 콘텐츠는 정보를 전달하고 있는 '문자, 아이콘, 콘트롤(a, button, input, select, textarea)'의 선과 면을 의미한다.<br>
+                                    &CenterDot; 문자 크기가 bold 19px 이상 또는 normal 24px 이상인 경우 3:1 이상의 명도 대비를 유지한다.<br>
+                                    &CenterDot; 아이콘, 콘트롤 등 시각 정보가 3px 이상 두꺼운 경우 3:1 이상의 명도 대비를 유지한다.<br>
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            콘텐츠의 명도 대비 : 웹 페이지가 제공하는 텍스트 콘텐츠(텍스트 및 텍스트 이미지)와 배경 간의 명도 대비는 4.5 : 1 이상이어야 한다.
+                                        </li>
+                                        <li>
+                                            폰트 크기에 따른 명도 대비 : 텍스트 콘텐츠를 구성하고 있는 텍스트 폰트를 18pt 이상 또는 14pt 이상의 굵은 폰트를 사용하는 경우에는 명도 대비를 3 : 1 까지 낮출 수 있다.
+                                        </li>
+                                        <li>
+                                            화면 확대가 가능한 콘텐츠 : 화면 확대가 가능하도록 구현한 텍스트 콘텐츠(텍스트 및 텍스트 이미지)의 명도 대비는 3 : 1 까지 낮출 수 있다.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        텍스트나 이미지 텍스트와 배경 간의 명도 대비를 4.5 : 1 이상으로 제공했는지 체크<br>
+                                        명도 대비 확인 유틸리티 Colour Contrast Analyser 로 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>콘텐츠와 배경간의 충분한 명도 대비 제공</h5>
+                                    <p>
+                                        - 글자색과 배경색간의 명도 차이가 작으면 약시자가 보기 힘들어 짐<br>
+                                        - 일반적인 크기의 글자는 4.5:1 이상, 18pt 이상의 큰 글자(볼드체는 14pt 이상)는 3:1 이상 필요
+                                    </p>
+
+                                    <img src="./assets/img/contrast01.png" alt="명도대비 변환 전 이미지">
+                                    <img src="./assets/img/contrast02.png" alt="명도대비툴로 변환한 흑백 이미지">
+                                </div>
+
+                                <div class="sample">
+                                    <h5><i class="glyphicon glyphicon-star" style="color:blueviolet;"></i> 명도 대비 예외 사항</h5>
+                                    <p>
+                                        <ul>
+                                            <li>
+                                                1. 단순히 장식 목적으로만 사용한 텍스트<br>
+                                                <img src="./assets/img/except01.png" alt="명도대비 예외 이미지1">
+                                            </li>
+                                            <li>2. 로고 또는 상호와 같은 텍스트 이미지<br>
+                                                <img src="./assets/img/logo.jpg" alt="명도대비 예외 이미지2" style="width:300px;">
+                                            </li>
+                                            <li>
+                                                3. 마우스나 키보드를 활용하여 초점을 받았을 때 색이나 명도 대비가 변화하는 콘텐츠 (두 메뉴 중 한쪽만 명도대비를 맞추면 인정)<br>
+                                                <img src="./assets/img/except02.png" alt="명도대비 예외 이미지3">
+                                            </li>
+                                            <li>
+                                                4. 사용할 수 없음을 표시하기 위하여 명도 대비를 낮춘 회색의 컨트롤이나 입력 서식<br>
+                                                <img src="./assets/img/except03.png" alt="명도대비 예외 이미지4">
+                                            </li>
+                                        </ul>
+                                    </p>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="no-bg-music" id="item06">
+                            <h4 class="active">
+                                <em class="numbering">6</em>
+                                <span>자동 재생 금지</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                   &CenterDot; 자동으로 소리가 재생되지 않아야 한다
+                                </p>
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            자동으로 재생되는 배경음 (동영상, 음성, 음악) 사용금지
+                                        </li>
+                                        <li>
+                                            배경음 사용시 사전 경고나 제어할 수 있는 수단 제공
+                                        </li>
+                                        </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        3초 이상 자동으로 재생되는 배경음 사용 여부 체크<br>
+                                        3초 이상 자동으로 배경음을 제어할 수 있는 수단을 제공하고 있는지 체크<br>
+                                        3초 이상 자동으로 배경음을 제어할 수 있는 수단이 화면 낭독 프로그램 음량에 영향을 주는지 체크<br>
+                                        마우스 오버, 키보드 초점을 받아 3초이상 재생되는 배경음 사용 여부 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>동영상 콘텐츠의 자동 재생 금지</h5>
+                                    <p>
+                                        - 마우스 클릭하거나 키보드로 접근 후 선택을 해야 동영상이 실행되도록 영상 콘텐츠를 구현하고 있어 배경음으로 인한 방해가 없도록 한다
+                                    </p>
+
+                                    <img src="./assets/img/video-play.png" alt="소시지 동영상이 정지된 이미지"  >
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="no-bg-music" id="item07">
+                            <h4 class="active">
+                                <em class="numbering">7</em>
+                                <span>콘텐츠 간의 구분</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 이웃한 콘텐츠는 구별될 수 있어야 한다.
+                                </p>
+
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            모든 이웃한 콘텐츠는 시각적으로 구분될 수 있도록 구현함.
+                                        </li>
+                                        <li>
+                                            테두리를 이용하여 구분함
+                                        </li>
+                                        <li>
+                                            콘텐츠 사이에 시각적인 구분선을 삽입하여 구분함
+                                        </li>
+                                        <li>
+                                            서로 다른 무늬를 이용하여 구분함
+                                        </li>
+                                        <li>
+                                            콘텐츠 배경색 간의 명도대비(채도)를 달리하여 구분함
+                                        </li>
+                                        <li>
+                                            줄 간격 및 글자 간격을 조절하여 구분함
+                                        </li>
+                                        <li>
+                                          기타 콘텐츠를 시각적으로 구분할 수 있는 방법을 제공함
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        콘텐츠 사이의 시각적인 구분이 가능한지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>메뉴내 이웃한 콘텐츠 간을 테두리로 구분함</h5>
+                                    <p>
+                                        - HTML로 표현되는 콘텐츠 관련 태그들에 border 속성을 추가하여 테두리 선 굵기를 px(픽셀) 단위로 지정하거나, css 스타일시트를 이용하여 콘텐츠에 border 속성을 지정할 수 있다.
+                                    </p>
+
+                                    <img src="./assets/img/border-line.png" alt="실선으로 영역이 구분되어 있는 메뉴 이미지" style="width:100%">
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>이웃한 콘텐츠 간의 명도대비(채도)를 달리하여 구분하는 방법</h5>
+                                    <p>
+                                        -  흑백 스크린(구형 PDA 등) 또는 경조(硬調: 고대비) 모드사용자들도 콘텐츠의 내용이나 구조를 손쉽게 이해할 수 있다.<br>
+                                        - 웹 페이지에 보이는 핵심 텍스트 콘텐츠와 배경 간의 충분한 대비를 제공하여 저시력자, 색각 이상자, 고령자 등도 콘텐츠를 인식할 수 있도록 제공한다.
+                                    </p>
+
+                                    <img src="./assets/img/color-line.png" alt="명도대비 색상차이로 영역이 구분되어 있는 메뉴 이미지">
+                                </div>
+
+                                <div class="sample">
+                                <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>기타 콘텐츠를 시각적으로 구분할 수 있는 방법</h5>
+                                <p>
+                                    - 텍스트는 CSS의 font-style 속성으로 텍스트 구성 요소를 강조하고 이미지는 CSS의 background-image를 사용하여 텍스트 뒤에 그림을 표시하여 시각적으로 구분한다.
+                                </p>
+
+                                <img src="./assets/img/etc02.png" alt="명도대비 색상차이로 배경과 글씨의 내용이 확연하게 구분되어 있는 메뉴 이미지">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="keyboard-use" id="item08">
+                            <h4 class="active">
+                                <em class="numbering">8</em>
+                                <span>키보드 사용 보장 (입력장치 접근성)</span>
+                                <i class="open"></i>
+                            </h4>
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 모든 기능은 키보드 만으로도 사용할 수 있어야 한다. <br>
+                                    &CenterDot; 키보드에 의한 초점은 논리적으로 이동해야 하며, 시각적으로 구별할 수 있어야 한다.<br>
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            키보드와 마우스 이벤트 핸들러 제공 : 마우스로 접근 가능한 기능이라면, 키보드로 접근 가능해야 함
+                                        </li>
+                                        <li>
+                                            마우스 드래그와 드롭 기능에서 키보드 이용 보장 : 마우스 드래그 및 드롭 방법만으로 구현하지 않고 체크상자, 선택버튼기능등을 제공함으로써 키보드 사용이 보장될 수 있 도록 해야함
+                                        </li>
+                                            이미지에 이벤트를 제공한 경우, 키보드 포커스가 가능한 button, a 요소 등에 이벤트를 제공해야 함
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        보드로 Tab 과 Shift + Tab, 서비스내 단축키 그리고 엔터등으로 콘텐츠를 이용할 수 있는지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> 예시</h5>
+                                    <p>
+                                        - 롯데마트 gnb 메뉴의 키보드 이용
+                                    </p>
+                                    <img src="http://image.lottemart.com/v3/images/layout/h1_logo_01.gif" alt="롯데마트 Mall 새로운 생활의 큐레이터">
+
+                                    <pre><code class="html">&lt;img src="http://image.lottemart.com/v3/images/layout/h1_logo_01.gif" alt="롯데마트 Mall 새로운 생활의 큐레이터"&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="focus-move" id="item09">
+                            <h4 class="active">
+                                <em class="numbering">9</em>
+                                <span>초점 이동</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 키보드에 의한 초점은 논리적으로 이동해야 하며 시각적으로 구별할 수 있어야 한다
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            초점 이동 순서 유지 : 초점 이동 순서는 사용자가 예측하는 이동 순서와 일치하여야 함.
+                                        </li>
+                                        <li>
+                                            키보드 사용을 보장하기 위해서는 콘텐츠가 논리적으로 선형화 되돌고 Mark Up이 반드시 필요함.
+                                        </li>
+                                        <li>
+                                            초점의 시각화 :  사용자 입력 등이 위치 지정 도구(마우스)나 키보드 조작을 통해 초점을 받았을 때, 해당 컨트롤의 초점을 시각적으로 구별 할 수 있어야 함.
+                                        </li>
+                                        <li>
+                                            인터렉션 개체들의 초점을 강제로 제거하지 않음.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        키보드 Tab으로 이동이 논리적인지 체크<br>
+                                        초점을 받은 요소 (링크, 컨트롤, 입력서식)가 시각적으로 구분이 되는지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> 예시</h5>
+                                    <p>
+                                        - 롯데마트 메인 화면의 BEST 메뉴내의 키보드 이용
+                                    </p>
+                                    <img src="img/main-best.png" alt="롯데마트 메인 화면의 BEST 메뉴내의 키보드 이용">
+
+                                    <pre><code class="html">&lt;article class="main-best"&gt;
+    &lt;div class="best-nav jq-tab"&gt;
+        &lt;a href="#bestFood" class="best-tab01 active" title="현재 선택"&gt;FOOD&lt;/a&gt;
+        &lt;a href="#bestLife" class="best-tab02"&gt;LIFE&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="best-conts js-tabcontents"&gt;
+        &lt;section class="best-cont clear-after best-cont1 active" id="bestFood"&gt;
+            &lt;h3 class="blind"&gt;FOOD&lt;/h3&gt;
+            &lt;nav class="best-tab js-tabnav" id="bestFood"&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-1 active" data-category-id="foodAll" data-tab-index="02" data-current-page="1"&gt;&lt;strong class="inner"&gt;전체&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-2" data-category-id="C0010011" data-tab-index="02" data-current-page="2"&gt;&lt;strong class="inner"&gt;쌀/잡곡&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-3" data-category-id="C0010012" data-tab-index="02" data-current-page="3"&gt;&lt;strong class="inner"&gt;채소&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-4" data-category-id="C0010013" data-tab-index="02" data-current-page="4"&gt;&lt;strong class="inner"&gt;과일&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-5" data-category-id="C0010014" data-tab-index="02" data-current-page="5"&gt;&lt;strong class="inner"&gt;정육/계란&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-6" data-category-id="C0010015" data-tab-index="02" data-current-page="6"&gt;&lt;strong class="inner"&gt;생선/&lt;br&gt;건해산물&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-7" data-category-id="C0010046" data-tab-index="02" data-current-page="7"&gt;&lt;strong class="inner"&gt;견과/선식&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-8" data-category-id="C0010016" data-tab-index="02" data-current-page="8"&gt;&lt;strong class="inner"&gt;냉장/냉동/&lt;br&gt;간편식&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-9" data-category-id="C0010017" data-tab-index="02" data-current-page="9"&gt;&lt;strong class="inner"&gt;가공식품/&lt;br&gt;대용식&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-10" data-category-id="C0010052" data-tab-index="02" data-current-page="10"&gt;&lt;strong class="inner"&gt;친환경식품&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-11" data-category-id="C0010053" data-tab-index="02" data-current-page="11"&gt;&lt;strong class="inner"&gt;건강식품&lt;/strong&gt;&lt;/a&gt;
+                &lt;a href="javascript:;" class="nav-link nav-link1-12" data-category-id="C0010040" data-tab-index="02" data-current-page="12"&gt;&lt;strong class="inner"&gt;조리식품&lt;/strong&gt;&lt;/a&gt;
+            &lt;/nav&gt;
+            &lt;div class="wrap-tab-cont js-tabcont"&gt;&lt;div id="bestFood-foodAll" class="tab-cont active"&gt;&lt;div class="wrap-prod-list"&gt;
+        &lt;div class="prod-list clear-after"&gt;
+            &lt;!-- wrapper tag가 유동적이라서 헷갈릴수 있어 일부러 들여쓰기 이렇게 함 --&gt;
+                            &lt;article class="product-article" data-panel="product"&gt;
+                                &lt;!-- TODO : 해당 페이지 사용하는 전체 쿼리 찾아서 CURR_SELL_PRC &gt; 100 조건 걸려있는지 확인후에 제거 필요 --&gt;
+                                &lt;!-- 베스트 순위 표시 --&gt;
+                                &lt;!-- ** 추천상품 썸네일 --&gt;
+                                &lt;div class="wrap-thumb"&gt;
+                                    &lt;a href="javascript:;" onclick="goProductDetail('C001001200040001', '0400669780006', 'N', '', '', '00001');return false; " class="thumb-link" data-category-id="C001001200040001" data-prod-cd="0400669780006"&gt;
+                                        &lt;img src="http://image.lottemart.com/lim/static_root/images/prodimg/04006/0400669780006_1_208.jpg" width="208" id="prodImg_0400669780006" alt="파프리카(개)" class="thumb" onerror="javascript:showNoImage(this)"&gt;
+                                            &lt;/a&gt;
+
+                                    &lt;!-- 할인상품 썸네일 할인스티커 --&gt;
+                                    &lt;span class="wrap-tag"&gt;
+    &lt;!-- 우선순위에 의한 1개만 노출 --&gt;
+
+    &lt;/span&gt;
+
+&lt;span class="wrap-band "&gt;
+    &lt;i class="icon-band-delivery1"&gt;
+            icon-band-delivery1&lt;/i&gt;
+        &lt;/span&gt;
+&lt;span class="prod-link"&gt;
+    &lt;a href="javascript:;" data-button-name="btnAddWish" data-category-id="C001001200040001" data-product-code="0400669780006" title="위시리스트 담기" class="dibs "&gt;
+        &lt;span class="blind"&gt;위시리스트&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="javascript:;" class="blank" title="새 창 열림" onclick="goProdZoom('C001001200040001','0400669780006', '001', 'N', 'N','00001'); event.stopPropagation();"&gt;
+        &lt;span class="blind"&gt;새창 보기&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 20160925 중량미노출 수정 --&gt;
+&lt;div class="wrap-info"&gt;
+&lt;p class="prod-name"&gt;
+    &lt;strong&gt;
+        &lt;a href="javascript:;" class="thumb-link" onclick="goProductDetail('C001001200040001', '0400669780006', 'N', '', '', '00001');return false;" data-category-id="C001001200040001" data-prod-cd="0400669780006"&gt;
+            파프리카(개)&lt;/a&gt;
+    &lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p class="price-max"&gt;판매가 &lt;span class="num-n"&gt;&lt;em&gt;1,180&lt;/em&gt;&lt;/span&gt;원
+            &lt;/p&gt;
+    &lt;div class="wrap-spinner"&gt;
+    &lt;div class="spinner-input" data-is-range="true"&gt;
+        &lt;label for="orderQty_0400669780006" class="blind"&gt;수량&lt;/label&gt;
+        &lt;input id="orderQty_0400669780006" name="orderQty_0400669780006" type="text" value="1" max="200" min="1" data-category-id="C001001200040001" data-prod-cd="0400669780006" style="ime-mode:disabled" maxlength="3" title="수량"&gt;
+    &lt;button type="button" class="sp-minus" title="수량 감소" data-option-yn="N"&gt;&lt;i class="ico-minus"&gt;감소&lt;/i&gt;&lt;/button&gt;&lt;button type="button" class="sp-plus" title="수량 증가" data-option-yn="N"&gt;&lt;i class="ico-plus"&gt;증가&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;
+
+    &lt;button id="basketBtn_0400669780006" title="장바구니 담기" type="button" class="btn-basket" data-prod-cd="0400669780006" data-category-id="C001001200040001" data-is-sold-out="false" data-max-qty="200" data-min-qty="1" data-method="basket" data-is-manufacturing-product="false" data-option-yn="N" data-prod-type-cd="01" data-prod-title="파프리카(개)"&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+&lt;!-- 1depth에서 사용 --&gt;
+&lt;!-- wrapper tag가 유동적이라서 헷갈릴수 있어 일부러 들여쓰기 이렇게 함 --&gt;
+&lt;article class="product-article" data-panel="product"&gt;
+&lt;!-- TODO : 해당 페이지 사용하는 전체 쿼리 찾아서 CURR_SELL_PRC &gt; 100 조건 걸려있는지 확인후에 제거 필요 --&gt;
+&lt;!-- 베스트 순위 표시 --&gt;
+&lt;!-- ** 추천상품 썸네일 --&gt;
+&lt;div class="wrap-thumb"&gt;
+&lt;a href="javascript:;" onclick="goProductDetail('C001001700130001', '8801056049935', 'N', '', '', '00001');return false; " class="thumb-link" data-category-id="C001001700130001" data-prod-cd="8801056049935"&gt;
+    &lt;img src="http://image.lottemart.com/lim/static_root/images/prodimg/88010/8801056049935_1_208.jpg" width="208" id="prodImg_8801056049935" alt="롯데 아이시스8.0(2L*6)" class="thumb" onerror="javascript:showNoImage(this)"&gt;
+        &lt;/a&gt;
+
+
+&lt;span class="wrap-tag"&gt;
+    &lt;/span&gt;
+
+&lt;span class="wrap-band "&gt;
+    &lt;i class="icon-band-delivery1"&gt;
+            icon-band-delivery1&lt;/i&gt;
+        &lt;/span&gt;
+&lt;span class="prod-link"&gt;
+    &lt;a href="javascript:;" data-button-name="btnAddWish" data-category-id="C001001700130001" data-product-code="8801056049935" title="위시리스트 담기" class="dibs "&gt;
+        &lt;span class="blind"&gt;위시리스트&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="javascript:;" class="blank" title="새 창 열림" onclick="goProdZoom('C001001700130001','8801056049935', '001', 'N', 'N','00001'); event.stopPropagation();"&gt;
+        &lt;span class="blind"&gt;새창 보기&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 20160925 중량미노출 수정 --&gt;
+&lt;div class="wrap-info"&gt;
+&lt;p class="prod-name"&gt;
+    &lt;strong&gt;
+        &lt;a href="javascript:;" class="thumb-link" onclick="goProductDetail('C001001700130001', '8801056049935', 'N', '', '', '00001');return false;" data-category-id="C001001700130001" data-prod-cd="8801056049935"&gt;
+            롯데 아이시스8.0(2L*6)&lt;/a&gt;
+    &lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p class="price-max"&gt;판매가 &lt;span class="num-n"&gt;&lt;em&gt;3,780&lt;/em&gt;&lt;/span&gt;원
+            &lt;/p&gt;
+    &lt;div class="wrap-spinner"&gt;
+    &lt;div class="spinner-input" data-is-range="true"&gt;
+        &lt;label for="orderQty_8801056049935" class="blind"&gt;수량&lt;/label&gt;
+        &lt;input id="orderQty_8801056049935" name="orderQty_8801056049935" type="text" value="1" max="2" min="1" data-category-id="C001001700130001" data-prod-cd="8801056049935" style="ime-mode:disabled" maxlength="3" title="수량"&gt;
+    &lt;button type="button" class="sp-minus" title="수량 감소" data-option-yn="N"&gt;&lt;i class="ico-minus"&gt;감소&lt;/i&gt;&lt;/button&gt;&lt;button type="button" class="sp-plus" title="수량 증가" data-option-yn="N"&gt;&lt;i class="ico-plus"&gt;증가&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;
+
+    &lt;button id="basketBtn_8801056049935" title="장바구니 담기" type="button" class="btn-basket" data-prod-cd="8801056049935" data-category-id="C001001700130001" data-is-sold-out="false" data-max-qty="2" data-min-qty="1" data-method="basket" data-is-manufacturing-product="false" data-option-yn="N" data-prod-type-cd="01" data-prod-title="롯데 아이시스8.0(2L*6)"&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+&lt;article class="product-article" data-panel="product"&gt;
+&lt;div class="wrap-thumb"&gt;
+&lt;a href="javascript:;" onclick="goProductDetail('C001001700140010', '8801062517916', 'N', '', '', '00001');return false; " class="thumb-link" data-category-id="C001001700140010" data-prod-cd="8801062517916"&gt;
+    &lt;img src="http://image.lottemart.com/lim/static_root/images/prodimg/88010/8801062517916_1_208.jpg" width="208" id="prodImg_8801062517916" alt="롯데 칙촉(180G)" class="thumb" onerror="javascript:showNoImage(this)"&gt;
+        &lt;/a&gt;
+
+&lt;span class="wrap-tag"&gt;
+
+    &lt;i class="icon-goods-type1"&gt;살수록더싸게&lt;/i&gt;
+                        &lt;/span&gt;
+
+&lt;span class="wrap-band "&gt;
+    &lt;i class="icon-band-delivery1"&gt;
+            icon-band-delivery1&lt;/i&gt;
+        &lt;/span&gt;
+&lt;span class="prod-link"&gt;
+    &lt;a href="javascript:;" data-button-name="btnAddWish" data-category-id="C001001700140010" data-product-code="8801062517916" title="위시리스트 담기" class="dibs "&gt;
+        &lt;span class="blind"&gt;위시리스트&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href="javascript:;" class="blank" title="새 창 열림" onclick="goProdZoom('C001001700140010','8801062517916', '001', 'N', 'N','00001'); event.stopPropagation();"&gt;
+        &lt;span class="blind"&gt;새창 보기&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 20160925 중량미노출 수정 --&gt;
+&lt;div class="wrap-info"&gt;
+&lt;p class="prod-name"&gt;
+    &lt;strong&gt;
+        &lt;a href="javascript:;" class="thumb-link" onclick="goProductDetail('C001001700140010', '8801062517916', 'N', '', '', '00001');return false;" data-category-id="C001001700140010" data-prod-cd="8801062517916"&gt;
+            롯데 칙촉(180G)&lt;/a&gt;
+    &lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p class="price-max"&gt;판매가 &lt;span class="num-n"&gt;&lt;em&gt;3,840&lt;/em&gt;&lt;/span&gt;원
+            &lt;/p&gt;
+    &lt;div class="wrap-spinner"&gt;
+    &lt;div class="spinner-input" data-is-range="true"&gt;
+        &lt;label for="orderQty_8801062517916" class="blind"&gt;수량&lt;/label&gt;
+        &lt;input id="orderQty_8801062517916" name="orderQty_8801062517916" type="text" value="1" max="100" min="1" data-category-id="C001001700140010" data-prod-cd="8801062517916" style="ime-mode:disabled" maxlength="3" title="수량"&gt;
+    &lt;button type="button" class="sp-minus" title="수량 감소" data-option-yn="N"&gt;&lt;i class="ico-minus"&gt;감소&lt;/i&gt;&lt;/button&gt;&lt;button type="button" class="sp-plus" title="수량 증가" data-option-yn="N"&gt;&lt;i class="ico-plus"&gt;증가&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;
+
+    &lt;button id="basketBtn_8801062517916" title="장바구니 담기" type="button" class="btn-basket" data-prod-cd="8801062517916" data-category-id="C001001700140010" data-is-sold-out="false" data-max-qty="100" data-min-qty="1" data-method="basket" data-is-manufacturing-product="false" data-option-yn="N" data-prod-type-cd="01" data-prod-title="롯데 칙촉(180G)"&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+&lt;!-- 1depth에서 사용 --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="best-cont clear-after best-cont2" id="bestLife"&gt;
+&lt;h3 class="blind"&gt;LIFE&lt;/h3&gt;
+&lt;nav class="best-tab js-tabnav" id="bestLife"&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-1" data-category-id="lifeAll" data-tab-index="03" data-current-page="13"&gt;&lt;strong class="inner"&gt;전체&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-2" data-category-id="C0010021" data-tab-index="03" data-current-page="14"&gt;&lt;strong class="inner"&gt;유아/&lt;br&gt;출산용품&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-3" data-category-id="C0010023" data-tab-index="03" data-current-page="15"&gt;&lt;strong class="inner"&gt;세제/휴지&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-4" data-category-id="C0010024" data-tab-index="03" data-current-page="16"&gt;&lt;strong class="inner"&gt;헤어/바디&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-5" data-category-id="C0010025" data-tab-index="03" data-current-page="17"&gt;&lt;strong class="inner"&gt;가구/수납/조명/보수&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-6" data-category-id="C0010026" data-tab-index="03" data-current-page="18"&gt;&lt;strong class="inner"&gt;주방/&lt;br&gt;청소용품&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-7" data-category-id="C0010027" data-tab-index="03" data-current-page="19"&gt;&lt;strong class="inner"&gt;문구/&lt;br&gt;사무용품&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-8" data-category-id="C0010115" data-tab-index="03" data-current-page="20"&gt;&lt;strong class="inner"&gt;침구/원예/데코&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-9" data-category-id="C0010028" data-tab-index="03" data-current-page="21"&gt;&lt;strong class="inner"&gt;패션의류/&lt;br&gt;언더웨어&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-10" data-category-id="C0010029" data-tab-index="03" data-current-page="22"&gt;&lt;strong class="inner"&gt;신발/잡화&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-11" data-category-id="C0010030" data-tab-index="03" data-current-page="23"&gt;&lt;strong class="inner"&gt;스포츠/레저&lt;/strong&gt;&lt;/a&gt;
+&lt;a href="javascript:;" class="nav-link nav-link2-12" data-category-id="C0010054" data-tab-index="03" data-current-page="24" value="C0010054"&gt;&lt;strong class="inner"&gt;친환경&lt;br&gt;생활용품&lt;/strong&gt;&lt;/a&gt;
+&lt;/nav&gt;
+&lt;div class="wrap-tab-cont js-tabcont"&gt;&lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+&lt;a href="/best/bestMain.do?SITELOC=AC023" class="list-more"&gt;베스트 더보기&lt;/a&gt;
+&lt;/article&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>초점 또는 키보드의 위치를 나타내는 요소가 시각적으로 표현된 모습</h5>
+                                    <p>
+                                        - onfocus=“this.blur();를 사용한 경우, 키보드 접근이 불가하므로 this.blur()를 제공하지 않아야 함
+                                    </p>
+
+                                    <img src="./assets/img/focus.png" alt="초점이 파란색 테두리로 확연하게 나타난 이미지">
+                                    <pre><code>:focus {outline: -webkit-focus-ring-color auto 5px;}
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>더보기 또는 전체보기 기능은 콘텐츠보다 후순위로 마크업</h5>
+                                    <p>
+                                        - 시각적으로는 이벤트 더보기 버튼이 컨텐츠 영역 위에 있지만 컨텐츠 영역의 이벤트에 초점 이동을 한 후 이벤트를 더 보고싶을 때 더보기 버튼을 사용하므로 마크업은 마지막에 더보기를 넣어 논리적 순서에 맞게 마크업을 진행해야 한다
+                                    </p>
+
+                                    <img src="./assets/img/focus02.png" alt="초점이동이 순번이 적혀있는 이미지">
+                                    <pre><code>&lt;div class="wrap-maintype"&gt;
+   &lt;ul class="event-thumb-list clear-after"&gt;
+       &lt;li&gt;
+           &lt;a href="http://www.lottemart.com/event/detail.do?categoryId=C0072168&SITELOC=OH004" style="cursor:pointer;" class="link-event"&gt;
+               &lt;em class="tag-event-type tag-type2"&gt;이벤트&lt;/em&gt;
+               &lt;div class="wrap-thumb"&gt;&lt;img src="http://image.lottemart.com/lim/static_root/images/front/event/bn/pc/2018/20181126112402973_294_230.jpg" alt="12월 럭키룰렛 출석체크 이벤트" class="thumb" width="294" height="230"&gt;&lt;/div&gt;
+               &lt;strong class="tit"&gt;12월 럭키룰렛 출석체크 이벤트&lt;/strong&gt;
+               &lt;dl class="info"&gt;
+                   &lt;dt class="info-tit"&gt;기간 : &lt;/dt&gt;
+                   &lt;dd class="info-txt"&gt;2018.12.01 ~ 2018.12.31&lt;/dd&gt;
+               &lt;/dl&gt;
+           &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+         &lt;a href="http://www.lottemart.com/event/detail.do?categoryId=C0072158&SITELOC=OH004" style="cursor:pointer;" class="link-event"&gt;
+             &lt;em class="tag-event-type tag-type2"&gt;이벤트&lt;/em&gt;
+             &lt;div class="wrap-thumb"&gt;&lt;img src="http://image.lottemart.com/lim/static_root/images/front/event/bn/pc/2018/20181029034406121_294_230.jpg" alt="롯데마트몰 TV CF 댓글 이벤트 당첨자 안내" class="thumb" width="294" height="230"&gt;&lt;/div&gt;
+             &lt;strong class="tit"&gt;롯데마트몰 TV CF 댓글 이벤트 당첨자 안내&lt;/strong&gt;
+             &lt;dl class="info"&gt;
+                  &lt;dt class="info-tit"&gt;기간 : &lt;/dt&gt;
+                  &lt;dd class="info-txt"&gt;2018.10.29 ~ 2018.12.31&lt;/dd&gt;
+             &lt;/dl&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="http://www.lottemart.com/event/detail.do?categoryId=C0072141&SITELOC=OH004" style="cursor:pointer;" class="link-event"&gt;
+             &lt;em class="tag-event-type tag-type2"&gt;이벤트&lt;/em&gt;
+             &lt;div class="wrap-thumb"&gt;&lt;img src="http://image.lottemart.com/lim/static_root/images/front/event/bn/pc/2018/20180918104849860_294_230.jpg" alt="모바일 쇼핑 마스터 안내 " class="thumb" width="294" height="230"&gt;&lt;/div&gt;
+             &lt;strong class="tit"&gt;모바일 쇼핑 마스터 안내 &lt;/strong&gt;
+             &lt;dl class="info"&gt;
+                 &lt;dt class="info-tit"&gt;기간 : &lt;/dt&gt;
+                 &lt;dd class="info-txt"&gt;2018.09.19 ~ 2019.12.31&lt;/dd&gt;
+             &lt;/dl&gt;
+         &lt;/a&gt;
+      &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;a href="/event/aliveEvent.do?SITELOC=AC025" class="list-more"&gt;이벤트 더보기&lt;/a&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="operatable" id="item10">
+                            <h4 class="active">
+                                <em class="numbering">10</em>
+                                <span class="two-char"> 조작가능</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <P>
+                                    - 사용자 입력 및 컨트롤은 조작 가능하도록 제공되어야 한다.
+                                    - 일부 슬라이드나 자동재생 요소들은 해당영역으로 초점이 진입되는 순간 자동 정지되도록 구현됨.
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            웹 페이지에서 제공하는 모든 이웃한 컨트롤은 개별적으로 선택하고 사용할 수 있도록 충분한 크기로 제공해야 한다
+                                        </li>
+                                        <li>
+                                            컨트롤 크기 : 콘텐츠에 포함된 모든 컨트롤은 대각선 방향의 길이를 6.0mm 이상으로 제공하는 것이 바람직함
+                                        </li>
+                                        <li>
+                                            링크, 사용자 입력, 기타 컨트롤 등의 안쪽 여백 : 링크, 사용자 입력 및 기타 컨트롤은 테두리 안쪽으로 1픽셀 이상의 여백을 두고 이곳에서는 위치 지정 도구의 조작에 반응하지 않도록 구현하는 것이 바람직함
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        - 콘텐츠간의 간격 및 여백이 충분한지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                        <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>HTML 태그 속성과 스타일을 이용한 크기와 여백 조절
+                                        </h5>
+                                        <p>
+                                            - 디스플레이 장치별 화면크기와 해상도에 따라 보여지는 콘텐츠의 크기가 매번 달라지게 된다. 디스플레이 장치와 무관한 콘텐츠 사용의 편의성을 고려하여 콘텐츠의 크기는 window 표준 해상도(96DPI)와 17인치 모니터를 기준으로 대각선 방향 길이로 6mm 이상이 되도록 HTML 태그와 스타일 속성의 width, height를 조절하고 콘텐츠의 선택시 이웃한 콘텐츠와 선택이 중첩되지 않도록 콘텐츠 안쪽 여백은 1픽셀 이상이 되도록 스타일 속성의 padding을 이용하여 조절하면 된다.
+                                        </p>
+                                        <img src="img/size-area.png" alt="롯데마트 슬라이드 영역 클릭 요소들의 사이즈가 강조되어있는 이미지">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item11">
+                            <h4 class="active">
+                                <em class="numbering">11</em>
+                                <span class="two-char">응답시간 조절</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <P>
+                                - 시간 제한이 있는 콘텐츠는 응답시간을 조절할 수 있어야 한다
+                                </P>
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            시간 제한을 가진 콘텐츠는 사용자가 시간 제한을 제어할 수 있는 수단 제공.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        - 시간 제한이 있는 콘텐츠는 시간 제한을 제어할 수 있는지 체크
+                                    </dd>
+                                </dl>
+
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>응답시간이 제공되는 본인인증 요소</h5>
+                                    <p>
+                                        - 시각장애인, 상지 장애인의 웹 탐색 속도는 비장애인에 비해 느리므로 자동 변경되는 콘텐츠는 이들의 이용에 큰 방해가 됨.<br>
+                                        - 충분한 시간을 제공하거나 제어버튼을 제공해야 함.<br>
+                                        - 이벤트 소개 등 일정 주기로 교체되는 콘텐츠는 하나가 최소 3초 이상 노출되어야 함.
+
+                                    </p>
+
+                                    <img src="./assets/img/verify.png" alt="응답시간이 제공되고 있는 본인인증 화면 이미지">
+
+                                </div>
+
+                                <div class="sample">
+                                        <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>응답시간이 3초 이상인 배너 요소</h5>
+                                        <p>
+                                            - 이벤트 소개 등 일정 주기로 교체되는 콘텐츠는 하나가 최소 3초 이상 노출되어야 함.
+
+                                        </p>
+
+                                        <img src="./assets/img/3second.png" alt="3초이상 멈춘채로 제공되고 있는 롯데마트 배너 이미지">
+
+                                    </div>
+
+                            </div>
+                        </div>
+
+                        <div class="" id="item12">
+                            <h4 class="active">
+                                <em class="numbering">12</em>
+                                <span class="two-char">정지 기능 제공</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    - 자동으로 변경되는 콘텐츠는 움직임을 제어할 수 있어야 한다.
+                                </p>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> 예시</h5>
+                                    <p>
+                                        - 포커스 진입시 자동멈춤 처리되는 메인 비주얼 슬라이드
+                                    </p>
+
+                                    <img src="./assets/img/stop.png" alt="포커스 진입시 자동멈춤 처리되는 메인 비주얼 슬라이드">
+                                    <pre><code>//gnb마지막 요소에서 상단 모양 컨틀롤러로 촛점이동
+var fixGnbLastFocusable = function(){
+    var $gnb = $('#gnbScrollFixed'),
+        $gnbToggles = $gnb.find('.wrap-toggle'),
+        $gnbLastMenu = _wac.getFocusables($gnbToggles.last().find('.wrap-subnav')).last(),
+        $nextEl = $directionFocusables.first();
+
+    var tabHandler = function(e){
+        !_wac.isShiftTabEvent(e)
+            && _wac.isTabEvent(e)
+            && !_wac.isEmpty($nextEl)
+            && _wac.onNextAsync(e, $nextEl);
+            contSlider.stopAuto();
+    };
+
+    _wac.wireUpEventAsync($gnbLastMenu, 'keydown', tabHandler);
+    return $gnbLastMenu;
+};
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item13">
+                            <h4 class="active">
+                                <em class="numbering">13</em>
+                                <span class="two-char">깜빡임과 번쩍임 사용 제한</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <P>
+                                    &CenterDot; 초당 3~50회 주기로 깜빡이거나 번쩍이는 콘텐츠를 제공하지 않아야 한다.
+                                </P>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            깜빡이거나 번쩍이는 콘텐츠를 제공해야만 할 경우, 초당 3~50회 주기는 피해서 제공해야 함.
+                                        </li>
+                                        <li>
+                                            깜빡이거나 번쩍이는 콘텐츠를 사전에 경고를 하고 이를 회피할 수 있는 수단을 제공해야 함.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        육안으로 확인 했을 때 깜빡이거나 번쩍이는 객체가 있는지 체크<br>
+                                        깜빡이거나 번쩍이는 콘텐츠가 있을 경우 깜빡임을 사전 경고 하거나, 중단할 수 있는 수단을 제공하는지 체크
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="" id="item14">
+                            <h4 class="active">
+                                <em class="numbering">14</em>
+                                <span class="two-char">반복영역 건너뛰기</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>&CenterDot;콘텐츠의 반복되는 영역은 건너뛸 수 있어야 한다.</p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            반복적인 콘텐츠 영역의 시작 부분에 건너뛰기 링크 제공
+                                        </li>
+                                        <li>
+                                            페이지마다 반복되는 콘텐츠(메뉴 등)를 건너뛰어 핵심 콘텐츠로 바로 접근할 수 있도록 페이지 최상단에 제공한다
+                                        </li>
+                                        <li>
+                                            해당 링크를 display:none으로 처리하지 않으며, 키보드로 접근이 가능해야 한다.
+                                        </li>
+                                        <li>
+                                            콘텐츠의 최상단(body 바로 아래) 제공해야 한다.
+                                        </li>
+                                        <li>
+                                            링크명은 목적지를 명확히 알 수 있도록 일관된 형식으로 제공해야 한다.
+                                        </li>
+                                        <li>
+                                            메뉴 건너뛰기(x), 본문 바로가기(O)
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        본문 바로가기” “주메뉴 바로가기” 링크의 유무 체크<br>
+                                        “본문 바로가기” “주메뉴 바로가기” 클릭했을 시 포커스가 제대로 이동되는지 체크<br>
+                                        “본문 바로가기” “주메뉴 바로가기” 링크가 키보드 Tab에 의해서도 선택과 실행이 되는지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>롯데마트 상단의 본문 바로가기 버튼</h5>
+                                    <p>
+                                        - 키보드만을 이용하는 지체 장애인의 탐색 편의를 위해 각 페이지 메뉴시작 부분에 해당 페이지의 핵심 콘텐츠로 바로 이동할 수 있는 링크를 제공<br>
+                                        - 가급적이면 항상 드러나도록 하는 것이 좋으며, 드러나기 곤란한 경우 포커스 시에만 드러나도록 함
+                                    </p>
+
+                                    <img src="./assets/img/skipbtn.png" alt="건너뛰기 버튼 이미지">
+                                    <pre><code>&lt;nav class="skip-menu"&gt;
+    &lt;a href="#contents"&gt;본문 바로가기&lt;/a&gt;
+    &lt;a href="#gnbScrollFixed"&gt;주메뉴 바로가기&lt;/a&gt;
+&lt;/nav&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="offer-title" id="item15">
+                            <h4 class="active">
+                                <em class="numbering">15</em>
+                                <span class="two-char">타이틀 및 제목 제공</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 페이지, 프레임, 콘텐츠 블록에는 적절한 제목을 제공해야 한다.<br>
+                                    &CenterDot; 적절한 제목은 페이지, 프레임, 콘텐츠 블록을 유추하여, 사용자가 웹 콘텐츠를 운용하기 쉽게 도와준다.<br>
+
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <dl>
+                                        <dt>
+                                            <em class="circle-num">1</em>
+                                            웹 페이지 제목 제공
+                                        </dt>
+                                        <dd>문서 내용을 표현하는데 사용하여야 하며, 여러 페이지간 콘텐츠 파악 용도 사용된다.</dd>
+                                        <dd>서로 다른 내용의 페이지를 동일한 제목 제공 시 문서 내용을 파악하는데 어려움이 발생한다.</dd>
+
+                                        <dt>
+                                            <em class="circle-num">2</em>
+                                            프레임 제목 제공
+                                        </dt>
+                                        <dd>사용자(시각 장애인, 인지장애인, 심각한 지체장애인)는 프레임에 초점 이동시 어떠한 프레임인지 쉽게 알 수 있도록 한다.
+                                        </dd>
+
+                                        <dt>
+                                            <em class="circle-num">3</em>
+                                            콘텐츠 블록에 &lt;h1&gt;~&lt;h6&gt;을 사용하여 제목 제공
+                                        </dt>
+                                        <dd>&lt;h1&gt;, &lt;h2&gt; 등 제목요소를 사용할 경우, 제목과 본문을 구분할 수 있으며, 제목간 이동 기능을 가능하게 한다.</dd>
+                                        <dd>또한 목차 기능으로 활용하여 문맥을 파악하는데 도움을 준다. 이 외 다양하게 활용할 수 있다.</dd>
+                                    </dl>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        &lt;head&gt; 내의 &lt;title&gt; 요소 유무 체크<br>
+                                        &lt;iframe&gt; &lt;frame&gt; 요소의 title 속성 유무 체크
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        &lt;head&gt; 내의 &lt;title&gt; 요소 값 체크<br>
+                                        &lt;iframe&gt; &lt;frame&gt; 요소의 title 속성 값 체크<br>
+                                        &lt;h&gt; 요소 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>브라우저 탭에 표시되는 문서 타이틀 제공</h5>
+                                    <p>
+                                        - 롯데마트 각페이지에 맞는 올바른 페이지 타이틀 제목 제공
+                                    </p>
+
+                                    <img src="./assets/img/title.png" alt="오늘 핫콕 페이지 타이틀" >
+                                    <pre><code>&lt;script type="text/javascript"&gt;
+    document.title = "롯데마트몰 - ${NAVILIST[1].NAME} &gt; ${NAVILIST[2].NAME} &gt; ${NAVILIST[3].NAME}";
+    $.utils.setMetaTag({
+        'title' : '롯데마트몰 - ${NAVILIST[1].NAME} &gt; ${NAVILIST[2].NAME} &gt; ${NAVILIST[3].NAME}'
+    });
+&lt;/script&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>프레임 제목 제공</h5>
+                                    <p>
+                                        - frame, iframe, frameset 요소의 title 속성값을 올바르게 제공.<br>
+                                        - 상품상세 페이지의 iframe 영역은 bos 영역으로 다양한 상품정보가 입력되기 때문에 iframe의 제목은 탭메뉴와 동일한 상품정보로 제공함.
+                                    </p>
+
+                                    <img src="./assets/img/title02.png" alt="상품정보 타이틀" >
+                                    <pre><code>&lt;iframe id="iframeProdInfo" name="iframeProdInfo" src="http://www.lottemart.com/iframe/ProductDesc.do?CategoryID=C20200010006&amp;ProductCD=8809581180161" style="width: 100%;" title="상품정보" frameborder="0" scrolling="no" height="15820px"&gt;&lt;/iframe&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>콘텐츠 블록에 &lt;h1&gt;~&lt;h6&gt;을 사용하여 제목 제공</h5>
+                                    <p>
+                                        - &lt;h1&gt;, &lt;h2&gt; 요소 등을 부여하여 제목과 본문을 구분할 수 있도록 제공. 화면낭독기에서는 제목 간 이동이 가능하므로 더욱 운용이 용이해지게 됨.
+                                    </p>
+
+                                    <img src="./assets/img/title03.png" alt="고객만족센터의 h 태그 사용 용례" >
+                                    <pre><code>&lt;article class="wrap-popup"&gt;
+&lt;h1&gt;L.POINT 온라인 사용인증 서비스&lt;/h1&gt;
+&lt;div class="popup-container"&gt;
+    &lt;div class="popup-contents wrap-th-white"&gt;
+        &lt;!-- Contents Start --&gt;
+        &lt;section class="lpoint-certify"&gt;
+            &lt;p&gt;더 많은 L.POINT 혜택을 원하신다면, &lt;em class="txt-wbrown"&gt;L.POINT APP을 다운&lt;/em&gt; 받으세요!&lt;/p&gt;
+            &lt;div class="tbl-lst-v"&gt;
+                &lt;table&gt;
+                    &lt;caption&gt;L.POINT 카드정보 입력&lt;/caption&gt;
+                    &lt;colgroup&gt;
+                        &lt;col style="width:25%"&gt;
+                        &lt;col style="width:auto"&gt;
+                    &lt;/colgroup&gt;
+                    &lt;tbody&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="row"&gt;&lt;span class="require"&gt;&lt;i&gt;필수항목&lt;/i&gt;&lt;/span&gt; 카드번호&lt;/th&gt;
+                            &lt;td&gt;
+                                &lt;input type="text" name="cardNo1" value="" maxlength="4" title="첫번째자리" class="w-type1"&gt; -
+                                &lt;input type="password" name="cardNo2" value="" maxlength="4" title="두번째자리" class="w-type1"&gt; -
+                                &lt;input type="password" name="cardNo3" value="" maxlength="4" title="세번째자리" class="w-type1"&gt; -
+                                &lt;input type="text" name="cardNo4" value="" maxlength="4" title="네번째자리" class="w-type1"&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="row"&gt;&lt;span class="require"&gt;&lt;i&gt;필수항목&lt;/i&gt;&lt;/span&gt; &lt;label for="cardPW"&gt;L.POINT 비밀번호&lt;/label&gt;&lt;/th&gt;
+                            &lt;td&gt;
+                                &lt;input type="password" id="cardPW" name="cardPW" maxlength="8" class="w-type3"&gt;
+                                &lt;a href="javascript:lottePointPwChange();" class="txt-wbrown" title="새 창 열림"&gt;L.POINT 비밀번호 설정&lt;/a&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;!-- div class="shiprefd-area"&gt;
+                &lt;strong&gt;L.POINT 간편조회&lt;/strong&gt;&lt;br&gt;L.pay로 결제 시 L.POINT 비밀번호 입력없이 간편하게 조회할 수 있습니다.
+                &lt;button type="button" class="btn"&gt;간편조회 하기&lt;/button&gt;
+            &lt;/div --&gt;
+            &lt;div class="set-btn"&gt;
+                &lt;button type="button" class="btn-type1" onclick="lottePointConfirm();"&gt;확인&lt;/button&gt;
+                &lt;button type="button" class="btn-type2" onclick="lottePointConfirmCancel();"&gt;취소&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="chklist"&gt;
+                &lt;ul class="bul-circle"&gt;
+                    &lt;li&gt;카드번호 입력란에는 소유하고 계신 L.POINT 카드 / 롯데카드(신용카드) 번호를 입력해 주시기 바랍니다.&lt;/li&gt;
+                    &lt;!-- li&gt;본인카드로만 조회 / 사용이 가능합니다.&lt;/li --&gt;
+                    &lt;li&gt;L.POINT 비밀번호는 롯데카드(신용카드) 비밀번호 (4자리)와 별도로 영 / 숫자 혼합 6~8자리 입니다.&lt;/li&gt;
+                    &lt;li&gt;5회 이상 비밀번호 입력 오류 시, 새로운 비밀번호를 등록해 주셔야 합니다.&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;!-- //Contents End --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item16">
+                            <h4 class="active">
+                                <em class="numbering">16</em>
+                                <span class="two-char">적절한 링크 텍스트</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                &CenterDot; 링크 텍스트는 용도나 목적을 이해할 수 있도록 제공해야 한다.<br>
+                                &CenterDot; 링크 텍스트를 "여기를 클릭하세요." 나 "여기" 와 같은 애매모호한 표현을 사용하면 시각장애인이나 인지장애인 뿐만 아니라 비장애인들도 링크를 클릭했을 때 어떤 반응이나 어떤 페이지로 이동될 지 예측하기 어렵다.
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            링크 텍스트만으로도 링크의 용도나 목적을 이해할 수 있도록 제공한다.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>-</dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        적절한 링크 텍스트 제공 여부 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> 예시</h5>
+                                    <p>
+                                        - 상품 리스트 페이지를 리스트형으로 볼 것인지, 썸네일형으로 볼 것인지 보는 방식을 선택하는 링크 대한 올바른 텍스트를 제공
+                                    </p>
+
+                                    <img src="./assets/img/link-text02.png" alt="상품 리스트 페이지를 보는 방법 선택 링크 버튼" >
+                                    <pre><code>&lt;div class="set-sort"&gt;
+    &lt;a id="aList" name="btnViewType" href="javascript:;" data-type="list" class="list-sort"&gt;&lt;span class="blind"&gt;리스트형 보기&lt;/span&gt;&lt;/a&gt;
+    &lt;a id="aImg" name="btnViewType" href="javascript:;" data-type="img" class="image-sort active" title="현재 선택"&gt;&lt;span class="blind"&gt;썸네일형 보기&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> 예시</h5>
+                                    <p>
+                                        - 장바구니 링크 요소의 내용에 알맞는 올바른 링크의 기능에대해 설명하는 대체 텍스트를 제공
+                                    </p>
+
+                                    <img src="./assets/img/link-text01.png" alt="장바구니 링크 텍스트"  >
+                                    <pre><code>&lt;button type="button" class="btn-large-type1" title="장바구니 담기" data-prod-cd="D000003514313" data-category-id="C001013400080002" data-max-qty="100000" data-min-qty="1" data-method="basket" data-is-sold-out="false" data-option-yn="Y" data-prod-type-cd="05" data-is-manufacturing-product="false" data-prod-title="울트라히트 아동/주니어 9부세트 " id="basketBtn_D000003514313" tabindex="0"&gt;
+&lt;i class="ico-basket"&gt;장바구니&lt;/i&gt;
+&lt;/button&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item17">
+                            <h4 class="active">
+                                <em class="numbering">17</em>
+                                <span class="two-char">기본 언어 표시</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                  &CenterDot; 주로 사용하는 언어를 표시해야 한다.
+                                </p>
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            기본 언어 명시는 화면 낭독 프로그램이 언어를 인식하여 자동으로 음성을 변환하거나, 해당 언어에 적합한 발음을 제공할 수 있도록 한다.
+                                        </li>
+                                        <li>
+                                            웹 페이지에 주로 사용하는 언어를 &lt;html&gt; 요소에 lang 속성을 지정하여 명시하도록 한다.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        &lt;html&gt; 요소 lang 속성 유무 체크
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        &lt;html&gt; 요소 lang 속성 값 체크<br>
+                                        빈 프레임/내용 없음 프레임의 페이지는 검사하지 않음
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>전체 페이지의 언어 표시</h5>
+                                    <p>
+                                        - 웹 페이지에서 주로 사용하는 언어는 페이지 상단에 html Tag에 lang 속성 이용<br>
+                                        - 기본 언어 명시는 화면 낭독 프로그램이 언어를 인식하여 자동으로 음성을 변환하거나, 해당 언어에 적합한 발음을 제공할 수 있도록 한다<br>
+                                        - Doctype에 따른 기본언어 선언 (&lt;head&gt; 앞에 나와야 함)
+                                    </p>
+
+                                    <img src="./assets/img/lang.png" alt="언어가 ko 한국어로 정의되어있는 롯데마트 인덱스 페이지의 이미지"  >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item18">
+                            <h4 class="active">
+                                <em class="numbering">18</em>
+                                <span class="two-char">사용자 요구에 따른 실행</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 사용자가 의도하지 않은 기능(새 창, 초점 변화 등)은 실행되지 않아야 한다.<br>
+                                </p>
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            실행은 마우스의 경우 CLICK, 키보의 경우 ENTER 키를 눌렀을 때에 가능하게 적용한다.
+                                        </li>
+                                        <li>
+                                            새창 및 팝업창의 경우 &lt;a&gt; 태그 요소에 target="_blank" 로 지정한다.
+                                        </li>
+                                        <li>
+                                            웹 사이트 로딩시 자동으로 실행되는 콘텐츠(팝업창, 레이어 팝업, 배경음 포함) 을 사용하지 않는다.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        새창열림 사전공지 체크<br>
+                                        &lt;a&gt; 알려지지 않은 새창열기 유무 체크<br>
+                                        &lt;area&gt; 알려지지 않은 새창열기 유무 체크
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        새 창 및 팝업으로 동작하는 &lt;a&gt; 요소에 target=”_blank” 제공 여부 체크<br>
+                                        웹 사이트 로딩시 자동으로 실행되는 콘텐츠 (팝업창, 레이어 팝업, 배경음 포함) 제공 여부 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> 예시</h5>
+                                    <p>
+                                        - L.POINT 카드번호 입력시 자동 초점 넘어가던 현상 제거
+                                    </p>
+                                    <img src="img/prevent-auto.png" alt="L.POINT 온라인 사용인증 서비스">
+
+                                    <pre><code class="html">&lt;article class="wrap-popup"&gt;
+    &lt;h1&gt;L.POINT 온라인 사용인증 서비스&lt;/h1&gt;
+    &lt;div class="popup-container"&gt;
+        &lt;div class="popup-contents wrap-th-white"&gt;
+            &lt;!-- Contents Start --&gt;
+            &lt;section class="lpoint-certify"&gt;
+                &lt;p&gt;더 많은 L.POINT 혜택을 원하신다면, &lt;em class="txt-wbrown"&gt;L.POINT APP을 다운&lt;/em&gt; 받으세요!&lt;/p&gt;
+                &lt;div class="tbl-lst-v"&gt;
+                    &lt;table&gt;
+                        &lt;caption&gt;L.POINT 카드정보 입력&lt;/caption&gt;
+                        &lt;colgroup&gt;
+                            &lt;col style="width:25%"&gt;
+                            &lt;col style="width:auto"&gt;
+                        &lt;/colgroup&gt;
+                        &lt;tbody&gt;
+                            &lt;tr&gt;
+                                &lt;th scope="row"&gt;&lt;span class="require"&gt;&lt;i&gt;필수항목&lt;/i&gt;&lt;/span&gt; 카드번호&lt;/th&gt;
+                                &lt;td&gt;
+                                    &lt;input type="text" name="cardNo1" value="" maxlength="4" title="첫번째자리" class="w-type1"&gt; - 
+                                    &lt;input type="password" name="cardNo2" value="" maxlength="4" title="두번째자리" class="w-type1"&gt; - 
+                                    &lt;input type="password" name="cardNo3" value="" maxlength="4" title="세번째자리" class="w-type1"&gt; - 
+                                    &lt;input type="text" name="cardNo4" value="" maxlength="4" title="네번째자리" class="w-type1"&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;th scope="row"&gt;&lt;span class="require"&gt;&lt;i&gt;필수항목&lt;/i&gt;&lt;/span&gt; &lt;label for="cardPW"&gt;L.POINT 비밀번호&lt;/label&gt;&lt;/th&gt;
+                                &lt;td&gt;
+                                    &lt;input type="password" id="cardPW" name="cardPW" maxlength="8" class="w-type3"&gt;
+                                    &lt;a href="javascript:lottePointPwChange();" class="txt-wbrown" title="새 창 열림"&gt;L.POINT 비밀번호 설정&lt;/a&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+                &lt;!-- div class="shiprefd-area"&gt;
+                    &lt;strong&gt;L.POINT 간편조회&lt;/strong&gt;&lt;br&gt;L.pay로 결제 시 L.POINT 비밀번호 입력없이 간편하게 조회할 수 있습니다.
+                    &lt;button type="button" class="btn"&gt;간편조회 하기&lt;/button&gt;
+                &lt;/div --&gt;
+                &lt;div class="set-btn"&gt;
+                    &lt;button type="button" class="btn-type1" onclick="lottePointConfirm();"&gt;확인&lt;/button&gt;
+                    &lt;button type="button" class="btn-type2" onclick="lottePointConfirmCancel();"&gt;취소&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="chklist"&gt;
+                    &lt;ul class="bul-circle"&gt;
+                        &lt;li&gt;카드번호 입력란에는 소유하고 계신 L.POINT 카드 / 롯데카드(신용카드) 번호를 입력해 주시기 바랍니다.&lt;/li&gt;
+                        &lt;!-- li&gt;본인카드로만 조회 / 사용이 가능합니다.&lt;/li --&gt;
+                        &lt;li&gt;L.POINT 비밀번호는 롯데카드(신용카드) 비밀번호 (4자리)와 별도로 영 / 숫자 혼합 6~8자리 입니다.&lt;/li&gt;
+                        &lt;li&gt;5회 이상 비밀번호 입력 오류 시, 새로운 비밀번호를 등록해 주셔야 합니다.&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;!-- //Contents End --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+&lt;script&gt;
+var $lottePointForm  = $('#LMCSDIV'),
+    $cancelBtn = $lottePointForm.find('button.btn-type2'),
+    $closeBtn = $lottePointForm.find('.btn_payment_wrap_close');
+
+var closeBtnKeydownHandler = function(e){
+    if(_wac.isEnterEvent(e) || _wac.isTabEvent(e)){
+    $(this).trigger('click')
+    $('#userConfirmBtn').focus();
+    }
+}
+
+var cancelBtnKeydownHandler = function(e){
+    if(_wac.isEnterEvent(e)){
+        _wac.preventDefaultAction(e);
+        $closeBtn.trigger('click')
+        $('#userConfirmBtn').focus();
+    }
+}
+$cancelBtn.on({
+    keydown : cancelBtnKeydownHandler
+})
+
+$closeBtn.on({
+    keydown : closeBtnKeydownHandler
+})
+&lt;/script&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item19">
+                            <h4 class="active">
+                                <em class="numbering">19</em>
+                                <span class="two-char">콘텐츠 선형화</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 콘텐츠는 제목과 내용을 연결하여 논리적인 순서로 내용을 이해하기 쉽게 제공해야 한다.
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>콘텐츠 및 마크업이 논리적인 순서로 구성해야 한다.</li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        콘텐츠가 논리적인 구조를 가지고 있는지 체크<br>
+                                        키보드 초점이 논리적으로 이동되는지 체크
+                                    </dd>
+                                </dl>
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>더보기 버튼이 있는 공지사항 탭의 논리적 순서을 따른 마크업</h5>
+                                    <p>
+                                        더보기 버튼이 존재하는 경우 제목 - 내용 - 더보기 순으로 제공하는 것이 권장된다.
+                                        제목과 내용을 연결하여 제공하게 되므로 내용을 보다 직관적으로 이해할 수 있다.
+                                    </p>
+                                    <img src="./assets/img/logical.png" alt="공지사항 탭의 논리적 순번을 따른 마크업">
+
+                                    <pre><code class="html">&lt;div class="wrap-tab-cont"&gt;
+    &lt;div class="tab-cont active" id="tab01"&gt;
+        &lt;h3 class="blind"&gt;공지사항&lt;/h3&gt;
+        &lt;ul class="list-cs"&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/happycenter/customerCenterNoticeDetail.do?boardSeq=000013504633&amp;SITELOC=AI003"&gt;롯데마트몰 경남 양산시 일부 권역 배송점포 변경 안내&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2018.12.28&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/happycenter/customerCenterNoticeDetail.do?boardSeq=000013504547&amp;SITELOC=AI003"&gt;롯데마트몰 충남 서천군 일부 권역 매장 배송 오픈 안내&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2018.12.28&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/happycenter/customerCenterNoticeDetail.do?boardSeq=000013492586&amp;SITELOC=AI003"&gt;개인정보처리방침 변경 안내드립니다.&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2018.12.20&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/happycenter/customerCenterNoticeDetail.do?boardSeq=000013374440&amp;SITELOC=AI003"&gt;개인정보처리방침 변경안내드립니다.&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2018.10.02&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;a href="http://www.lottemart.com/happycenter/notice.do?SITELOC=AI003" class="moreview"&gt;&lt;em&gt;공지사항 더보기&lt;/em&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-cont" id="tab02"&gt;
+        &lt;h3 class="blind"&gt;당첨자발표&lt;/h3&gt;
+        &lt;ul class="list-cs"&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/event/winPrizeDetail.do?boardSeq=000013527392"&gt;2018년 12월 배송평가 Reward 당첨자 발표&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2019.01.11&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/event/winPrizeDetail.do?boardSeq=000013516635"&gt;풀무원 홈파티 2만원 이상 구매시 주방키트 증정 당첨자 공지&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2019.01.04&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/event/winPrizeDetail.do?boardSeq=000013503518"&gt;CJ Brand Week 1주차 (스팸&amp;고메) event 2 : 투썸 아메리카노 교환권 이벤트 당첨자 공지&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2018.12.27&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://www.lottemart.com/event/winPrizeDetail.do?boardSeq=000013503491"&gt;CJ Brand Week 1주차 (스팸&amp;고메) event 1 : 뜌레쥬르 교환권 이벤트 당첨자 공지&lt;/a&gt;
+            &lt;span class="num-n"&gt;
+                &lt;span&gt;
+                    2018.12.27&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;a href="http://www.lottemart.com/event/winPrize.do" class="moreview-win"&gt;&lt;em&gt;당첨자발표 더보기&lt;/em&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item20">
+                            <h4 class="active">
+                                <em class="numbering">20</em>
+                                <span class="two-char">표의 구성</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 표는 이해하기 쉽게 구성해야 한다
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>표의 제목을 &lt;caption&gt; 요소로 제공</li>
+                                        <li>표의 구조 또는 내용에 대한 요약을 summary 속성으로 제공 (html5 는 속성 지원 안함)</li>
+                                        <li>표의 헤더 셀 &lt;th&gt; 요소 와 데이터 셀&lt;td&gt; 요소의 관계를 제공</li>
+                                        <li>복잡한 표의 경우 id, header, 일반적인 표의 경우 scope 제공</li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        summary 속성 및 &lt;caption&gt; 요소 유무 체크<br>
+                                        summary 속성 값과 &lt;caption&gt; 요소 값의 중복 여부 체크<br>
+                                        &lt;th&gt; 요소 유무 체크<br>
+                                        scope 속성값이 적절한지 체크<br>
+                                        단, HTML5에서 summary 속성은 미적용
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>제목과 데이터를 알기 쉽게 마크업 한 표의 구성</h5>
+                                    <p>
+                                        - 적절한 &lt;th&gt;, &lt;td&gt; 사용과 scope 속성의 제공으로 표의 정보를 이해하기 쉽다.
+                                    </p>
+
+                                    <img src="./assets/img/table.png" alt="소시지 동영상이 정지된 이미지"  >
+
+                                    <pre><code class="html">&lt;table&gt;
+    &lt;caption&gt;이벤트 당첨자발표 테이블&lt;/caption&gt;
+    &lt;colgroup&gt;
+        &lt;col style="width:8.2%"&gt;
+        &lt;col style="width:auto"&gt;
+        &lt;col style="width:19%"&gt;
+        &lt;col style="width:13.5%"&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;번호&lt;/th&gt;
+            &lt;th scope="col"&gt;제목&lt;/th&gt;
+            &lt;th scope="col"&gt;이벤트기간&lt;/th&gt;
+            &lt;th scope="col"&gt;당첨자발표일&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;21&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013527392');" onkeypress="if(event.keyCode == 13){goDetail('000013527392'); return false;}" class="link"&gt;2018년 12월 배송평가 Reward 당첨자 발표&lt;/a&gt;
+                &lt;em class="ico-board-new"&gt;N&lt;span class="blind"&gt;new&lt;/span&gt;&lt;/em&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2019.01.01~2019.12.31&lt;/td&gt;
+            &lt;td&gt;2019.01.11&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;20&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013516635');" onkeypress="if(event.keyCode == 13){goDetail('000013516635'); return false;}" class="link"&gt;풀무원 홈파티 2만원 이상 구매시 주방키트 증정 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.12.17~2018.12.26&lt;/td&gt;
+            &lt;td&gt;2019.01.04&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;19&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013503518');" onkeypress="if(event.keyCode == 13){goDetail('000013503518'); return false;}" class="link"&gt;CJ Brand Week 1주차 (스팸&amp;고메) event 2 : 투썸 아메리카노 교환권 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.12.06~2018.12.12&lt;/td&gt;
+            &lt;td&gt;2018.12.28&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;18&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013503491');" onkeypress="if(event.keyCode == 13){goDetail('000013503491'); return false;}" class="link"&gt;CJ Brand Week 1주차 (스팸&amp;고메) event 1 : 뜌레쥬르 교환권 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.12.06~2018.12.12&lt;/td&gt;
+            &lt;td&gt;2018.12.28&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;17&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013503483');" onkeypress="if(event.keyCode == 13){goDetail('000013503483'); return false;}" class="link"&gt;CJ Brand Week (12/6-1/3) 당첨자 발표 지연 (및 지연예정) 공지 안내드립니다.&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.12.06~2019.01.02&lt;/td&gt;
+            &lt;td&gt;2018.12.27&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;16&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013482959');" onkeypress="if(event.keyCode == 13){goDetail('000013482959'); return false;}" class="link"&gt;2018년 11월 배송평가 Reward 당첨자 발표&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2019.01.01~2019.12.31&lt;/td&gt;
+            &lt;td&gt;2018.12.14&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;15&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013481951');" onkeypress="if(event.keyCode == 13){goDetail('000013481951'); return false;}" class="link"&gt;11월 럭키룰렛 출석체크 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.11.01~2018.11.30&lt;/td&gt;
+            &lt;td&gt;2018.12.17&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;14&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013478249');" onkeypress="if(event.keyCode == 13){goDetail('000013478249'); return false;}" class="link"&gt;청정원 2만원 이상 구매시 스타벅스 아메리카노 기프티콘 증정 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.11.15~2018.11.28&lt;/td&gt;
+            &lt;td&gt;2018.12.11&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;13&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013459642');" onkeypress="if(event.keyCode == 13){goDetail('000013459642'); return false;}" class="link"&gt;블랙페스타 이벤트 당첨자 발표&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.11.15~2018.11.20&lt;/td&gt;
+            &lt;td&gt;2018.11.28&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;12&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013440648');" onkeypress="if(event.keyCode == 13){goDetail('000013440648'); return false;}" class="link"&gt;10월 행운의 룰렛 출석체크 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.10.01~2018.10.31&lt;/td&gt;
+            &lt;td&gt;2018.11.19&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;11&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013409586');" onkeypress="if(event.keyCode == 13){goDetail('000013409586'); return false;}" class="link"&gt;롯데마트몰 ON 이벤트 당첨자 발표&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.09.03~2018.10.04&lt;/td&gt;
+            &lt;td&gt;2018.10.25&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;10&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013396015');" onkeypress="if(event.keyCode == 13){goDetail('000013396015'); return false;}" class="link"&gt;9월 행운의 룰렛 출석체크 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.09.01~2018.09.30&lt;/td&gt;
+            &lt;td&gt;2018.10.17&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;9&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013352732');" onkeypress="if(event.keyCode == 13){goDetail('000013352732'); return false;}" class="link"&gt;8월 행운의 룰렛 출석체크 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.08.01~2018.08.31&lt;/td&gt;
+            &lt;td&gt;2018.09.17&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;8&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013334582');" onkeypress="if(event.keyCode == 13){goDetail('000013334582'); return false;}" class="link"&gt;ONLY FESTA 이벤트 당첨자 발표&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.08.02~2018.08.15&lt;/td&gt;
+            &lt;td&gt;2018.08.30&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;7&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013312970');" onkeypress="if(event.keyCode == 13){goDetail('000013312970'); return false;}" class="link"&gt;7월 전용센터 출석체크 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.07.01~2018.07.31&lt;/td&gt;
+            &lt;td&gt;2018.08.17&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;6&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013254189');" onkeypress="if(event.keyCode == 13){goDetail('000013254189'); return false;}" class="link"&gt;부모님댁 장보기 효도 이벤트 당첨자 발표&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.05.17~2018.06.30&lt;/td&gt;
+            &lt;td&gt;2018.07.10&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013215386');" onkeypress="if(event.keyCode == 13){goDetail('000013215386'); return false;}" class="link"&gt;5월 전용센터 출석체크 이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.05.01~2018.05.31&lt;/td&gt;
+            &lt;td&gt;2018.06.15&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013158841');" onkeypress="if(event.keyCode == 13){goDetail('000013158841'); return false;}" class="link"&gt;스타일런 이벤트 당첨자 발표&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.06.04~2018.06.11&lt;/td&gt;
+            &lt;td&gt;2018.05.03&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013132384');" onkeypress="if(event.keyCode == 13){goDetail('000013132384'); return false;}" class="link"&gt;발렌타인데이/화이트데이 이벤트 당첨자 발표&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.12.06~2019.01.02&lt;/td&gt;
+            &lt;td&gt;2018.04.12&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td class="title"&gt;&lt;a style="cursor:pointer;" onclick="goDetail('000013061990');" onkeypress="if(event.keyCode == 13){goDetail('000013061990'); return false;}" class="link"&gt;1월 새해맞이 출첵이벤트 당첨자 공지&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;td&gt;2018.01.01~2018.01.31&lt;/td&gt;
+            &lt;td&gt;2018.02.19&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item21">
+                            <h4 class="active">
+                                <em class="numbering">21</em>
+                                <span class="two-char">레이블 제공</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 입력 서식에는 대응하는 레이블을 제공해야 한다.
+                                </p>
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>입력 서식(&lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; 요소 등)에 대응하는 레이블 (&lt;label&gt;요소 , title 속성)을 제공해야 한다</li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; 요소 등에 &lt;label&gt;요소, title 속성 유무 체크
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        입력 서식에 레이블이 올바르게 연결되어 있는지 체크<br>
+                                        레이블값이 해당 서식을 적절한 내용으로 표현했는지 체크<br>
+                                        입력 서식에 중복 레이블을 제공하지 않았는지 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>고객센터 > FAQ 검색 인풋창의 레이블 제공</h5>
+                                    <p>
+                                        - 사용자의 입력, 선택을 요구하는 입력서식에는 그에 대한 제목, 즉 레이블을 제공해야 한다.<br>
+                                        - &lt;label&gt;의 for 속성과 서식의 id 값을 일치 시킨다.<br>
+                                        - &lt;label&gt;을 사용할 수 없는 특수한 경우 해당 요소에 title 속성을 부여한다.
+
+                                    </p>
+                                    <img src="./assets/img/label01.png" alt="FAQ 검색 인풋창 이미지">
+
+                                    <pre><code class="html">&lt;label for="searchKeyword" class="titfaq"&gt;FAQ 검색&lt;/label&gt;
+&lt;input type="text" class="w-type50" id="searchKeyword" name="searchKeyword" onfocus="clearKeyword();" onkeydown="javascript:if(event.keyCode==13){search();}" placeholder="검색을 통해 궁금하신 내용을 보다 빠르게 확인해보세요!"&gt;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item22">
+                            <h4 class="active">
+                                <em class="numbering">22</em>
+                                <span class="two-char">오류정정</span>
+                                <i class="open"></i>
+                            </h4>
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 입력 오류를 정정할 방법을 제공해야 한다.
+                                </p>
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            입력 서식을 잘못 작성한 경우, 해당 서식 필드로 초점 이동 제공
+                                        </li>
+                                        <li>
+                                            입력 값 또는 형식에 대한 예시 제공
+                                        </li>
+                                        <li>
+                                            필수 입력사항이나 일정한 양식에 따른 입력란에 대해 사용자가 입력하지 않거나 잘못 입력한 경우 사용자의 실수가 어떤 것인지 안내 제공
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        입력 서식을 잘못 작성한 경우, 해당 서식 필드로 초점의 이동 가능 여부 체크<br>
+                                        입력 서식을 잘못 작성한 경우, 정정할 수 있는 수단을 제공했는지 체크<br>
+                                        입력 정정방식 또는 내용이 올바르게 제공했는지 체크
+                                    </dd>
+                                </dl>
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>엘포인트 사용인증 비밀번호 확인시 오류정정 기능 제공</h5>
+                                    <p>
+                                        - 오류 발생 시, 해당 오류 사항을 사용자에게 알리고 해당 서식항목으로 초점 이동시켜 쉽게 수정할 수 있도록 한다.
+                                    </p>
+                                    <img src="./assets/img/again.png" alt="엘포인트 사용인증 비밀번호 확인" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item23">
+                            <h4 class="active">
+                                <em class="numbering">23</em>
+                                <span class="two-char">마크업오류방지</span>
+                                <i class="open"></i>
+                            </h4>
+
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 마크업 언어의 요소는 열고 닫음, 중첩 관계 및 속성 선언에 오류가 없어야 한다.
+                                </p>
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>
+                                            W3C 명세에 맞는 마크업 준수
+                                        </li>
+                                        <li>
+                                            area, div, img, input 등의 태그 종료 처리
+                                        </li>
+                                        <li>
+                                            하나의 요소에 속성 중복 처리 금지
+                                        </li>
+                                        <li>
+                                            특수 문자 변환 표기
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        id 중복 여부 체크<br>
+                                        속성 이름 중복 여부 체크<br>
+                                        태그 열고 닫음 누락 체크<br>
+                                        태그 중첩 여부 체크
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        태그의 열고 닫음 체크<br>
+                                        태그의 중첩이 올바른지 체크<br>
+                                        한 요소에 중복된 속성 선언 여부 체크<br>
+                                        한 페이지에 중복된 id 속성값 선언 여부 체크
+                                    </dd>
+                                </dl>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>태그 오류 방지</h5>
+                                    <p>
+                                        - 마크업 언어로 작성된 콘텐츠는 표준에서 특별히 정한 경우를 제외하고는 시작 태그와 끝나는 태그가 정의되어야 한다.<br>
+                                        - 열고 닫는 태그가 나타내는 요소는 포함관계가 어긋나지 않도록 해야 한다. (태그 중첩 관계)<br>
+                                        - 참고 : W3C 마크업 유효성 검사 도구<br>
+                                        <a href="http://validator.w3.org/">[http://validator.w3.org/]</a>
+                                    </p>
+                                    <img src="./assets/img/mark-up-error02.png" alt="W3C 마크업 유효성 검사 도구">
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>하나의 요소에 속성 중복 처리 금지</h5>
+                                    <p>
+                                        - 한 페이지에서 아이디는 항상 유일해야 한다.<br>
+                                        - 하나의 요소에 속성이 중복 처리되는 오류가 없어야 한다.
+                                    </p>
+                                    <img src="./assets/img/attr-error.png" alt="W3C 마크업 유효성 검사 도구">
+                                </div>
+
+                                <div class="sample">
+                                    <h5><img src="./assets/img/example-icon.png" alt="예시 아이콘" class="example-icon"> <em class="lotte-red02">예시 : </em>특수문자 변환 표기</h5>
+                                    <p>
+                                        - 텍스트 및 URL에서 사용한 특수문자(&lt; , &gt; , &amp;)는 Entity코드로 변환하여 사용해야 한다.<br>
+                                        - Entity 코드로 표현된 특수문자는 대부분의 브라우저에서 문제없이 출력된다.<br>
+                                        - 대표적인 오류 유형<br>
+                                        &emsp;a. 꺽쇠기호 &lt; , &gt; 등을 Entity로 처리하지 않는 경우 브라우저들은 이것을 HTML Tag의 시작이나 끝으로 인식할 수 있음  <br>
+                                        &emsp;b. 따옴표 &quot; &quot; 는 HTML 속성의 값이 시작되거나 끝난 것으로 인식할 수 있음<br>
+                                        &emsp;c. &amp; 기호는 Entity 기호의 시작으로 오인할 수 있음<br>
+                                        - 이와 같은 이유로 Entity 코드로 사용하지 않는 경우 W3C Validator는 오류메시지로 출력한다.<br>
+                                        <a href="https://www.digitalmediaminute.com/reference/entity/index.php"> 참고 : XHTML Character Entity Reference 보기 </a>
+                                    </p>
+                                    <img src="./assets/img/etc-table.png" alt="자주 사용되는 특수문자 태그 표">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="item24">
+                            <h4 class="active">
+                                <em class="numbering">24</em>
+                                <span class="two-char">웹 애플리케이션 접근성 준수</span>
+                                <i class="open"></i>
+                            </h4>
+                            <div class="item-cont">
+                                <p>
+                                    &CenterDot; 콘텐츠에 포함된 웹 애플리케이션은 접근성이 있어야 한다.
+                                </p>
+
+                                <div class="definition">
+                                    <h5>적용기술</h5>
+                                    <ul>
+                                        <li>웹 애플리케이션(JavaScript, 애플릿, ActiveX, Flash)이 자체적인 접근성을 준수해야 함</li>
+                                    </ul>
+                                </div>
+
+                                <dl class="check-list">
+                                    <dt>자동검사방법</dt>
+                                    <dd>
+                                        -
+                                    </dd>
+
+                                    <dt>수동검사방법</dt>
+                                    <dd>
+                                        &lt;a&gt; 요소 href 속성값에 JavaScript 사용 여부 체크<br>
+                                        &lt;form&gt; 요소 action 속성값 체크<br>
+                                        &lt;form&gt; 요소에 &lt;button type=”submit”&gt;, &lt;input type=”submit”&gt;, &lt;input type=”image”&gt; 유무 체크
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- #wacExample end -->
+                </div>
+                <!-- contents end -->
+
+             </div>
+            <!-- inner end -->
+        </div>
+        <!-- container end -->
+
+        <!-- footer start -->
+        <footer class="footer">
+          <div class="inner">
+            COPYRIGHT &copy; LOTTEMART. ALL RIGHTS RESERVED
+          </div>
+        </footer>
+        <!-- footer end -->
+
+<script>
+     $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
+
+    var lnbHandler = function(){
+        //lnb 메뉴 folding
+        var $lnb1Depth = $('.lnb .depth1-menu'),
+            $lnb2Depth = $('.lnb .depth2-menu a'),
+            $lnb1DepthIcon = $('.lnb .depth1-menu .lnb-icon');
+
+        var lnb1DepthClickHandler = function(){
+            if($lnb1Depth.hasClass('active')){
+                $(this).removeClass('active');
+                $(this).next('.depth2-menu').hide(300);
+                $lnb1DepthIcon.removeClass('open');
+
+            }else{
+                $(this).addClass('active');
+                $(this).next('.depth2-menu').show(600);
+                $lnb1DepthIcon.addClass('open');
+            }
+        }
+        var lnb2DepthClickHandler = function(){
+            var idStr = $(this).attr('href')
+            console.log(idStr);
+            $(idStr).find('.item-cont').removeAttr('style');
+        }
+
+
+        $lnb1Depth.on({
+            click : lnb1DepthClickHandler
+        });
+        $lnb2Depth.on({
+            click : lnb2DepthClickHandler
+        });
+
+        //lnb 고정
+        var scrollHeight;
+        $(window).scroll(function(){
+            scrollHeight = $(window).scrollTop();
+            if(scrollHeight > 10){
+                $('.container .lnb').addClass('scroll-fixed');
+            }
+        });
+    }();
+
+    //article h3 folding
+    var $articleH4 = $('.wac-guide .container .contents .article > div[id^="item"] > h4'),
+      $h4Icon = $('.wac-guide .container .contents .article > div[id^="item"] > h4 i'),
+      openTag = '<img src="./assets/img/plus.png" alt="더하기 모양의 열림 아이콘">';
+
+
+    $articleH4.on('click', function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+            $(this).next('.item-cont').hide(300);
+            $(this).find('i').removeClass('open').html(openTag);
+
+        }else{
+            $(this).addClass('active');
+            $(this).next('.item-cont').show(600);
+            $(this).find('i').addClass('open').empty();
+        }
+    });
+
+
+    //모바일 nav 처리
+    var $mobileNavBtn = $('#mobileNavBtn'),
+        $guideLnb = $('.wac-guide .lnb'),
+        $lastOfGuideLnb = _wac.getFocusables($guideLnb).last();
+
+
+    var removeWacEnterd = function(e){
+        _wac.removeWacEnteredAsync($(this));
+    }
+    var lnbOpen = function(){
+        $guideLnb.css('display','block').animate({ left:'0'});
+        $mobileNavBtn.addClass('on');
+    }
+    var lnbClose = function(){
+        $guideLnb.animate({ left:'-500px'},function(){
+                $(this).removeAttr('style');
+            });
+        $mobileNavBtn.removeClass('on');
+    }
+
+    var mobileNavBtnClickHandler = function(){
+        if(!$(this).hasClass('on')){
+            lnbOpen();
+        }else{
+            lnbClose();
+        }
+    };
+    var mobileNavBtnKeydownHandler = function(e){
+        if(window.innerWidth <=1200){
+            $this = $(document.activeElement);
+            if(_wac.isEnterEvent(e) && !_wac.isWacEntered($this)){
+                _wac.markWacEnteredAsync($this);
+            }else if(_wac.isTabEvent(e)){
+                if(_wac.isWacEntered($this)){
+                    _wac.preventDefaultAction(e);
+                    $target = _wac.getFocusables($guideLnb).first();
+                    $target.focus();
+                }
+            }
+        }
+    }
+
+    $mobileNavBtn.on({
+        click : mobileNavBtnClickHandler,
+        keydown : mobileNavBtnKeydownHandler,
+        focusout : removeWacEnterd
+    });
+
+    var guideLnbKeydownHandler = function(e){
+        if(window.innerWidth <=1200){
+            $this = $(this);
+            targetId = $this.attr('href');
+            $target = $(targetId);
+
+            if(_wac.isEnterEvent(e) && !_wac.isWacEntered($this)){
+                lnbClose();
+            }else if(_wac.isTabEvent(e) && $this.is($lastOfGuideLnb)){
+                lnbClose();
+            }
+        }
+    }
+
+    $guideLnb.on({
+        keydown : guideLnbKeydownHandler,
+        focusout : removeWacEnterd
+    }, 'a');
+    var mobileNavBtnSwipeLeft = function(e){
+        if(window.innerWidth <=1200){
+            lnbClose();
+        }
+    }
+    var mobileNavBtnSwipeRight = function(e){
+        if(window.innerWidth <=1200){
+            lnbOpen();
+        }
+    }
+    var mobileNavBtnControllKey = function(e){
+        if(_wac.isEscEvent(e)){
+            $mobileNavBtn.trigger('click');
+            $target = _wac.getFocusables($guideLnb).first();
+            $target.focus();
+        }
+    }
+    $(window).on({
+        keydown : mobileNavBtnControllKey,
+        swipeleft : mobileNavBtnSwipeLeft,
+        swiperight : mobileNavBtnSwipeRight
+    })
+
+    var $codeArea = $('pre code'),
+        $targetCodeArea;
+
+    $codeArea.before('<button class="code-open-btn">열기</button>');
+
+
+    var $codeOpenBtn = $('.code-open-btn');
+
+
+    $codeOpenBtn.on('click', function(){
+        var $targetCodeArea = $(this).next('code'),
+            $codeOpenBtn = $('.code-open-btn');
+        if($targetCodeArea.hasClass('active')){
+            $codeOpenBtn.removeClass('active');
+            $targetCodeArea.removeClass('active');
+            $(this).text('열기');
+        }else{
+            $codeOpenBtn.addClass('active');
+            $targetCodeArea.addClass('active');
+            $(this).text('닫기');
+        }
+    });
+
+</script>
+</body>
+</html>
