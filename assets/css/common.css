@@ -19,7 +19,7 @@
 .example_wrap{border: 1px solid rgb(68, 189, 60, 0.7); margin-top: 25px; position: relative; padding: 15px;}
     .example_wrap h5{position: absolute; top: -10px; left: 10px; font-weight: 400; color: #44bd3c; background: #fff;padding: 0 15px;}
 
-    .example_wrap > img{width: 100%; margin-bottom: 10px;}
+    .example_wrap > img{max-width: 100%; margin-bottom: 10px;}
         .example_wrap > img:last-child{margin-bottom: 0;}
 
 .code_wrap{position: relative; width: 100%; height: 100px; border: 1px solid #eee; padding: 5px; overflow: hidden;}
