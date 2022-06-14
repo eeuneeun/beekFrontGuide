@@ -7,19 +7,37 @@
 
 /* html {scroll-behavior: smooth;} */
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
+    height: 10px;
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+    background: #eee;
+    border-radius: 15px;
 }
+
+.example_wrap{border: 1px solid rgb(68, 189, 60, 0.7); margin-top: 25px; position: relative; padding: 15px;}
+    .example_wrap h5{position: absolute; top: -10px; left: 10px; font-weight: 400; color: #44bd3c; background: #fff;padding: 0 15px;}
+
+    .example_wrap > img{width: 100%; margin-bottom: 10px;}
+        .example_wrap > img:last-child{margin-bottom: 0;}
+
+.code_wrap{position: relative; width: 100%; height: 100px; border: 1px solid #eee; padding: 5px; overflow: hidden;}
+    .code_wrap.active{height: unset;}
+    
+    .code_wrap .code_toggle_btn{position: absolute;top: 0;right: 0; padding: 2px 10px; font-size: 11px; color: #222;}
+
+.bullet_list li{position: relative; padding: 5px !important; padding-left: 20px !important; margin: 0 !important;}
+.bullet_list li::before{content: '•'; display: inline-block; position: absolute; top: 5px; left: 5px;}
+
+    
+.wrapper{position: relative; width: 100%; height: 100vh;}
 
 /*************************
  *                       *
  *         .gnb          *
  *                       *
  *************************/
-
 .gnb{position:fixed; width:100%; height:70px; background: #fff; z-index: 99; border-bottom: 1px solid #eee; padding-bottom: 20px; box-shadow: 0 0 5px 3px rgba(191, 191, 191, 0.3);}
     .gnb .inner{height:100%;align-items: flex-end;}
         .gnb h1 a.pc{font-size: 15px; color: #e95509; align-items: flex-end; gap:5px;}
@@ -29,6 +47,14 @@
     .gnb .menu li a{font-size:18px; color:#333; margin-left:10px; font-weight: 600;}
     .gnb .menu li a img{width:30px;}
 
+
+/*************************
+ *                       *
+ *         .snb          *
+ *                       *
+ *************************/
+.snb{width: 30%; position: absolute; top: 0; left: 0;}
+    .snb li{padding: 5px 0;}
 
 
 /*************************
@@ -50,7 +76,7 @@
  *                             *
  *******************************/
 
-.container{width:100%; min-width:320px; overflow: hidden; padding:100px 0;}
+.container{width:100%; min-width:320px; height: calc(100% - 70px); overflow-y: auto; position: absolute; top: 70px; left: 0;}
     .container h2{font-size: 35px; margin: 35px 0; position: relative; padding-left: 10px;}
         .container h2::before{content:''; display: inline-block; width: 5px; height: 80%; position: absolute; top: 10%; left:0; background: linear-gradient( to bottom, #979797, rgb(50, 50, 50) );}
     .container h3{font-size: 25px; margin-bottom:20px;}
@@ -84,6 +110,8 @@
                 .container .guide_menus dt button:hover{opacity: 1;}
 
 
+
+
 /**********************
  *                    *
  *     common.html    *
@@ -91,19 +119,30 @@
  **********************/
 
 .common h2{font-size: 18px;}
-.common .container{align-items: flex-start;}
+.common .container{align-items: flex-start; margin: 0 auto;}
+    .common .container .inner{position: relative; height: 100%;}
 
-.snb{width: 30%;}
-    .snb li{padding: 5px 0;}
 
-.contents{width: 70%;}
+.contents{width: 70%;height: 100%; position: absolute; top: 0; right: 0; overflow-y: auto;}
     .contents > article{ padding: 25px 0;}
     
+    .contents > article a{color: #3285bf; font-weight: 600; text-decoration: underline;}
+    
     .contents .list{padding: 10px 0;}
-        .contents .list li{padding: 20px; border: 1px solid #eee; margin: 15px 0;}
-        .contents .list li p,
-        .contents .list li dl{padding: 20px;}
-            .contents .list li dt{padding: 5px 0; font-weight: 600;}
+        .contents .list li{padding: 20px; margin: 15px 0;}
+        .contents .list > li{border: 1px solid #eee;}
+        .contents .list > li > p,
+        .contents .list > li > ol,
+        .contents .list > li > ul,
+        .contents .list > li > .line_clear{padding: 20px; line-height: 1.8;}
+
+        .contents .list > li > .line_clear{padding-top: 0;}
+            .contents .list > li > .line_clear .example_wrap {margin-top: 0;}
+        
+        .contents .list > li dl{padding: 20px;}
+            .contents .list > li dl dt{padding: 5px 0; font-weight: 600;}
+
+        .contents .child_list li{padding: 5px 0; padding-left: 10px; margin: 15px 0;}
 
 
 
@@ -112,78 +151,6 @@
  *    pc_guide.html   *
  *                    *
  **********************/
-.wac-guide #mobileNavBtn{position: absolute; top:1px; left:20px; font-size: 20px; color: #fff; display: none;}
-
-.wac-guide .btn-fixed-top{position: fixed; width: 30px; height:30px; bottom :50px; right:50%; margin:0 -660px 0 0;  z-index: 99; background: #293f54;  border-radius: 15px; padding:0;}
-    .wac-guide .btn-fixed-top a{display: block; text-align: center;}
-    .wac-guide .btn-fixed-top i{font-size: 15px; color:#fff;}
-
-.wac-guide .lnb{width:300px; height:100%; position: absolute; left:50%; z-index: 50; margin-left: -600px; overflow-y: scroll; padding: 0 20px 100px 0;}
-.wac-guide .lnb.scroll-fixed{position: fixed; top:60px; left:50%; margin-left: -600px;}
-
-.wac-guide .container .lnb .depth1-menu{padding-top:20px; color: #293f54;  margin-bottom: 5px; vertical-align: middle; cursor: pointer;}
-.wac-guide .container .lnb .depth1-menu > a{font-size: 18px;}
-.wac-guide .container .lnb .depth1-menu i{top: 10px; float: right; margin-right: 14px; -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg); transition: all ease 0.5s 0s;}
-.wac-guide .container .lnb .depth1-menu i.open{ -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg); transition: all ease 0.5s 0s;}
-
-.wac-guide .container .lnb .depth2-menu{margin-left:15px;}
-.wac-guide .container .lnb .depth2-menu li{line-height: 1.5;}
-.wac-guide .container .lnb .depth2-menu li a{font-size:12px;}
-.wac-guide .container .lnb .depth2-menu li a:hover{text-decoration:underline; color: #369eff;}
-/* .wac-guide .container .lnb .depth1-menu.active + .depth2-menu{margin-left:15px; display: block;} */
-
-
-.wac-guide .container .contents{width:calc(100% - 280px); float: right; border-left:1px solid #e1e1e1; padding-left:20px; z-index: 90;}
-
-.wac-guide .container .contents .article{margin-bottom : 200px; padding-top:20px;}
-.wac-guide .container .contents .article h3{font-size:25px; color: #293f54;}
-
-.wac-guide .container .contents .article > div[id^="item"]:target{padding-top: 70px;}
-.wac-guide.mobile #wac-app h4,
-.wac-guide .container .contents .article > div[id^="item"] > h4{color: #215c6e; width: 100%; height: 50px; padding: 11px 20px; border:1px solid #e1e1e1; border-top:2px solid #16657e; border-bottom:1px solid #e1e1e1; cursor: pointer; border-radius: 5px 5px 0 0; position: relative; font-size: 15px; margin: 0;}
-
-
-.wac-guide.mobile .item > h4 i,
-.wac-guide .container .contents .article > div[id^="item"] > h4 i{top: 7px; float: right; margin-right: 14px; -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg); transition: all ease 0.5s 0s; position: absolute; top:50%; right: 0; margin-top:-7px;}
-.wac-guide.mobile .item > h4 i.open,
-.wac-guide .container .contents .article > div[id^="item"] > h4 i.open{ -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg); transition: all ease 0.5s 0s;}
-.wac-guide.mobile #wac-app .item-cont,
-.wac-guide .container .contents .article > div[id^="item"] .item-cont{border:1px solid #e1e1e1; border-top:0; padding-bottom:20px;}
-.wac-guide.mobile #wac-app p,
-.wac-guide .container .contents .article > div[id^="item"] .item-cont > p{padding:15px 0 0 30px;}
-.wac-guide.mobile .container #wac-app .item .sample p{padding:0; margin-bottom: 20px;}
-
-
-
-
-.wac-guide .container .contents #wacExample > div{margin-top: 20px;}
-.wac-guide.mobile #wac-app .sample,
-.wac-guide.mobile #wac-app .definition,
-.wac-guide .container .contents #wacExample .sample,
-.wac-guide .container .contents #wacExample .definition{width:90%; margin: 0 auto; padding:20px 0;}
-/* .wac-guide .container .contents #wacExample .sample h5, */
-.wac-guide .container .contents #wacExample .definition h5{margin-bottom:15px;}
-.wac-guide .container .contents #wacExample .definition li ul{padding-left:15px;}
-
-.wac-guide .container .contents #wacExample .sample p{font-size: 15px;}
-.wac-guide .container .contents #wacExample .sample img{margin: 20px 0; max-width:100%;}
-
-.check-list,
-.wac-guide.mobile #wac-app .check-way,
-.wac-guide.mobile #wac-app .error-type,
-.wac-guide.mobile #wac-app .recom-type,
-.wac-guide.mobile #wac-app .offer,
-.container .contents #wacExample .expect,
-.container .contents #wacExample .check-list{width:90%; margin: 0 auto; padding: 20px 0;}
-.check-list dt, .check-list dd,
-.container .contents #wacExample .check-list dt,
-.container .contents #wacExample .check-list dd{padding:3px 10px; border:1px solid #e1e1e1;}
-.check-list dt,
-.container .contents #wacExample .check-list dt{background: #e1e1e1;}
-
-.offer-title dl{margin-left: 15px;}
-.offer-title dd{padding-left: 35px;}
-.wac-guide .glyphicon.glyphicon-star{color:#ff3b2d;}
 
 
 /*************************
@@ -191,252 +158,10 @@
  *   mobile_guide.html   *
  *                       *
  *************************/
- .wac-guide.mobile .inner{overflow: visible;}
- .wac-guide.mobile .container{width: 100%; padding-top: 60px;}
- .wac-guide.mobile .container h2{font-size: 30px; text-align: center;}
- .wac-guide.mobile .container h3{font-size: 60px; color: #3c7ea9; text-align: left; line-height: 1;}
  
- .wac-guide.mobile #wac-app,
- .wac-guide.mobile #wac-device,
- .wac-guide.mobile .main-cont{width: 100%; padding: 60px 0;}
-    
-    .wac-guide.mobile .main-cont ul{width: 70%; height: 600px; margin: 0 auto; margin-top:70px; position: relative;}
-    .wac-guide.mobile .main-cont ul li{display: inline;}
-    .wac-guide.mobile .main-cont ul li a{display: block; width: 300px; height: 300px; border-radius: 50%; position: absolute; text-align: center; padding-top: 170px; font-size: 18px; line-height: 1.2;}
-    .wac-guide.mobile .main-cont ul li a em{display: block; margin-bottom:10px; color: #222046;}
-    .wac-guide.mobile .main-cont ul li:nth-child(1) a{background:url(../../assets/img/smartphone.png) no-repeat 50% 15% rgba(203, 230, 190, 0.8); top: 0;left: 50%; margin-left:-150px;}
-    .wac-guide.mobile .main-cont ul li:nth-child(2) a{background:url(../../assets/img/mobile-app.png) no-repeat 50% 15% rgba(255, 243, 140, 0.8); bottom: 0;left: 10%;}
-    .wac-guide.mobile .main-cont ul li:nth-child(3) a{background:url(../../assets/img/listen.png) no-repeat 50% 15% rgba(144, 197, 199, 0.8); bottom: 0; right: 10%;}
-    
-    .wac-guide.mobile .main-cont ul li:nth-child(1) a:hover{background-color:rgba(203, 230, 190, 1);}
-    .wac-guide.mobile .main-cont ul li:nth-child(2) a:hover{background-color:rgba(255, 243, 140, 1);}
-    .wac-guide.mobile .main-cont ul li:nth-child(3) a:hover{background-color:rgba(144, 197, 199, 1);}
-    
-
-
-
-.wac-guide.mobile #wac-device li{margin: 20px 0;}
-.wac-guide.mobile #wac-device img{width: 100%; max-width: 860px;}
-.wac-guide.mobile #wac-device .android img:nth-child(1){width: 100%; max-width: 610px;}
-.wac-guide.mobile h4,
-.wac-guide.mobile #wac-device h4{font-size:30px; margin: 20px 0;}
-.wac-guide.mobile #wac-device em{font-size:25px; margin: 20px 0;}
-
-.wac-guide.mobile #wac-app .item{margin-top: 20px;}
-.wac-guide.mobile #wac-app .summary{padding: 0;}
-.wac-guide.mobile #wac-app .summary::before{display: inline-block;content: '+ '; }
-
-.wac-guide.mobile #wac-assistive{padding-bottom: 100px;}
-.wac-guide.mobile #wac-assistive .item h4{margin-bottom: 0;}
-.wac-guide.mobile #wac-assistive .item p{margin-bottom:10px }
-.wac-guide.mobile #wac-assistive .item p:before{display: inline; content: '+ '; }
-
-.wac-guide.mobile #wac-assistive .item li{display:inline;}
-.wac-guide.mobile #wac-assistive .item li a{display:inline-block; background: #589ecc; padding: 2px 10px;  margin-bottom: 10px; margin-right: 15px; color: #fff; font-size: 13px;}
-.wac-guide.mobile #wac-assistive .item li .tooltip.bottom .tooltip-arrow{border-bottom-color:#589ecc!important;}
-.wac-guide.mobile #wac-assistive .item li .tooltip.top .tooltip-arrow{border-top-color:#589ecc!important;}
-.wac-guide.mobile #wac-assistive .item li .tooltip.right .tooltip-arrow{border-right-color:#589ecc!important;}
-.wac-guide.mobile #wac-assistive .item li .tooltip-inner{background: #fff!important; color: #194e70; border: 2px solid #589ecc; font-size: 13px; letter-spacing: -0.5px;line-height: 1.8; padding: 15px 10px;}
-
-
-
-
 
 /**********************
  *                    *
  *    +MEDIA QUERY    *
  *                    *
  **********************/
-
- @media (max-width:1350px){
-    /* ******************
-     *    index.html    *
-     ********************/
-    .index .container .m-visual h2{font-size: 2.8rem;}
-    .index .container .m-visual p{top:15rem;}
-    .index .container .m-visual > img{height:100%;}
-
-
-    /* *********************
-     *  mobile-guide.html  *
-     ***********************/
-    .wac-guide .btn-fixed-top{right:50px; margin:0;}
- 
-
-    /* ******************
-     *  wac-guide.html  *
-     ********************/
-     .wac-guide.mobile .main-cont ul li:nth-child(2) a{left: 0%;}
-     .wac-guide.mobile .main-cont ul li:nth-child(3) a{right: 0%;}
-
-
-}
-@media (max-width:1200px){
-    .inner{padding: 0 20px;}
-    /* ******************
-     *    index.html    *
-     ********************/
-    .index .container .m-visual h2{font-size: 8vw; top:20vh;}
-    .index .container .m-visual p{width:80%; position:relative; top:23vh; left:0; margin: 0 auto; margin-top: 0; text-align: center;}
-    .index .container .m-visual > img{width:unset; margin-left:-25%;}
-    .index .container .access-list{width:860px; margin:0 auto;}
-    .index .container .access-list li{margin: 10px; margin-top: 45px;}
-
-
-
-    /* ******************
-     *  wac-guide.html  *
-     ********************/
-    .wac-guide #mobileNavBtn{display: block;}
-    .wac-guide .gnb h1{margin-left: 40px;}
-    .wac-guide .lnb.scroll-fixed,
-    .wac-guide .lnb{display:none; left: -500px; margin: 0;z-index: 999;background: #fff; padding-left: 20px; border-right:1px solid #e1e1e1; box-shadow: 0px 0px 10px #888888;}
-    .wac-guide .container .contents{width: 100%; padding:0; border: 0;}
-
-
-
-    /* ******************
-     *  wac-focus.html  *
-     ********************/
-     .prodlist-type .wac-tabnav a{width: 16.666666667%;}
-
-
-}
-@media (max-width:1000px){
- 
-    /* *********************
-     *  mobile-guide.html  *
-     ***********************/   
-     .wac-guide.mobile #wac-app h5{height: unset;padding: 11px 35px 11px 10px;}
-    .wac-guide.mobile .main-cont ul li a{width:265px; height:265px; padding-top:150px; font-size: 16px;}
-}
-@media (max-width:768px){
-    /* ******************
-     *      common      *
-     ********************/
-     .gnb, .gnb .inner {padding-top:0;}
-     .gnb h1{margin-top: 7px;}
-     .wac-guide .gnb h1{margin-left: 0px;}
-     .gnb h1 a.pc{display: none;}
-        .gnb h1 a.mobile{display: none; width:30px;}
-        .gnb h1 a.mobile img{width:100%;}
-    .gnb .device{float:right; padding-top:15px;}
-        .gnb .device .pc-guide{font-size: 15px;}
-        .gnb .device .focus-guide{display: none;}
-    .gnb .menu{display:none;}
-
-    /* ******************
-     *    index.html    *
-     ********************/
-     .index .container .m-visual h2{font-size: 60px;}
-     .index .container h3 {font-size: 3.9rem;}
-
-     .index .container .info-access{height:1500px;}
-     .index .container .access-list {max-width: 590px; margin: 0 auto;}
-     .index .container .access-list li{margin: 50px;}
-
-     .index #whyWac {width:90%; margin:0 auto; padding:0;}
-    /* ******************
-     *  wac-guide.html  *
-     ********************/
-     .wac-guide #mobileNavBtn{top:5px; font-size: 26px;}
-
-
-    /* *********************
-     *  mobile-guide.html  *
-     ***********************/   
-     .wac-guide.mobile .main-cont ul {height: unset;}
-     .wac-guide.mobile .main-cont ul li a{position: relative; top:unset; left: 50%!important; right: unset; bottom:unset;margin: 20px 0 0 -132.5px;}
-
-     .wac-guide.mobile .container h3 {font-size: 40px; text-align: center; line-height: 1.5}
-     .wac-guide.mobile .container h3 em{line-height: 1;}
-     .wac-guide.mobile #wac-app h4, .wac-guide.mobile #wac-device h4{font-size: 26px; text-align: center;}
-     .wac-guide.mobile #wac-device li:last-child{text-align: center;}
-
-     /* ******************
-     *  wac-focus.html  *
-     ********************/
-     .ui-focus .m-visual{background:url(../../assets/img/keyboard-img-768.jpg) no-repeat 0 0;}
-     .ui-focus .m-visual h2{max-width: 320px; margin:0 auto; font-size: 35px;}
-     .ui-focus .m-visual ul li a{font-size: 14px;}
-
-     .prodlist-type .wac-tabnav a{font-size: 16px; padding-top:12px;}
-
-
-}
-@media (max-width:425px){
-    /* ******************
-     *    index.html    *
-     ********************/
-     /* .index .inner{padding: 10px;} */
-     .mobile-block{display: block;}
-     .index .container h3{font-size: 35px !important; text-align: center; line-height: 1.3;}
-
-     .container .m-visual{height:800px;}
-     .container .m-visual > img{top:0;}
-
-     .index .container .info-access {height:unset;}
-     .index .container .info-access p{font-size:15px!important;}
-
-        .index .container .access-list {width: 155px; margin: 0 auto;}
-        .index .container .access-list li{width:100%; margin: 0 auto; margin-top:60px; }
-        .index .container .access-list li i{padding: 0;}
-        .btn-lotte{widows: 145px; height:40px; font-size: 15px;}
-            .container .access-list li dl dt{margin-top: 10px;}
-            .container .access-list li dl dd .modal-dialog{width:95%; top:0; left:0;margin: 0 auto;}
-
-    .index #whyWac{padding-top: 100px; height: unset;}
-        .index #whyWac dl dt{font-size: 18px;}
-        .index #whyWac dl dd{width:90%; margin:0 auto; padding: 0; font-size: 14px;}
-
-    .index #wacGuideLine{padding-top: 100px; height: unset; text-align: left;}
-        .index #wacGuideLine p{font-size: 18px;}
-        .index #wacGuideLine .guide-list{width:90%; margin:0 auto;}
-        .index #wacGuideLine .guide-list li {font-size: 14px;}
-
-
-    .wac-guide .container .contents .article > div[id^="item"] > h4{padding:11px 10px; font-size: 15px;}
-   
-
-
-    /* ******************
-     *  wac-focus.html  *
-     ********************/
-    .ui-focus .m-visual{background:url(../../assets/img/keyboard-img-425.jpg) no-repeat 0 0;}
-
-}
-@media (max-width:375px){
-    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button, header, nav, aside, footer, a, .header, .gnb, .login-box, .footer, .inner, .btn-box{font-size: 14px;}
-    /* ******************
-     *    index.html    *
-     ********************/
-    .index .container .m-visual h2{font-size: 46px;}
-    .index .container .m-visual {height:750px;}
-
-    /* *********************
-     *    pc_guide.html    *
-     ***********************/
-    .wac-guide .container .lnb .depth1-menu{padding-top:5px;}
-
-    
-     /* ******************
-     *  wac-focus.html  *
-     ********************/
-     .ui-focus .m-visual{background:url(../../assets/img/keyboard-img-375.jpg) no-repeat 0 0;}
-
-}
-@media (max-width:320px){
-    /* ******************
-     *    index.html    *
-     ********************/
-     .index .container .m-visual h2{text-align: center; width: 100%;font-size: 45px;}
-     .index .container .m-visual p{font-size: 18px;}
-     .index .container .m-visual {height:750px;}
-
-    /* ******************
-     *  wac-guide.html  *
-     ********************/
-     .wac-guide .container > .inner{padding:0 10px;}
-
-
-}

@@ -3,9 +3,9 @@
 
 html,body{width:100%;}
 html{overflow-y:scroll; overflow-x: hidden;}
-html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,header,nav,aside,footer,option,a,.header,.gnb, .login-box,span,.footer, .inner,.btn-box,input, article, section{margin:0; padding:0; font-size: 17px; letter-spacing: -1px; box-sizing: border-box; font-family: 'Nanum Gothic', sans-serif; -webkit-font-size-adjust:none;  }
-body,h1,h2,h3,h4,input,button{color:#000;-webkit-font-size-adjust: 100%;}
-body{background-color:#fff;*word-break:break-all;-ms-word-break:break-all; font-family:'Nanum Gothic', sans-serif, 'Calibri', 'MalgunGothic', 'sans-serif';text-align:left; }
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,header,nav,aside,footer,option,a,.header,.gnb, .login-box,span,.footer, .inner,.btn-box,input, article, section, pre{margin:0; padding:0; font-size: 14px; box-sizing: border-box; font-family: 'Nanum Gothic', sans-serif; word-break:keep-all;-ms-word-break:keep-all;line-height: 1.8;}
+body,h1,h2,h3,h4,input,button{color:#000;}
+body{background-color:#fff; font-family:'Nanum Gothic', sans-serif, 'Calibri', 'MalgunGothic', 'sans-serif';text-align:left; }
 
 img,fieldset,iframe{border:0 none}
 li{list-style:none}
@@ -41,9 +41,7 @@ input {-webkit-appearance: none;}
 @media (min-width:1040px) and (max-width:1079px){html{font-size:28px;}}
 @media (min-width:1080px) and (max-width:1119px){html{font-size:29px;}}
 @media (min-width:1120px) {html{font-size:30px;}}
-/*@media (min-width:1160px) and (max-width:1199px){html{font-size:31px;}}
-@media (min-width:1200px) and (max-width:1239px){html{font-size:32px;}}
-@media (min-width:1240px){html{font-size:33px;}}*/
+
 
 :root{
   --white:#fff;
@@ -53,10 +51,16 @@ input {-webkit-appearance: none;}
   --alert-red : #d90011;
 }
 
+.orange{color: #e95509;}
+.green{color: #0e9c66}
+.blue{color: #1179b5}
+.gray{color: #ddd}
+
 .bg_orange{background: #e95509;}
 .bg_green{background: #0e9c66}
 .bg_blue{background: #1179b5}
 
+.bold{font-weight: 600;}
 
 
 a{color:#000000;text-decoration:none}
@@ -108,7 +112,7 @@ nput[type="text"]:focus,textarea:focus,input[type="file"]:focus,button:focus,inp
 .flex_col_center{display: flex; flex-direction: column; align-items: center; }
 
 /* util ui */
-.badge{display: inline-block; width: 25px; height: 25px; background: #e95509; text-align: center; color: #fff; border-radius: 50%; font-size: 13px; padding: 3px 0;}
+.badge{display: inline-block; width: 20px; height: 20px; background: #e95509; text-align: center; color: #fff; border-radius: 50%; font-size: 11px; padding: 0;}
 
 
 

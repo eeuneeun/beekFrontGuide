@@ -1,63 +1,20 @@
-$(document).ready(function () {
-  var $mBtn = $(".gnb .menu-btn"),
-    $pannel = $(".gnb .device"),
-    $container = $(".container");
+function codeWrapToggle(){
+  const codeToggleBtn = document.querySelectorAll('.code_toggle_btn')
 
-  var mobileMenuBtnMotionHandler = function (e) {
-    if (!$pannel.hasClass("active")) {
-      $pannel.addClass("active");
-      $container.addClass("gnb-active");
-    } else {
-      $pannel.removeClass("active");
-      $container.removeClass("gnb-active");
-    }
-  };
-
-  $mBtn.on({
-    click: mobileMenuBtnMotionHandler,
+  codeToggleBtn &&
+  codeToggleBtn.forEach(item => {
+    item.addEventListener('click', (e)=>{
+      item.innerHTML == '열기' 
+      ? item.innerHTML = '닫기'
+      : item.innerHTML = '열기'
+      
+      e.target.parentElement.classList.toggle('active')
+    })
   });
+}
 
-  var preventDefaultAction = function (e) {
-    e = e || window.event;
-    if (e != undefined) {
-      // 현재 이벤트가 상위로 전파되지 않도록 중단.
-      if (e.stopPropagation) {
-        // W3C standard variant
-        e.stopPropagation();
-      } else {
-        // IE variant
-        e.cancelBubble = true;
-      }
-      //
-      if (e.preventDefault) {
-        // W3C variant
-        e.preventDefault();
-      } else {
-        // IE<9 variant:
-        e.returnValue = false;
-      }
-    }
-  };
 
-  $("pre code").each(function (i, block) {
-    hljs.highlightBlock(block);
-  });
-
-  var codeAreaHandler = (function () {
-    var $codeArea = $("pre code"),
-      $targetCodeArea;
-
-    $codeArea.before('<button class="code-open-btn">열기</button>');
-
-    var $codeOpenBtn = $(".code-open-btn");
-
-    $codeOpenBtn.on("click", function () {
-      $targetCodeArea = $(this).next("code");
-      if ($targetCodeArea.hasClass("active")) {
-        $targetCodeArea.removeClass("active");
-      } else {
-        $targetCodeArea.addClass("active");
-      }
-    });
-  })();
-});
+document.addEventListener("DOMContentLoaded", () => {
+  codeWrapToggle()
+  hljs.highlightAll();
+})

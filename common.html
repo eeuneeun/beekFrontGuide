@@ -8,19 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- css -->
+    <link rel="stylesheet" href="./assets/css/atom-one-dark.min.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/ver1.css">
+    <!-- <link rel="stylesheet" href="./assets/css/ver1.css"> -->
 
     <!-- js -->
-    <script src="./js/highlight.pack.js"></script>
-    <script src="./js/common.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/common.js"></script>
 
     <title>BEEKK 공통 가이드</title>
 </head>
 
-<body>
-    <div class="common">
+<body> 
+    <div class="common wrapper">
         <!-- gnb start -->
         <header class="gnb">
             <!-- inner start -->
@@ -59,228 +60,544 @@
         <!-- gnb end -->
 
         <!-- container start -->
-        <div class="container flex_between inner">
-            
-            <!-- snb start -->
-            <nav class="snb">
-                <h2>COMMON CONVENTION</h2>
-                <ul>
-                    <li>
-                        1. HTML 코드 작성 규칙
-                    </li>
-                    <li>
-                        2. CSS 코드 작성 규칙
-                    </li>
-                    <li>
-                        3. 약속어 목록
-                    </li>
-                    <li>
-                        4. 복잡한 UI 의 예시
-                    </li>
-                </ul>
-            </nav>
-            <!-- snb end -->
+        <div class="container">
+            <!-- inner start -->
+            <div class="flex_between inner">
+                <!-- snb start -->
+                <nav class="snb">
+                    <h2>COMMON CONVENTION</h2>
+                    <ul>
+                        <li>
+                            <a href="#html">
+                                1. HTML 코드 작성 규칙
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#css">
+                                2. CSS 코드 작성 규칙
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#keyword">
+                                3. 약속어 목록
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sample">
+                                4. 디렉토리 구조
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- snb end -->
 
-            <!-- contents start -->
-            <div class="contents">
-                <article>
-                    <h3>1. HTML 코드 작성 규칙</h3>
-                    <div>
-                        <p
-                        >HTML 코드를 작성하는 Mark up 을 진행 할 때 다음과 같은 기본 규칙을 준수합니다.
-                        </p>
+                <!-- contents start -->
+                <div class="contents">
+                    <article id="html">
+                        <h3>1. HTML 코드 작성 규칙</h3>
+                        <div>
+                            <p
+                            >HTML 코드를 작성하는 Mark up 을 진행 할 때 다음과 같은 기본 규칙을 준수합니다.
+                            </p>
 
-                        <ol class="list">
-                            <li>
-                                <h4>
-                                    <span class="badge">1</span>
-                                    W3C Validation 을 통과 할 수 있는 구조로 작성 할 것
-                                </h4>
-                                <p>
-                                    HTML은 해당 DTD의 명세에 맞게 작성하며, W3C validation 을 통과해야 합니다.<br />
-                                    단, HTML5 DTD 선언 시
-                                    다음 오류 내용은 허용 할 수 있습니다.
-                                </p>
-                                <p class="example"> 
-                                    &bull; iframe 의 frameborder, marginwidth, marginheight, scrolling 애트리뷰트
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">2</span>
-                                    tag 작성시에는 영문 소문자만을 사용 할 것
-                                </h4>
-                                <p>
-                                    DTD 문서 명세를 제외한 모든 요소와 attribute는 소문자로 작성해야 합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">3</span>
-                                    tag 내부의 attribute 와 class, id 등의 표기는 쌍따옴표("") 를 사용 할 것
-                                </h4>
-                                <p>
-                                    attribute, class, id 를 비롯한 tag 내부의 모든 속성 값은 쌍따옴표만을 사용 합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">4</span>
-                                    tag 내부에 들어가는 특수문자는 웹 표준을 준수하여 코드로 작성 할 것
-                                </h4>
-                                <p>
-                                    tag 내부의 모든 특수문자는 HTML 5의 Character references 에 기재되어 있는 코드 값으로 표기 합니다.
-                                </p>
-                                <p class="example">
-                                    &bull; 
-                                    <a href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references">HTML5 Character Rreferences Link</a>
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">5</span>
-                                    inline 선언은 가급적 지양 할 것
-                                </h4>
-                                <p>
-                                    tag 내부에 inline 방식으로 사용하는 css 속성 및 스크립트는 지양해야 합니다. <br />
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">6</span>
-                                    들여쓰기 규칙은 다음의 규칙을 준수 할 것
-                                </h4>
-                                <p>
-                                    들여쓰기를 하면 코드의 가독성이 높아지고 전체 HTML 구조를 쉽게 파악 할 수 있어 전체적인 코드의 재생산성을 높여줍니다. <br />
-                                    BEEKK 에서는 마크업의 중첩이 깊어질 때마다 자식 요소는 1탭 들여 쓰고, 1탭의 크기는 공백 4칸으로 규정합니다. <br />
-                                    문서 내에서는 반드시 탭을 이용하여 들여쓰기를 하며, 탭을 대신하여 공백으로 띄어 들여쓰지 않도록 유의합니다. 
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">6</span>
-                                    빈 줄을 사용하려면 다음의 규칙을 준수 할 것
-                                </h4>
-                                <p>
-                                    의미 있는 객체를 구분하기 위하여 코드 그룹 간 1줄씩 빈 줄을 만드는 것을 허용합니다.<br />
-                                    다만, 빈 줄은 1줄을 초과하지 않도록 유의합니다.
-                                </p>
-                            </li>
-                        </ol>
-                    </div>
-                </article>
+                            <ol class="list">
+                                <li>
+                                    <h4>
+                                        <span class="badge">1</span>
+                                        W3C Validation 을 통과 할 수 있는 구조로 작성 할 것
+                                    </h4>
+                                    <p>
+                                        HTML은 해당 DTD의 명세에 맞게 작성하며, W3C validation 을 통과해야 합니다.<br />
+                                        단, HTML5 DTD 선언 시
+                                        다음 오류 내용은 허용 할 수 있습니다.
+                                    </p>
+                                    <p class="example"> 
+                                        &bull; iframe 의 frameborder, marginwidth, marginheight, scrolling 애트리뷰트
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">2</span>
+                                        tag 작성시에는 영문 소문자만을 사용 할 것
+                                    </h4>
+                                    <p>
+                                        DTD 문서 명세를 제외한 모든 요소와 attribute는 소문자로 작성해야 합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">3</span>
+                                        tag 내부의 attribute 와 class, id 등의 표기는 쌍따옴표("") 를 사용 할 것
+                                    </h4>
+                                    <p>
+                                        attribute, class, id 를 비롯한 tag 내부의 모든 속성 값은 쌍따옴표만을 사용 합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">4</span>
+                                        tag 내부에 들어가는 특수문자는 웹 표준을 준수하여 코드로 작성 할 것
+                                    </h4>
+                                    <p>
+                                        tag 내부의 모든 특수문자는 HTML 5의 Character references 에 기재되어 있는 코드 값으로 표기 합니다.
+                                    </p>
+                                    <p class="example">
+                                        &bull; 
+                                        <a href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references" target="_blank">HTML5 Character Rreferences Link</a>
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">5</span>
+                                        inline 선언은 가급적 지양 할 것
+                                    </h4>
+                                    <p>
+                                        tag 내부에 inline 방식으로 사용하는 css 속성 및 스크립트는 지양해야 합니다. <br />
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">6</span>
+                                        들여쓰기 규칙은 다음의 규칙을 준수 할 것
+                                    </h4>
+                                    <p>
+                                        들여쓰기를 하면 코드의 가독성이 높아지고 전체 HTML 구조를 쉽게 파악 할 수 있어 전체적인 코드의 재생산성을 높여줍니다. <br />
+                                        BEEKK 에서는 마크업의 중첩이 깊어질 때마다 자식 요소는 1탭 들여 쓰고, 1탭의 크기는 공백 4칸으로 규정합니다. <br />
+                                        문서 내에서는 반드시 탭을 이용하여 들여쓰기를 하며, 탭을 대신하여 공백으로 띄어 들여쓰지 않도록 유의합니다. 
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">7</span>
+                                        빈 줄을 사용하려면 다음의 규칙을 준수 할 것
+                                    </h4>
+                                    <p>
+                                        의미 있는 객체를 구분하기 위하여 코드 그룹 간 1줄씩 빈 줄을 만드는 것을 허용합니다.<br />
+                                        다만, 빈 줄은 1줄을 초과하지 않도록 유의합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">8</span>
+                                        하나의 태그에 여러개의 속성을 기술해야 할 경우, 다음과 같은 순번을 지킬 것
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            1. 해당 태그를 사용시, 반드시 작성해야 하는 필수 속성 값을 먼저 작성합니다.<br />
+                                                &nbsp; &nbsp; 
+                                                단, required, readonly 와 같이 <em class="bold">속성 그 자체가 값</em>을 의미하는 경우<br />
+                                                &nbsp; &nbsp; 
+                                                <em class="bold">모든 속성의 제일 마지막에 기술 할 것</em> 을 명심하세요!
+                                            <ul class="bullet_list">
+                                                <li> a 태그 : href &rarr; target</li>
+                                                <li> img 태그 : src &rarr; alt</li>
+                                                <li> label 태그 : for</li>
+                                                <li> input 태그 : type &rarr; name &rarr; value &rarr; <em class="orange">~ the others ~</em> &rarr; required &rarr; readonly
+                                                </li>
+                                            </ul>
+                                            
+                                            <div class="example_wrap">
+                                                <h5>example</h5>
+                                                <ul>
+                                                    <li>
+                                                        - input [type="text"] 태그의 속성 기입 순서 : <br />
 
-                <article>
-                    <h3>2. CSS 코드 작성 규칙</h3>
-                    <div>
-                        <p
-                        >CSS 코드를 작성하는 Mark up 을 진행 할 때 다음과 같은 기본 규칙을 준수합니다.
-                        </p>
+                                                        &nbsp; &nbsp; 
+                                                        type &rarr; name &rarr; value &rarr; minlength &rarr; maxlength &rarr; placeholder <br />
 
-                        <ol class="list">
-                            <li>
-                                <h4>
-                                    <span class="badge">1</span>
-                                    W3C Validation 을 통과 할 수 있는 방식으로만 작성 할 것
-                                </h4>
-                                <p>
-                                    CSS는 사용 가능한 Hack과 CSS3 속성을 제외하고 W3C Validation을 통과해야 합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">2</span>
-                                    영문 소문자만 사용 할 것
-                                </h4>
-                                <p>
-                                    모든 속성은 영문 소문자로만 작성합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">3</span>
-                                    따옴표를 사용 할 때는 다음의 규칙을 준수 할 것
-                                </h4>
-                                <dl>
-                                    <dt>
-                                        - 작은 따옴표(' ')
-                                    </dt>
-                                    <dd>
-                                        공백이 포함된 폰트명
-                                    </dd>
-                                    <dd>
-                                        한글 폰트명
-                                    </dd>
-                                    <dd>   
-                                        문자열 데이터 타입
-                                    </dd>
-                                    <dd> 
-                                        filter 속성의 파라미터값
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>
-                                        - 큰 따옴표(" ")
-                                    </dt>
-                                    <dd>
-                                        @charset 선언 시에는 속성
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>
-                                        - 따옴표 사용 금지
-                                    </dt>
-                                    <dd>
-                                        url() 형태의 데이터 타입
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">4</span>
-                                    들여쓰기는 다음과 같은 규칙을 준수 할 것
-                                </h4>
-                                <p>
-                                    HTML 요소의 들여쓰기 구조와 같이, 상위 block 엘리먼트의 자식들은 각각 1탭 들여씁니다. <br />
-                                    1탭의 크기는 공백 4칸으로 규정합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">5</span>
-                                    W3C Validation 을 통과 할 수 있는 방식으로만 작성 할 것
-                                </h4>
-                                <p>
-                                    CSS는 사용 가능한 Hack과 CSS3 속성을 제외하고 W3C Validation을 통과해야 합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <h4>
-                                    <span class="badge">6</span>
-                                    빈 줄을 삽입 할 경우, 다음과 같은 규칙을 준수합니다.
-                                </h4>
-                                <p>
-                                    의미 있는 객체를 구분하기 위하여 코드 그룹 간 1줄씩 빈 줄을 넣을 수 있습니다.<br />
-                                    단, 빈 줄의 간격은 1줄을
-                                    초과하지 않도록 합니다.<br />
-                                    선택자와 중괄호”{}”가 중첩되는 Media Query 와 같은 케이스는 빈 줄을 반드시 삽입합니다. 
-                                </p>
-                            </li>
-                        </ol>
-                    </div>
-                </article>
+                                                        &nbsp; &nbsp; 
+                                                        &rarr; class &rarr; id &rarr; required &rarr; readonly
+                                                    </li>
 
-                <article>
-                    <h3>3. 약속어 목록</h3>
-                    <div></div>
-                </article>
+                                                    <li>
+                                                        - input [type="checkbox"] 태그의 속성 기입 순서 : <br />
 
-                <article>
-                    <h3>4. 복잡한 UI 의 예시</h3>
-                    <div></div>
-                </article>
+                                                        &nbsp; &nbsp; 
+                                                        type &rarr; name &rarr; value &rarr; class &rarr; id &rarr; checked &rarr; required &rarr; readonly
+                                                    </li>
+                                                    <li>
+                                                        - input [type="radio"] 태그의 속성 기입 순서 : <br />
+
+                                                        &nbsp; &nbsp; 
+                                                        type  &rarr; name &rarr; value &rarr; class &rarr; id &rarr; checked &rarr; readonly
+                                                    </li>
+                                                </ul>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>
+<pre><code class="language-xml hljs">&lt;input type="text" 
+name="test"
+value="test"
+minlength="8"
+maxlength="16"
+placeholder="아이디를 입력해주세요"
+class="text_input"
+id="textInput"
+required
+readonly
+/&gt;</code></pre>
+</div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            2. class
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    <em class="orange bold">class 는 명사로 된 단어를 선택자로 사용 해야 하며, 합성어의 경우 각 단어간 연결을 언더바('_') 로 처리합니다.</em>
+                                                </li>
+                                                <li>
+                                                    특히, <em class="bold">BEEKK 의 CSS 컨벤션은 <a href="http://getbem.com/introduction/">BEM STYLE GUIDE</a> 를 지향하지 않습니다.</em>
+                                                </li>
+                                                <li>
+                                                    과도한 class 사용은 html 코드 자체의 가독성을 떨어트리고 협업 능률을 저하시키게 되기 때문입니다.
+
+                                                </li>
+                                                <li>
+                                                    따라서, class 의 사용은 적재적소에 적절하게 쓰여야 합니다.
+                                                </li>
+                                                <li>
+                                                    <em class="bold">모든 요소에 무의미하게 작성하는 것은 반드시 지양해야 합니다.</em>
+                                                </li>
+                                            </ul>
+
+    <div class="example_wrap">
+    <h5>example</h5>
+    <div class="code_wrap">
+    <button class="code_toggle_btn">열기</button>                                           
+    <pre><code class="language-xml hljs">&lt;ul class="snb flex_col_start"&gt;
+    &lt;li&gt;
+        &lt;button class="history_btn" onclick="commonModalHandler('#historyWrap', 'toggle')" title="히스토리"&gt;
+            히스토리
+        &lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="only_pc"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;button class="alarm_btn" onclick="commonModalHandler('#alarmWrap', 'toggle')" title="알림"&gt;
+                    알림
+                &lt;/button&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;button class="snb_like_btn" onclick="commonModalHandler('#wishWrap', 'toggle')" title="좋아요"&gt;
+                    좋아요
+                &lt;/button&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a  class="mypage_btn" href="#" title="내 정보" &gt;
+                    내 정보
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;button class="top_btn" onclick="scrollToTop()" title="최상단으로" &gt;최상단으로&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;/ul&gt;</code></pre>
+    </div>
+    </div>
+                                        </li>
+
+                                        <li>
+                                            3. id
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    id 는 하이픈('-'), 혹은 언더바('_') 를 사용하지 않고 카멜케이스 규칙을 사용하여 기입해야 합니다.
+                                                </li>
+                                                <li>    
+                                                    id 역시 선택자이기 때문에, 기본적으로 명사 어구를 사용하여 기입하는 것을 권장합니다.
+                                                </li>
+                                                <li>
+                                                    여러 명사가 더해져 만들어진 합성어일 경우, 덧붙여진 명사의 알파벳 첫 글자를 대문자로 기입합니다.
+                                                </li>
+                                            </ul>
+    <div class="example_wrap">
+    <h5>example</h5>
+    <div class="code_wrap">
+    <button class="code_toggle_btn">열기</button>                                           
+    <pre><code class="language-xml hljs"> &lt;div class="promotion_top active" id="promotionTop"&gt;
+        🌷봄맞이 스페셜 할인! 20% COUPON PACK🌷  
+        &lt;span class="only_pc"&gt;2022.03.15 ~ 2022.03.31&lt;/span&gt;
+
+        &lt;button class="close_btn only_pc" onclick="promotionTopModalHandler()"&gt;닫기&lt;/button&gt;
+        &lt;button class="arrow_btn only_mobile" onclick="promotionTopModalHandler()"&gt;닫기&lt;/button&gt;
+    &lt;/div&gt;</code></pre>
+    </div>
+    </div>
+                                        </li>
+                                        <li>
+                                            4. javascript event 
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    HTML 의 모든 속성을 전부 기술 한 뒤, 마지막에 javascript 와 관련된 event 항목들을 기입합니다.
+                                                </li>
+                                                <li>
+                                                    속성과 javascript event listner 가 뒤섞여 있을 경우 업무 효율이 현저히 떨어지고, 코드 리딩의 난이도가 급격히 올라가기 때문입니다.
+                                                </li>
+                                                <li>
+                                                    하나의 요소에 여러 javascript 이벤트를 중첩 바인딩 하는 경우에는 신중을 기해주세요!
+                                                </li>
+                                            </ul>
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-xml hljs"> &lt;div&gt;
+    &lt;button class="all_read_btn" onclick="commonModalHandler('#historyFolder', 'open')"&gt;전체읽음&lt;/button&gt;
+    &lt;button class="delete_read_btn" onclick="commonModalHandler('#historyFolder', 'open')"&gt;읽은 알림 삭제&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="custom_scrollbar" onscroll="alarmScrollHandler(event)"&gt;
+    &lt;div class="section"&gt;
+        &lt;h6&gt;새로운 알림&lt;/h6&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>                                            
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </article>
+
+                    <article id="css">
+                        <h3>2. CSS 코드 작성 규칙</h3>
+                        <div>
+                            <p
+                            >CSS 코드를 작성하는 Mark up 을 진행 할 때 다음과 같은 기본 규칙을 준수합니다.
+                            </p>
+
+                            <ol class="list">
+                                <li>
+                                    <h4>
+                                        <span class="badge">1</span>
+                                        W3C Validation 을 통과 할 수 있는 방식으로만 작성 할 것
+                                    </h4>
+                                    <p>
+                                        CSS는 사용 가능한 Hack과 CSS3 속성을 제외하고 W3C Validation을 통과해야 합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">2</span>
+                                        영문 소문자만 사용 할 것
+                                    </h4>
+                                    <p>
+                                        모든 속성은 영문 소문자로만 작성합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">3</span>
+                                        따옴표를 사용 할 때는 다음의 규칙을 준수 할 것
+                                    </h4>
+                                    <dl>
+                                        <dt>
+                                            - 작은 따옴표(' ')
+                                        </dt>
+                                        <dd>
+                                            공백이 포함된 폰트명
+                                        </dd>
+                                        <dd>
+                                            한글 폰트명
+                                        </dd>
+                                        <dd>   
+                                            문자열 데이터 타입
+                                        </dd>
+                                        <dd> 
+                                            filter 속성의 파라미터값
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            - 큰 따옴표(" ")
+                                        </dt>
+                                        <dd>
+                                            @charset 선언 시에는 속성
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            - 따옴표 사용 금지
+                                        </dt>
+                                        <dd>
+                                            url() 형태의 데이터 타입
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">4</span>
+                                        들여쓰기는 다음과 같은 규칙을 준수 할 것
+                                    </h4>
+                                    <p>
+                                        HTML 요소의 들여쓰기 구조와 같이, 상위 block 엘리먼트의 자식들은 각각 1탭 들여씁니다. <br />
+                                        1탭의 크기는 공백 4칸으로 규정합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">5</span>
+                                        W3C Validation 을 통과 할 수 있는 방식으로만 작성 할 것
+                                    </h4>
+                                    <p>
+                                        CSS는 사용 가능한 Hack과 CSS3 속성을 제외하고 W3C Validation을 통과해야 합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">6</span>
+                                        빈 줄을 삽입 할 경우, 다음과 같은 규칙을 준수 할 것
+                                    </h4>
+                                    <p>
+                                        의미 있는 객체를 구분하기 위하여 코드 그룹 간 1줄씩 빈 줄을 넣을 수 있습니다.<br />
+                                        단, 빈 줄의 간격은 1줄을
+                                        초과하지 않도록 합니다.<br />
+                                        선택자와 중괄호 &ldquo;&lcub; &rcub;&ldquo;가 중첩되는 Media Query 와 같은 케이스는 빈 줄을 반드시 삽입합니다. 
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">7</span>
+                                        class 의 중첩 기술은 최대 5회를 넘어가지 않도록 할 것
+                                    </h4>
+                                    <p>
+                                        명확한 스타일 정의를 위하여 상위 클래스를 기술하는 습관은<br />
+                                        기본적으로는 매우 좋은 습관입니다.<br />
+                                        하지만, 너무 많은 중첩 클래스의 기술은 가독성을 심하게 떨어뜨리게 됩니다.<br />
+                                        5회 이상의 중첩 기술을 요할 경우에는 해당 요소에 새로운 class 를 부여하여<br />
+                                        독립된 개체로 기술하는 것을 권장합니다.
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">8</span>
+                                        class 의 중첩 기술은 최대 5회를 넘어가지 않도록 할 것
+                                    </h4>
+                                    <p>
+                                        명확한 스타일 정의를 위하여 상위 클래스를 기술하는 습관은<br />
+                                        기본적으로는 매우 좋은 습관입니다.<br />
+                                        하지만, 너무 많은 중첩 클래스의 기술은 가독성을 심하게 떨어뜨리게 됩니다.<br />
+                                        5회 이상의 중첩 기술을 요할 경우에는 해당 요소에 새로운 class 를 부여하여<br />
+                                        독립된 개체로 기술하는 것을 권장합니다.
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+                    </article>
+
+                    <article id="keyword">
+                        <h3>3. 약속어 목록</h3>
+                        <div>
+                            <ol class="list">
+                                <li>
+                                    <h4>
+                                        <span class="badge">1</span>
+                                        색상 관련
+                                    </h4>
+                                    <ul class="bullet_list">
+                                        <li>BEEKK 에서 자주 사용되는 색상들은 <a href="#"> /assets/css/common/color.css</a> 에 코드형 변수로 기술되어 있습니다.</li>
+                                        <li>필요시, 적절하게 응용하여 사용하면 작업 효율을 올릴 수 있습니다.</li>
+                                        <li>다만, 직관적으로 인지하기 어려운 변수명이기 때문에 추후 리팩토링시 변경이 될 수 있습니다.</li>
+                                    </ul>
+                                    <div class="line_clear">
+                                        <div class="example_wrap">
+                                            <h5>example</h5>
+                                            <img src="./assets/img/img_color.png" alt="색상 css">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">1</span>
+                                        반응형 관련
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            1. BEEKK 의 사이트는 ADMIN 관리자 단을 제외하고 모두 반응형 웹으로 되어있습니다.
+                                            <ul class="bullet_list">
+                                                <li>BEEKK : 쇼핑몰 플랫폼</li>
+                                                <li>BEEKKERS : SNS 플랫폼</li>
+                                                <li>LIVE : 양방향 LIVE 방송 플랫폼</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            2. 컨텐츠의 범위는 <em class="orange bold">최대 1200px, 최소 320px</em> 입니다.<br /> 
+                                            &nbsp;&nbsp;
+                                            지정어 .inner 를 사용하면 레이아웃을 잡는 시간을 줄일 수 있습니다.
+
+                                            <div class="example_wrap">
+                                                <h5>example</h5>
+                                                <img src="./assets/img/img_inner01.png" alt="inner css pc">
+                                                <img src="./assets/img/img_inner02.png" alt="inner css mobile">
+                                            </div>
+                                        </li>
+                                        <li>
+                                            3. 공통 컴포넌트들 중 레이아웃 요소들의 미디어 쿼리는<br /> 
+                                            &nbsp;&nbsp;
+                                            <a href="#">/assets/css/common/responsive.css</a> 에 기술되어 있습니다.<br />
+                                            &nbsp;&nbsp;
+                                            공통 컴포넌트 중 레이아웃 요소들은 다음과 같습니다.
+                                            <ul class="bullet_list">
+                                                <li>header : 공통 헤더</li>
+                                                <li>gnb : 최상단에 위치한 메뉴</li>
+                                                <li>snb : 오른쪽 사이드와 모바일 하단 메뉴</li>
+                                                <li>lnb : 최상단 바로 아래에 위치한 메뉴</li>
+                                                <li>lnb_modal : 모바일에서 보이는 lnb 레이어 모달</li>
+                                                <li>container : 컨텐츠를 담는 그릇</li>
+                                                <li>footer : 회사 정보가 담긴 최하단 영역</li>
+                                                <li>modal : 일반적으로 재사용되는 공통 모달의 모바일 버전</li>
+                                                <li>detail_filter_wrap : 상품 상세정보 필터의 모바일 버전</li>
+                                                <li>newcoordi_filter_wrap : 뉴코디 메뉴에서 사용되는 상품 상세정보 필터의 모바일 버전</li>
+                                                <li>toast_alarm : 상품을 장바구니에 담거나, 관심 메뉴로 지정할 경우 잠시 보였다가 사라지는 토스트 알림</li>
+                                                <li>recommand_brand : 추천 브랜드 리스트</li>
+                                            
+                                            </ul>
+                                            <div class="example_wrap">
+                                                <h5>example</h5>
+                                                <img src="./assets/img/img_responsive.png" alt="반응형 css">
+                                            </div>
+                                        </li>
+                                        <li>
+                                            4. 공통 컴포넌트들 중 레이아웃과 관련이 없고 반복적으로 사용되는 컨텐츠들의 경우<br />
+                                            &nbsp;&nbsp;
+                                            <a href="#">/assets/css/common/components.css</a> 파일 하단에 모바일 디자인을 위한 미디어 쿼리가<br />
+                                            &nbsp;&nbsp;
+                                            기술되어 있습니다.
+
+                                            <div class="example_wrap">
+                                                <h5>example</h5>
+                                                <img src="./assets/img/img_components01.png" alt="components tablet css">
+                                                <img src="./assets/img/img_components02.png" alt="components mobile css">
+                                            </div>
+                                        </li>
+                                        <li>
+                                            5. 각 페이지별 미디어 쿼리는 pc 버전 css 가 기술된 파일 하단에 <br /> 
+                                            &nbsp;&nbsp;
+                                            components.css 와 동일한 방식으로 미디어 쿼리가 기술되어 있습니다.<br /> 
+                                            &nbsp;&nbsp;
+                                            하단의 예시 이미지는 main.css 입니다.
+
+                                            <div class="example_wrap">
+                                                <h5>example</h5>
+                                                <img src="./assets/img/img_main01.png" alt="main css pc">
+                                                <img src="./assets/img/img_main02.png" alt="main css mobile">
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </article>
+
+                    <article id="directory">
+                        <h3>4. 디렉토리 구조</h3>
+                        <div></div>
+                    </article>
+                </div>
+                <!-- contents end -->
             </div>
-            <!-- contents end -->
+            <!-- inner end -->
         </div>
         <!-- container end -->
 
