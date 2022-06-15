@@ -7,7 +7,7 @@
 
 /* html {scroll-behavior: smooth;} */
 ::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
     height: 10px;
     background: transparent;
 }
@@ -123,7 +123,7 @@
     .common .container .inner{position: relative; height: 100%;}
 
 
-.contents{width: 70%;height: 100%; position: absolute; top: 0; right: 0; overflow-y: auto;}
+.contents{width: 70%; height: 100%; position: absolute; top: 0; right: 0; padding-right: 10px; overflow-y: auto;}
     .contents > article{ padding: 25px 0;}
     
     .contents > article a{color: #3285bf; font-weight: 600; text-decoration: underline;}

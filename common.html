@@ -591,12 +591,178 @@ readonly
                                         <span class="badge">3</span>
                                         지정된 class 관련
                                     </h4>
+                                    <p>
+                                        지정된 class 들은 대부분 <a href="#">/assets/css/common/reset.css</a> 파일에서 확인 해 보실 수 있습니다.
+                                    </p>
+
                                     <ol class="child_list">
-                                        <li> 1. 레이아웃 (layout)</li>
-                                        <li> 2. 조건에 따른 스타일 (condition)</li>
-                                        <li> 3. 버튼 (button)</li>
-                                        <li> 4. 레이블 (label)</li>
-                                        <li> 5. 뱃지 (badge)</li>
+                                        <li> 
+                                            1. 레이아웃 (layout)
+
+                                            <ul class="bullet_list">
+                                                <li>다음의 class 들은 레이아웃과 관련된 지정 약속어 입니다.</li>
+                                                <li>요소의 레이아웃을 잡는 데에 사용하시면 중복 코드를 줄이고 작업 효율을 올릴 수 있습니다.</li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/* layout */
+.inner{width: 1180px !important; margin: 0 auto; position: relative; overflow: hidden;}
+.active{display:block !important;}
+.inactive{background:#767676 !important;}
+.display_none{display:none !important;}
+.visibility_none{display:block; width: 0; height: 0; visibility: hidden;}
+
+/* width */
+.width_100{width:100% !important;}
+.width_50{width:50% !important;}
+.width_25{width:25% !important;}
+
+/* margin */
+.margin_0{margin: 0 !important;}
+
+/* padding */
+.padding_0{padding: 0 !important;}
+
+/* border */
+.border_0{border: 0 !important ;}
+
+/* flex */
+.flex_start{display: flex; align-items: center; justify-content: flex-start;}
+.flex_center{display: flex; align-items: center; justify-content: space-around;}
+.flex_end{display: flex; align-items: center; justify-content: flex-end;}
+.flex_between{width: 100%; display: flex; align-items: center; justify-content: space-between !important;}
+.flex_evenly{width: 100%; display: flex; align-items: center; justify-content: space-evenly !important;}
+
+.flex_col_start{display: flex; align-items: flex-start; justify-content: flex-start; flex-direction: column; gap: 10px;}
+.flex_col_center{display: flex; align-items: center; justify-content: space-around; flex-direction: column;}
+.flex_hoz_right{justify-content: flex-end !important;}
+
+.flex_item{align-self: center;}
+
+.align_start{align-items: flex-start;}
+.align_end{align-items: flex-end;}
+
+
+/* gap */
+.ga_0{gap: 0 !important;}
+.gap_5{gap: 5px !important;}
+.gap_10{gap: 10px !important;}
+.gap_15{gap: 15px !important;}
+.gap_20{gap: 20px !important;}</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                             2. 조건에 따른 스타일 (condition)
+                                        
+                                             <ul class="bullet_list">
+                                                <li>다음의 class 들은 반응형 요소를 구현함에 있어, 조건에 따라 다르게 보여야 하는 요소들에 사용하면 좋은 지정어입니다.</li>
+                                                <li>예를 들면, pc 혹은 mobile 한 쪽에서만 보여야하는 요소들에는 only_pc, only_mobile 클래스를 활용하면 한층 간단하게 작업을 완료해 나갈 수 있습니다.</li>
+                                                <li>조건에 따른 스타일을 구현 할 때 사용하시면 중복 코드를 줄이고 작업 효율을 올릴 수 있습니다.</li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">.only_pc{display:block !important;}
+.only_mobile{display: none !important;}
+.after_el_none::after{display: none !important;}</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                             3. 버튼 (button)
+                                             <ul class="bullet_list">
+                                                <li>다음의 class 들은 BEEKK 에서 자주 등장하는 버튼의 모양을 사전에 구현해 놓은 지정된 약속어 입니다.</li>
+                                                <li>버튼 구현에 사용하시면 중복 코드를 줄이고 작업 효율을 올릴 수 있습니다.</li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/* button */
+.btn{display: flex; align-items: center;justify-content: center; border: 1px solid #E0E0E0; padding: 20px;}
+.like_btn{position: absolute; width:30px; height: 30px; background: url(../../img/shop/visual/main/users_porduct/icon_like.svg) no-repeat center/100%; bottom: 10px; right: 10px; text-indent: -999999999px;overflow: hidden; }
+.like_btn_black{width: 20px; height: 20px;border-radius: 50%; background: url(../../img/shop/icon/icon_heart.svg) no-repeat #fff center/100%; text-indent: -999999px; }
+.checked_btn{display: inline-block; width: 30px; height: 30px; background: url(../../img/shop/visual/main/users_porduct/icon_checked.svg) no-repeat center; text-indent: -99999999px;overflow: hidden; }
+.reset_btn{background: #fff;border: 1px solid #E0E0E0; color: #E0E0E0;}
+.close_btn{width: 32px; height: 32px; background: url(../../img/shop/icon/icon_close-bk.svg) no-repeat center; overflow: hidden; text-indent: -999999px; }
+.filter_submit_btn{background: #000; color: #fff;border: 1px solid #000;}
+.allow_btn,
+.follow_btn{background: #e95509;color: #fff; border-radius: 5px; padding: 7px 20px;font-size: 16px;}
+.reject_btn,
+.following_btn{background: #fff;color: #000; border-radius: 5px; padding: 7px 20px; border: 1px solid #E0E0E0;font-size: 16px;}
+.copy_btn,
+.play_btn{width: 24px; height: 24px; position: absolute; top: 10px; right: 10px;display: flex; align-items: center; justify-content: center;}
+    .copy_btn img, 
+    .play_btn img{width: 100% !important; height: 100% !important;}
+
+/* snb */
+.history_btn{background: url(../../img/shop/icon/icon_clock.svg)  #fff no-repeat center ;}
+
+.alarm_btn{background: url(../../img/shop/icon/icon_bell.svg)  #fff no-repeat center ;}
+    .alarm_btn:hover{background: url(../../img/shop/icon/icon_bell_black.svg)  #fff no-repeat center ;}
+
+.snb_like_btn{background: url(../../img/shop/icon/icon_heart.svg)  #fff no-repeat center ;}
+    .snb_like_btn:hover{background: url(../../img/shop/icon/icon_heart_black.svg)  #fff no-repeat center ;}
+
+.mypage_btn{background: url(../../img/shop/icon/icon_user.svg)  #fff no-repeat center ;}
+    .mypage_btn:hover{background: url(../../img/shop/icon/icon_user_black.svg)  #fff no-repeat center ;}
+    
+.top_btn{background: url(../../img/shop/icon/icon_up.svg)  #fff no-repeat center ;}</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                             4. 레이블 (label)
+                                        
+                                             <ul class="bullet_list">
+                                                <li>다음의 class 들은 라벨형 UI 와 관련된 지정 약속어 입니다.</li>
+                                                <li>라벨형 UI 를 구현하는 데에 사용하시면 중복 코드를 줄이고 작업 효율을 올릴 수 있습니다.</li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/* label : 순위, 상하락 표현 */
+.label{display: inline-block; color: #fff; border-radius: 15px; font-size: 13px; padding: 5px 13px;  margin-left: auto;}
+    .label.up{background: #D33F06;}
+    .label.down{background: #707070;}</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                             5. 뱃지 (badge)
+                                        
+                                             <ul class="bullet_list">
+                                                <li>다음의 class 들은 레이아웃과 관련된 지정 약속어 입니다.</li>
+                                                <li>요소의 레이아웃을 잡는 데에 사용하시면 중복 코드를 줄이고 작업 효율을 올릴 수 있습니다.</li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/* badge */
+.badge_dot_wrap{ position: relative;}
+.badge_dot{content: ""; display: inline-block; position: absolute; top: 0; right: -4px; width: 5px; height: 5px; border-radius: 50%; background-color: #e95509; color: #fff;}
+
+.badge_number_wrap{position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;}
+.badge_number{width: 18px; height: 18px; position: absolute; bottom: 0px; right: 4px; font-size: 11px; font-weight: 500; text-align: center; background-color: #e95509; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-indent:0}</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
                                     </ol>
                                 </li>
                             </ol>
@@ -621,6 +787,540 @@ readonly
                                             <h5>example</h5>
                                             <img src="./assets/img/img_directory.png" alt="디렉토리 구조">
                                         </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </article>
+
+                    <article id="directory">
+                        <h3>5. JAVASCRIPT</h3>
+                        <div>
+                            <ol class="list">
+                                <li>
+                                    <h4>
+                                        <span class="badge">1</span>
+                                        기본 javascript 파일의 구조
+                                    </h4>
+                                    <ol class="bullet_list">
+                                        <li>공통 js 파일은 <a href="#">/assets/js/common.js</a> 에 모두 기술 되어 있습니다.</li>
+                                        <li>front 단에서 사용되는 인터렉션 관련 공통 코드를 함수로 구현하였습니다.</li>
+                                        <li>현재 (22.06.15) 기준으로 shop 이외의 서비스 작업이 이루어지지 않아 추후 디렉토리는 개편 될 가능성이 있습니다.</li>
+                                        <li>공통 스크립트는 작업중이며, 필요하다면 작업을 진행하시는 파일 하단에 코드를 기술하여 제출 부탁드립니다.</li>
+                                        <li>검토 후, 좋은 코드는 공통 영역으로 검증하여 반영하겠습니다.</li>
+                                    </ol>
+                                    <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-js hljs">// 공통 : Accordion
+function accordionHandler(e) {
+    const acrdWrap = e.target.closest('.accordion');
+    acrdWrap.classList.toggle("active");
+}
+
+// 임시 : tab
+function tabMenuHandler(e){
+    e.preventDefault()
+    
+    const tabMenu = e.target;
+    const targetTab = tabMenu.dataset.targetTab;
+    console.log(targetTab)
+    console.log(tabMenu)
+
+
+
+    const tabWrap = tabMenu.closest('.tab');
+    const tabMenus = tabWrap.querySelectorAll('.tab_menu &gt; li');
+    const tabContents = tabWrap.querySelectorAll('.tab_contents &gt; div');
+
+    tabContents.forEach((item, idx) =&gt; {
+
+    item.classList.remove('active');
+    tabMenus[idx].classList.remove('active');
+    
+    if(item.dataset.targetTab == targetTab){
+        item.classList.add('active')
+        tabMenus[idx].classList.add('active');
+    }
+    });
+}
+
+// 공통 : Tab
+function tabMenuBinder() {
+    const tabMenu = document.body.querySelectorAll('.tab .tab_menu a')
+    tabMenu &amp;&amp;
+    tabMenu.forEach(element =&gt; {
+        element.addEventListener('click', (event) =&gt; tabMenuHandler(event))
+    }); 
+}
+
+// gnb 효과
+function gnbHandler(e) {
+    const wrapper = document.getElementById("wrapper");
+
+    const scrollY = e.target.scrollTop;
+    const widthX = window.innerWidth;
+
+    if (scrollY &gt; 70) {
+
+    widthX &gt; 768 
+    ? wrapper.classList.add("black")
+    : wrapper.classList.remove("black")
+        wrapper.classList.add("hide_gnb")
+    
+    } else if (scrollY &lt;= 70) {
+    wrapper.classList.remove("black");
+    wrapper.classList.remove("hide_gnb");
+    }
+
+    if(widthX &lt;= 768){
+    wrapper.classList.remove("black");
+    }
+}
+
+function scrollToTop(){
+    const scrollTarget = document.getElementById("scrollTarget")
+    scrollTarget.scrollTo(0,0);
+}
+
+//lnb 효과
+let tmp = false;
+function lnbHandler(){
+    const lnbWrap = document.getElementById("lnbWrap");
+    const lnbTabMenus = Array.prototype.slice.call(lnbWrap.children[1].children[1].children[0].children[0].children)
+    const lnbTabContents = Array.prototype.slice.call(lnbWrap.children[1].children[1].children[0].children[1].children)
+    let innerWidth = window.innerWidth;
+    
+
+    lnbWrap.classList.toggle('active')
+    
+    lnbTabMenus.forEach((item, idx) =&gt; {
+    item.classList.remove('active')
+    lnbTabContents[idx].classList.remove('active')
+
+    if(innerWidth &lt;= 768){
+        if(idx == 0){
+        item.classList.add('active')
+        lnbTabContents[idx].classList.add('active')
+        }
+    }else if(innerWidth &gt; 768){
+        if(idx == 1){
+        item.classList.add('active')
+        lnbTabContents[idx].classList.add('active')
+        }
+    }
+    });
+
+    if(tmp == false){
+    var swiper = new Swiper(".lnb_banner", {
+        pagination: {
+        el: ".swiper-pagination",
+        },
+    });
+
+    const likeBtn = document.querySelectorAll('.like_btn');
+    likeBtn.forEach((item, idx)=&gt;{
+        item.addEventListener('click', (event)=&gt;{
+        event.target.classList.toggle('active')
+        })
+    })
+
+    const ko = ['ALL', 'ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', '#' ];
+    const en = ['ALL', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '#' ];
+
+    const refreshBtn = document.getElementById('refreshBtn');
+    let word = document.getElementById('word');
+
+    refreshBtn.addEventListener('click', (event)=&gt;{
+        const alphabetWrap = event.target.parentElement;
+        alphabetWrap.classList.toggle('korean');
+        while ( word.hasChildNodes()){
+        word.removeChild( word.firstChild );       
+        }
+        
+        if(alphabetWrap.classList.contains('korean')){
+        makeWordList(ko, word)
+        }else{
+        makeWordList(en, word)
+        }
+    })
+
+    tmp = true;
+    }
+}
+
+//lnb &gt; 키워드 모음 &amp; 알파벳 한영 전환
+function makeWordList(arr, parents){
+    for (let i = 0; i &lt; arr.length; i++) {
+    let li = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = arr[i]
+    li.appendChild(button)
+    parents.appendChild(li)
+    }
+}
+
+// 모달 공통
+function commonModalHandler(target, action){
+    const targetPanel = document.querySelector(target);
+    console.log(targetPanel)
+
+    targetPanel &amp;&amp;
+        action == "open"
+        ? targetPanel.classList.add("active")
+        : action == "close"
+        ? targetPanel.classList.remove("active")
+        : action == "toggle"
+        &amp;&amp; targetPanel.classList.toggle("active")
+}
+
+// 프로모션 모달 상단 배너 닫기
+function promotionTopModalHandler(){
+    const wrapper = document.getElementById('wrapper')
+    wrapper.classList.remove('promotion');
+    commonModalHandler('#promotionTop', 'close')
+}
+
+// bnb 효과
+function bnbHandler(){
+    const bnbWrap = document.getElementById("bnbWrap");
+    console.log(bnbWrap)
+    console.log(typeof(bnbWrap))
+
+
+    bnbWrap.classList.toggle('active')
+}
+
+// 검색창 모달
+function searchPanelHandler(action, e){
+    const searchPanel = document.getElementById("searchPanel");
+    const autocompletPanel = document.getElementById("autocompleteWrap");
+    const lnbWrap = document.getElementById("lnbWrap");
+    
+    if(action == 'open'){
+    searchPanel.classList.add('active')
+    lnbWrap.classList.add('display_none')
+
+    }else if(action == 'close'){
+    searchPanel.classList.remove('active')
+    autocompletPanel.classList.remove('active')
+    lnbWrap.classList.remove('display_none')
+
+    }else if(action == 'write'){
+    console.log(e.target.value)
+    if(e.target.value == ''){
+        autocompletPanel.classList.remove('active')
+        
+    }else{
+        autocompletPanel.classList.add('active')
+    }
+    }
+}
+
+// 히스토리 편집
+function modifyHistory(action){
+    const historyWrap = document.getElementById('historyWrap');
+    historyWrap &amp;&amp;
+    action == "modify"
+    ? historyWrap.classList.add("modify")
+    : action == "finish"
+    &amp;&amp; historyWrap.classList.remove("modify")
+}
+
+// 상품 상단 필터
+function filter() {
+    let searchKeyword = document.getElementById("brandSearch").value.toLowerCase();
+    let targetList = document.getElementsByClassName("resuit_elem");
+    
+    console.log(searchKeyword)
+    for (let i = 0; i &lt; targetList.length; i++) {
+        brandKo = targetList[i].getElementsByClassName("brand_ko");
+        brandEn = targetList[i].getElementsByClassName("brand_en");
+
+        if (brandKo[0].innerHTML.indexOf(searchKeyword) != -1
+            || brandEn[0].innerHTML.toLowerCase().indexOf(searchKeyword) != -1) {
+            
+        targetList[i].style.display = "flex"
+        } else {
+        targetList[i].style.display = "none"
+        }
+    }
+}
+
+// 드래그
+function drag(){
+    const drag = document.querySelector('.drag');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    drag.addEventListener('mousedown', (e) =&gt; {
+    isDown = true;
+    startX = e.pageX - drag.offsetLeft;
+    scrollLeft = drag.scrollLeft;
+    });
+    drag.addEventListener('mouseleave', () =&gt; {
+    isDown = false;
+    });
+    drag.addEventListener('mouseup', () =&gt; {
+    isDown = false;
+    });
+    drag.addEventListener('mousemove', (e) =&gt; {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - drag.offsetLeft;
+    const walk = (x - startX) * 1; //scroll-fast
+    drag.scrollLeft = scrollLeft - walk;
+    });
+}
+
+// input custom select 함수
+function customSelect(){
+    var x, i, j, l, ll, selElmnt, a, b, c;
+
+    x = document.getElementsByClassName("custom_select");
+    l = x.length;
+    for (i = 0; i &lt; l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    ll = selElmnt.length;
+
+    a = document.createElement("div");
+    a.setAttribute("class", "select_selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+
+    b = document.createElement("div");
+    b.setAttribute("class", "select_items select_hide");
+    
+    for (j = 1; j &lt; ll; j++) {
+        c = document.createElement("div");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+    
+        c.addEventListener("click", function(e) {
+        var y, i, k, s, h, sl, yl;
+
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+    
+        for (i = 0; i &lt; sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            
+            for (k = 0; k &lt; yl; k++) {
+                y[k].removeAttribute("class");
+            }
+            
+            this.setAttribute("class", "same-as-selected");
+            break;
+            }
+        }
+        
+        h.click();
+        });
+
+        b.appendChild(c);
+    }
+
+    x[i].appendChild(b);
+
+    a.addEventListener("click", function(e) {
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select_hide");
+        this.classList.toggle("select_arrow_active");
+    });
+    }
+
+    function closeAllSelect(elmnt) {
+    /*a function that will close all select boxes in the document,
+    except the current select box:*/
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select_items");
+    y = document.getElementsByClassName("select_selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i &lt; yl; i++) {
+        if (elmnt == y[i]) {
+        arrNo.push(i)
+        } else {
+        y[i].classList.remove("select_arrow_active");
+        }
+    }
+    for (i = 0; i &lt; xl; i++) {
+        if (arrNo.indexOf(i)) {
+        x[i].classList.add("select_hide");
+        }
+    }
+    }
+
+    document.addEventListener("click", closeAllSelect);
+}
+
+// input[type="number"] 글자수 제한 함수
+function numberMaxLength(e){
+    if(e.value.length &gt; e.maxLength){
+    e.value = e.value.slice(0, e.maxLength);
+    }
+}
+
+    // input[type="file"] 이미지 미리보기
+    function readImage(input) {
+    if(input.files &amp;&amp; input.files[0]) {
+        const reader = new FileReader()
+        reader.onload = e =&gt; {
+            const previewImage = document.getElementById("previewImg")
+            previewImage.src = e.target.result
+        }
+        reader.readAsDataURL(input.files[0])
+    }
+}
+
+// 상품 수량 컨트롤러
+function quantityControllerHandler(){
+    const quantityController = document.querySelectorAll('.quantityController');
+    
+    quantityController.forEach((item, idx)=&gt;{
+    const minus = item.children[0];
+    const plus = item.children[1];
+    const number = item.children[2].children[0];
+    const maximum = 10;
+    
+    let nowQauntity = Number(number.value)
+    
+    minus.addEventListener('click', () =&gt; {
+        if(nowQauntity &gt; 0){
+        nowQauntity = nowQauntity - 1
+        number.value = nowQauntity
+        } 
+    })
+    plus.addEventListener('click', ()=&gt;{
+        if(nowQauntity &lt; maximum  ){
+        nowQauntity = nowQauntity + 1
+        number.value = nowQauntity
+        } 
+    })
+    })
+    
+}
+
+function alarmScrollHandler(e){
+    //알람 스크롤 이벤트
+    const alarmScrollTarget =  document.querySelector('#alarmWrap')
+    
+    const scrollY = e.target.scrollTop;
+    if(scrollY &gt; 300){
+    alarmScrollTarget.classList.add('scrolled')
+    }else{
+    alarmScrollTarget.classList.remove('scrolled')
+    }
+}
+
+// 전역 스크립트
+document.addEventListener("DOMContentLoaded", () =&gt; {
+    //gnb scroll event
+    const scrollWrapper = document.querySelector("#scrollTarget");
+    scrollWrapper.onscroll = gnbHandler;
+
+    //accordion event : 작업중~
+    const accordion = document.querySelector(".accordion");
+    
+    //모바일 전환시 LNB &amp; GNB 리셋
+    const wrapper = document.getElementById("wrapper");
+    const lnbWrap = document.getElementById('lnbWrap')
+    window.onresize = function(event){
+    var innerWidth = window.innerWidth;
+    if(innerWidth &lt; 768){
+        lnbWrap.classList.remove('active')
+        wrapper.classList.remove('active')
+    }
+    }
+
+    //좋아요 버튼
+    const likeBtn = document.querySelectorAll('.like_btn');
+    likeBtn.forEach((item, idx)=&gt;{
+    item.addEventListener('click', (event)=&gt;{
+        event.target.classList.toggle('active')
+    })
+    })
+
+})
+
+// 탭 스크립트
+document.addEventListener("DOMContentLoaded", () =&gt; {
+
+    if(document.body.querySelector('.tab_container')){
+    
+    const tabContainer = document.querySelector('.tab_container')
+    const tabName = document.querySelectorAll('.tab_name')
+    const tabContent = document.querySelectorAll('.tab_content')
+    
+    let activeTab = tabName[0]
+    let currentTab = tabContent[0]
+    
+    tabContainer.addEventListener('click', tabFunc)
+
+    function tabFunc(e){
+        let targetElem = e.target;
+        while (!targetElem.classList.contains('tab_name')) {
+        targetElem = targetElem.parentNode
+        if(targetElem.nodeName == 'BODY'){
+            targetElem = null;
+            return;
+        }
+        }
+        if(activeTab){activeTab.classList.remove('selected')}
+        if(currentTab){currentTab.classList.remove('selected')}
+
+        if(targetElem.classList.contains('tab_name')){
+        targetElem.classList.add('selected')
+        activeTab = targetElem;
+        }
+        if(activeTab.classList.contains('selected')){
+        for (let i = 0; i &lt; tabContent.length; i++) {
+            if(tabContent[i].dataset.tab === activeTab.dataset.tab){
+            tabContent[i].classList.add('selected')
+            currentTab = tabContent[i]
+            }
+
+        }
+        }
+    }
+    } else {
+    console.log('없음')
+    }
+
+    // 텍스트에어리어 글자 수 체크, 글자 수 제한
+    if(document.body.querySelector('.text_wrap')){
+    const textArea = document.querySelector('.text_wrap textarea')
+    const textChk = document.querySelector('.text_wrap dl')
+    
+    textArea &amp;&amp;
+    textArea.addEventListener('input', textConut)
+    
+    function textConut(){
+        let maxNum = Number(textChk.children[1].innerHTML.replace('/','').replace(',',''))
+        let regexp = /\B(?=(\d{3})+(?!\d))/g; // 숫자 세번째 마다 
+
+        textArea.setAttribute('maxlength', `${maxNum}`)
+        // 콤마넣기
+        let curtLength = textArea.value.length
+        textChk.children[0].innerHTML = String(curtLength).replace(regexp, ',')
+    }
+    }
+
+    // form &gt; select 이벤트 할당
+    customSelect()
+    quantityControllerHandler()
+    tabMenuBinder()
+})</code></pre>
+</div>
+</div>
                                     </div>
                                 </li>
                             </ol>
