@@ -16,7 +16,7 @@
     <!-- js -->
     <script src="./assets/js/highlight.min.js"></script>
     <script src="./assets/js/common.js"></script>
-
+    
     <title>BEEKK 공통 가이드</title>
 </head>
 
@@ -111,6 +111,7 @@
                                         <span class="badge">1</span>
                                         W3C Validation 을 통과 할 수 있는 구조로 작성 할 것
                                     </h4>
+                                    
                                     <p>
                                         HTML은 해당 DTD의 명세에 맞게 작성하며, W3C validation 을 통과해야 합니다.<br />
                                         단, HTML5 DTD 선언 시
@@ -786,6 +787,7 @@ readonly
                                     <ol class="bullet_list">
                                         <li>BEEKK 의 서비스는 세 가지로 되어있습니다.</li>
                                         <li>front 단에서의 퍼블리싱 작업은 모노레포 (Mono-Repo) 로 구성하였습니다.</li>
+                                        <li class="orange">* 해당 내용은 개발이 진행되어가며 업데이트 될 예정입니다.</li>
                                     </ol>
                                     <div class="line_clear">
                                         <div class="example_wrap">
@@ -805,7 +807,7 @@ readonly
                                 <li>
                                     <h4>
                                         <span class="badge">1</span>
-                                        기본 javascript 파일의 구조
+                                        공통 javascript 파일에 대한 설명 및 작업 규칙
                                     </h4>
                                     <ol class="bullet_list">
                                         <li>공통 js 파일은 <a href="#">/assets/js/common.js</a> 에 모두 기술 되어 있습니다.</li>
@@ -1328,6 +1330,270 @@ document.addEventListener("DOMContentLoaded", () =&gt; {
 </div>
                                     </div>
                                 </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">2</span>
+                                        javascript 작성시 필요한 규칙
+                                    </h4>
+
+                                    <ol class="child_list">
+                                        <li>
+                                            1. 변수
+
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    변수는 명사, 혹은 명사로 이루어진 합성어여야 하며, 카멜케이스로 작성한다.
+                                                </li>
+                                                <li>
+                                                    변수는 변수명을 읽는 것만으로도 그 역할이나 의미하는 바를 이해 할 수 있는 내용으로 작성해야 한다.
+                                                </li>
+                                                <li>
+                                                    협업하는 작업자들간의 의사소통을 위하여 약어나 줄임말은 최대한 자제하여 사용한다.
+                                                </li>
+                                                <li>
+                                                    만약 어쩔 수 없는 상황에서 꼭 축약어를 사용해야 할 경우, 반드시 주석을 달아 기술해야 한다.
+                                                </li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">const header; //GOOD
+const promotionTop; //GOOD
+
+const aa; //BAD
+const pro_t //BAD
+const promotiontop //BAD
+const promotion_top //BAD
+const promotion-top //BAD</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            2. 함수
+
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    함수는 가급적 명사, 혹은 명사로 이루어진 합성어여야 하며, 카멜케이스로 작성합니다.
+                                                </li>
+                                                <li>
+                                                    부득이하게 조사나 동사어구의 함수명을 지어야 할 경우, 한 눈에 보아도 이해하기 쉽고 간결하게 작성합니다.
+                                                </li>
+                                                <li>
+                                                    하나의 범위 (scope) 내에서 사용되는 변수들은 가급적 최상단으로 끌어 올려서 작성합니다.<br />
+                                                    즉, 호이스팅 기능에 의존하지 않습니다.
+                                                </li>
+                                                <li>
+                                                    함수의 용도는 반드시 반드시 주석으로 작성합니다.
+                                                </li>
+                                                <li>
+                                                    함수에 파라미터 값을 사용 할 경우, 각 파라미터 값에 올 수 있는 타입 사용목적에 대해서 반드시 주석으로 작성합니다.
+                                                </li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">/*
+    * ★ COMMON - Modal
+    *
+    *    #target : string
+    *     - 모달로 사용하고자 하는 요소
+    *     - querySelector 의 인자로 사용됨
+    *     - 검색이 될 수 있도록 '' 로 감싸서 제공하면 됨
+    *     - ex) '#topModalWrap', '.div .modal_wrap', 'input+div' 등등
+    *
+    *    #action : string - ['open', 'close', 'toggle']
+    *     - 타겟이 되는 모달 요소에 주고자 하는 변화
+    *     - 제공되는 세 가지 문자열 중 하나를 선택하여 유연하게 사용
+    *
+    */
+   function commonModalHandler(target, action) {
+     const targetPanel = document.querySelector(target);
+     console.log(targetPanel);
+   
+     targetPanel && action == "open"
+       ? targetPanel.classList.add("active")
+       : action == "close"
+       ? targetPanel.classList.remove("active")
+       : action == "toggle" && targetPanel.classList.toggle("active");
+   }</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            3. 이벤트
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    이벤트 작성은 기본적으로 javascript 의 기본 언어적 문법을 준수하여 작성합니다.
+                                                </li>
+                                                <li>
+                                                    BEEKK 내부에서는 javascript ES6 버전을 기본적으로 채택하여 사용하고 있으므로, 해당 버전의 문법을 준수하여 개발 할 수 있도록 노력합니다.
+                                                </li>
+                                                <li>
+                                                    BEEKK 의 FE 개발팀은 jQuery, 혹은 jQuery 에 의존하는 라이브러리들의 사용을 지양합니다.
+                                                </li>
+                                                <li>
+                                                    의미 없는 변수나 함수의 선언을 지양하고, 언제나 성능을 생각하면서 개발 할 수 있도록 하여야 합니다.
+                                                </li>
+                                                <li>
+                                                    지나치게 긴 길이의 이벤트는 여러개의 함수로 나누어 작성하는 것을 권장합니다. 
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            4. 새로운 js 파일
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    새로운 js 파일을 추가 해야 하는 경우, 작업 중인 html 파일 (혹은 php 파일) 명과 동일한 이름으로 js 파일을 생성합니다.
+                                                </li>
+                                                <li> 
+                                                    부득이하게 html 파일과 한 쌍 (pair) 이 되는 파일명을 지을 수 없는 경우, 카멜케이스가 아닌 언더바 ('_') 표기법으로 파일명을 작성합니다. 
+                                                </li>
+                                                <li>
+                                                    다른 화면이나 더 큰 영역으로의 범위 침해 문제를 일으키지 않도록 해당 페이지에서 먼저 테스트를 거치며 개발을 완료합니다.
+                                                </li>
+                                                <li>
+                                                    BEEKK 의 모든 javascript 파일은 &lt;head&gt;&lt;/head&gt; 태그 안에 import 하여 사용합니다.
+                                                </li>
+                                                <li>
+                                                    따라서, 새로운 js 파일을 추가하여 작업하는 경우에도 오류의 가능성을 막기 위하여 앞서 만든 파일을 head 태그 안에 import 하여 작업하는 것을 권장합니다.
+                                                </li>
+                                            </ul>
+                                            <div class="line_clear">
+<div class="example_wrap">
+<h5>example</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;head&gt;
+    &lt;!-- meta --&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+    &lt;!-- css --&gt;
+    &lt;link rel="stylesheet" href="./assets/css/atom-one-dark.min.css"&gt;
+    &lt;link rel="stylesheet" href="./assets/css/reset.css"&gt;
+    &lt;link rel="stylesheet" href="./assets/css/common.css"&gt;
+
+    &lt;!-- js --&gt;
+    &lt;script src="./assets/js/highlight.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./assets/js/common.js"&gt;&lt;/script&gt;
+    &lt;script src="./assets/js/new_script.js"&gt;&lt;/script&gt; // GOOD
+    
+    &lt;title&gt;BEEKK 공통 가이드&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script src="./assets/js/newScript.js"&gt;&lt;/script&gt; // BAD
+&lt;/body&gt;</code></pre>
+</div>
+</div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <span class="badge">3</span>
+                                        외부 library 사용시 필요한 규칙
+                                    </h4>
+
+                                    <ol class="child_list">
+                                        <li>
+                                            1. 사용 중인 라이브러리
+
+                                            <p>
+                                                다음의 라이브러리들은 BEEKK 의 웹 개발을 조금 더 효율적으로 하기 위하여 공식적으로 사용이 인정된 라이브러리들입니다.<br />
+                                                각 페이지 개발에서 특정 요소의 개발은, 지정되어 있는 다음의 라이브러리를 활용하여 개발하여야 합니다.
+                                            </p>
+
+                                            <div class="border_wrap">
+                                                <h5>+ SLIDE : SWIPER JS</h5>
+                                                
+                                                
+                                                <ul class="bullet_list">
+                                                    <li>
+                                                        <a href="https://swiperjs.com/">https://swiperjs.com/</a>
+                                                    </li>
+                                                    <li>
+                                                        슬라이드 유형의 요소나 컨텐츠는 SWIPER 를 사용합니다.
+                                                    </li>
+                                                    <li>
+                                                        22.06.17 현재 개발단계에서 사용중인 SWIPER 의 버전은  8.1.4 버전입니다.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                                    
+                                            <div class="border_wrap">
+
+                                                <h5>+ INPUT VALIDATION : PRISTINE JS</h5>
+                                                
+                                                
+                                                <ul class="bullet_list">
+                                                    <li>
+                                                        <a href="https://pristine.js.org/">https://pristine.js.org/</a>
+                                                    </li>
+                                                    <li>
+                                                        입력값의 유효성을 검증 라이브러리는 PRISTINE 을 사용합니다.
+                                                    </li>
+                                                    <li>
+                                                        MIT 라이센스로, 타 라이브러리에 대한 의존성이 전혀 없는 독립적인 구조체입니다. 
+                                                    </li>
+                                                    <li>
+                                                        또한, 4kb 정도의 용량으로 매우 컴팩트하고, 공식 문서도 친절한 편이라 초보자도 쉽게 익힐 수 있습니다.
+                                                    </li>    
+                                                    <li>
+                                                        작업을 진행해야 하는 페이지에 유효성 검증에 대한 요구사항이 있다면 해당 라이브러리로 작업하셔야 합니다. 
+                                                    </li>
+                                                    <li class="orange">
+                                                        하지만 특이사항이 없는 한 모든 유효성 검증 개발은 관리자 (원은재 팀장) 가 전담 할 예정입니다.
+                                                    </li>
+                                                    <li>
+                                                        만약, 배정받은 페이지에 유효성 검증이 필요한 INPUT 요소가 있고 문의사항이 있으시다면 작업 전, 먼저 관리자 (원은재 팀장) 에게 문의해주시기 바랍니다.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            2. 새로운 라이브러리의 추가
+
+                                            <p>
+                                                새로운 라이브러리를 사용해야 할 경우, 다음과 같은 규칙을 준수해야 합니다.
+                                            </p>
+
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    첫째로, 사용하고자 하는 필요 파일을 모두 다운로드 해서 사용합니다.<br /> 
+                                                    <em class="bold">BEEKK 개발은 CDN 주소 링크로 작업하지 않습니다.</em>
+                                                </li>
+                                                <li>
+                                                    둘째로, 필요로 하는 페이지에 단독 import 하여 작업을 진행합니다.
+                                                    <br /> 
+                                                    <em class="bold">절대로 전역 import 를 하지 않도록 주의합니다.</em>
+                                                </li>
+                                                <li>
+                                                    셋째로, 개발 완료 후 새롭게 사용된 라이브러리가 있음을 관리자 (원은재 팀장) 에게 알립니다. 
+                                                </li>
+                                                <li>
+                                                    마지막으로, 관리자 (원은재 팀장) 는 해당 라이브러리의 안정성을 전역에 적용하여 테스트 합니다. 
+                                                </li>
+                                                <li> 
+                                                    <em class="bold">문제가 없다면 공통 라이브러리로 채택하고 가이드 문서를 업데이트 합니다.</em>
+                                                </li>
+                                                <li>
+                                                    <em class="bold">문제가 있다면, 작업자에게 피드백을 진행합니다.</em>
+                                                    외부 라이브러리로 인한 버그의 경우 수정의 책임은 1차로 작업자, 2차로 관리자 (원은재 팀장) 에게 있습니다.  
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </li>
+
                             </ol>
                         </div>
                     </article>

@@ -7,18 +7,18 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <!-- css -->
+   <link rel="stylesheet" href="./assets/css/atom-one-dark.min.css">
    <link rel="stylesheet" href="./assets/css/reset.css">
    <link rel="stylesheet" href="./assets/css/common.css">
-   <link rel="stylesheet" href="./assets/css/ver1.css">
 
    <!-- js -->
-   <script src="./js/highlight.pack.js"></script>
-   <script src="./js/common.js"></script>
+   <script src="./assets/js/highlight.min.js"></script>
+   <script src="./assets/js/common.js"></script>
 
     <title>BEEKK PC 가이드</title>
 </head>
 <body>
-    <div class="index">
+    <div class="common wrapper">
         <!-- gnb start -->
         <header class="gnb">
             <!-- inner start -->
@@ -58,7 +58,713 @@
 
         <!-- container start -->
         <div class="container">
-            준비중
+             <!-- inner start -->
+             <div class="flex_between inner">
+                <!-- snb start -->
+                <nav class="snb">
+                    <h2>COMMON CONVENTION</h2>
+                    <ul>
+                        <li>
+                            <a href="#commonUI">
+                                1. 공통 UI
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- snb end -->
+                <!-- contents start -->
+                <div class="contents">
+                    <article id="html">
+                        <h3>1. 공통 UI</h3>
+                        <div>
+                            <p
+                            >HTML 코드를 작성하는 Mark up 을 진행 할 때 다음과 같은 기본 규칙을 준수합니다.
+                            </p>
+
+                            <ol class="list active">
+                                <li>
+                                    <h4>
+                                        <span class="badge">1</span>
+                                        select 유형
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    클릭시 아래로 영역이 펼쳐지며, 한 번에 하나의 선택값을 가지게 되는 input 의 유형 중 한 요소입니다.
+                                                </li>
+                                                <li>
+                                                    해당요소 구현시에는 지정클래스 custom_select" 를 사용합니다. 
+                                                </li>
+                                                <li>
+                                                    지정 디자인과 다른 select box 일 경우, 기존의 class 를 override 하여 구현합니다.
+                                                </li>
+                                                <li>
+                                                    javascript 는 작업할 것이 없으며 기존 코드를 수정하지 않습니다.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div>
+                                                        <img src="./assets/img/img_select01.png" alt="select 유형 닫힘">
+                                                    </div>
+                                                    <div>
+                                                        <img src="./assets/img/img_select02.png" alt="select 유형 열림">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;div class="custom_select"&gt;
+    &lt;select&gt;
+    &lt;option value="none"&gt;옵션명&lt;/option&gt;
+    &lt;option value="0"&gt;블랙 Black 01&lt;/option&gt;
+    &lt;option value="1"&gt;시더 브라운 Cedar Brown 02&lt;/option&gt;
+    &lt;option value="2"&gt;리빙 코랄 Living Coral 03&lt;/option&gt;
+    &lt;option value="3"&gt;화이트 White 04&lt;/option&gt;
+    &lt;option value="4"&gt;베이지 Beige 05&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/* select */
+    .custom_select { position: relative; font-family: Arial; width: 100%;}
+      .custom_select select {display: none;}
+      .select_selected:after {content: ""; position: absolute; top: 50%; right: 10px; width: 30px; height: 30px; background: url(../../img/shop/icon/icon_chevron-down-bk75.svg) no-repeat center/100%; transition: .3s; margin-top: -15px;}
+        .select_selected.select_arrow_active:after {transform: rotateX(-180deg);}
+    
+      .select_hide {display: none;}
+    
+      .select_items { position: absolute; background-color: #fff; top: calc(100% - 1px); left: 0; right: 0; z-index: 99; }
+        .select_selected {width: 100%; height: 100%; min-height: 44px; display: flex; align-items: center; justify-content: flex-start; color: #000; padding: 0 15px; border: 1px solid #E0E0E0; cursor: pointer; user-select: none;}
+        .select_selected.select_arrow_active{border: 1px solid #000;}
+    
+        .select_items{border:1px solid #000; border-top: 0; padding: 7px 0;}
+          .select_items div{padding: 8px 16px; cursor: pointer;}
+          .select_items div:hover, .same_as_selected {background-color: rgba(0, 0, 0, 0.1);}
+</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>JS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">// input custom select 함수
+function customSelect() {
+    var x, i, j, l, ll, selElmnt, a, b, c;
+
+    x = document.getElementsByClassName("custom_select");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    ll = selElmnt.length;
+
+    a = document.createElement("div");
+    a.setAttribute("class", "select_selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+
+    b = document.createElement("div");
+    b.setAttribute("class", "select_items select_hide custom_scrollbar");
+
+    for (j = 0; j < ll; j++) {
+        c = document.createElement("div");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+
+        c.addEventListener("click", function (e) {
+        var y, i, k, s, h, sl, yl;
+
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+
+        for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+
+            for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+            }
+
+            this.setAttribute("class", "same-as-selected");
+            break;
+            }
+        }
+
+        h.click();
+        });
+
+        b.appendChild(c);
+    }
+
+    x[i].appendChild(b);
+
+    a.addEventListener("click", function (e) {
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select_hide");
+        this.classList.toggle("select_arrow_active");
+    });
+    }
+
+    function closeAllSelect(elmnt) {
+    /*a function that will close all select boxes in the document,
+    except the current select box:*/
+    var x,
+        y,
+        i,
+        xl,
+        yl,
+        arrNo = [];
+    x = document.getElementsByClassName("select_items");
+    y = document.getElementsByClassName("select_selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+        arrNo.push(i);
+        } else {
+        y[i].classList.remove("select_arrow_active");
+        }
+    }
+    for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+        x[i].classList.add("select_hide");
+        }
+    }
+    }
+
+    document.addEventListener("click", closeAllSelect);
+}</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li>
+                                    <h4>
+                                        <span class="badge">2</span>
+                                        modal 유형
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    BEEKK 에서 사용되는 모달의 종류는 무수히 많으며, 하이브리드 웹의 특성상 활용도가 매우 높은 편입니다.
+                                                </li>
+                                                <li>
+                                                    아래 제공된 모달의 유형은 극히 드문 사례이며, 이 외에도디자인의 차이가 큰 UI 들이 많기에 공통 class 는 최소한의 것들로만 작성하였습니다.
+                                                </li>
+                                                <li>
+                                                    디자인의 변화가 많은 모달을 구현해야 할 경우, 필요한 class 를 추가하거나 override 하여 사용합니다.
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div>
+                                                        <img src="./assets/img/img_modal01.png" alt="modal 유형 닫힘">
+                                                    </div>
+                                                    <div>
+                                                        <img src="./assets/img/img_modal02.png" alt="modal 유형 열림">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;div class="modal_wrap common_terms " id="commonTerms"&gt;
+    &lt;div class="modal_bg" onclick="commonModalHandler('#commonTerms', 'close')"&gt;&lt;/div&gt;
+    &lt;div class="modal"&gt;
+        &lt;div class="modal_header flex_between"&gt;
+            &lt;button class="back_btn only_mobile"  onclick="commonModalHandler('#commonTerms', 'close')"&gt;닫기&lt;/button&gt;
+
+            &lt;h3&gt;이용약관&lt;/h3&gt;
+            &lt;button type="button" class="close_btn only_pc" onclick="commonModalHandler('#commonTerms', 'close')"&gt;닫기&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class="modal_contents scr_custom"&gt;
+            &lt;div class="scr_custom"&gt;
+                &lt;h3&gt;제 1장 총 칙&lt;/h3&gt;
+                &lt;ul class="terms_rule_con"&gt;
+                    &lt;li class="terms_rule"&gt;
+                        &lt;h4&gt;제 1조 (목적)&lt;/h4&gt;
+                        &lt;p class="rule_content"&gt;
+                        본 이용약관은 주식회사 비크(이하 “회사”)에서 제공하는 모든 서비스(이하 "서비스")를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다. PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.
+                        &lt;/p&gt;
+                    &lt;/li&gt;
+                    &lt;li class="terms_rule"&gt;
+                        &lt;h4&gt;제 2조 (정의)&lt;/h4&gt;
+                        &lt;ul class="order_con"&gt;
+                            &lt;li&gt;
+                            &lt;span class="order_num"&gt;1.&lt;/span&gt;
+                            &lt;p&gt;"사이버몰"이란 회사가 재화 또는 용역(이하 "재화 등")을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신 설비를 이용하여 재화 등을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 사이버 몰을 운영하는 사업자의 의미로도 사용합니다.&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                            &lt;span class="order_num"&gt;2.&lt;/span&gt;
+                            &lt;p&gt;"이용자"란 사이버몰에 접속하여 이 약관에 따라 회사가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                            &lt;span class="order_num"&gt;3.&lt;/span&gt;
+                            &lt;p&gt;"회원"이라 함은 회사에 개인정보를 제공하여 회원 등록을 한 자로서, 회사의 정보를 지속적으로 제공 받으며, 회사가 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다.&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                            &lt;span class="order_num"&gt;4.&lt;/span&gt;
+                            &lt;p&gt;"비회원"이라 함은 회원에 가입하지 않고 회사가 제공하는 서비스를 이용하는 자를 말합니다.&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                            &lt;span class="order_num"&gt;5.&lt;/span&gt;
+                            &lt;p&gt;이외에 이 약관에서 사용하는 용어의 정의는 관계 법령 및 서비스 별 안내에서 정하는 바에 의합니다.&lt;/p&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li class="terms_rule"&gt;
+                        &lt;h4&gt;제 3조 (약관 등의 명시와 설명 및 개정)&lt;/h4&gt;
+                        &lt;ul class="order_con"&gt;
+                            &lt;li&gt;
+                            &lt;span class="order_num"&gt;1.&lt;/span&gt;
+                            &lt;p&gt;회사는 이 약관의 내용과 상호, 영업소 소재지 주소(소비자의 불만을 처리할 수 있는 곳의 주소를 포함), 전화번호, 모사전송번호, 이메일주소, 사업자등록번호, 통신판매업신고번호, 개인정보관리책임자 등을 이용자가 쉽게 알 수 있도록 사이버몰의 초기 서비스화면(전면)에 게시합니다. 다만, 약관의 내용은 이용자가 연결화면을 통하여 볼 수 있도록 할 수 있습니다.&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                            &lt;span class="order_num"&gt;2.&lt;/span&gt;
+                            &lt;p&gt;회사는 『약관의 규제에 관한 법률』, 『정보통신망 이용촉진 및 정보보호 등에 관한 법률』, 『전자상거래 등에서의 소비자보호에 관한 법률』, 『소비자기본법』 등 관련법을 위배하지 않는 범위 에서 이 약관을 개정할 수 있습니다.&lt;/p&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">
+/************************
+*     공통 모달 정의    *
+*     .modal            *
+*************************/
+.modal_wrap{width: 100%; height: 100%; position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: none !important; justify-content: center; align-items: center; z-index: 99999;}
+.modal_wrap.active{display: flex !important;}
+
+.modal_bg{width: 100%; height: 100vh; z-index: 9999; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgb(0, 0, 0,0.5); display: none!important; overflow: hidden; text-indent: -99999999999999px;}
+.active .modal_bg{display: block !important;}
+
+
+.modal{min-width: 300px; max-width: 580px; width: 100%; min-height: 300px; max-height: 680px; height: 100%; background: #fff;z-index: 9999; border-top-left-radius: 15px;position: relative;}
+
+    .modal .modal_header{width: 100%; height: 100px;font-size: 16px; padding: 30px 40px;position: absolute; top: 0; left: 0;}
+    .modal .modal_header::after{position: absolute; content: ''; display: block; width: calc(100% - 80px); height: 1px; background: #000; left: 40px; bottom: 0;}
+        .modal .modal_header h3{font-size: 20px; font-weight: 600;}
+
+    .modal .modal_contents{position: absolute; width: 100%; height: calc(100% - 220px); top: 100px; padding: 40px;left: 0;}
+
+    .modal .modal_footer{width: 100%; height: 120px; position: absolute; bottom: 0;left: 0; display: flex; align-items: center; justify-content: center; padding: 30px 40px;}
+        .modal .modal_footer .btn{width: 50%; height: 55px;}
+</code></pre>
+</div>
+</div>
+                                        </li>
+
+                                        <li>
+<div class="example_wrap">
+<h5>JS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">/*
+* ★ COMMON - Modal
+*
+*    #target : string
+*     - 모달로 사용하고자 하는 요소
+*     - querySelector 의 인자로 사용됨
+*     - 검색이 될 수 있도록 '' 로 감싸서 제공하면 됨
+*     - ex) '#topModalWrap', '.div .modal_wrap', 'input+div' 등등
+*
+*    #action : string - ['open', 'close', 'toggle']
+*     - 타겟이 되는 모달 요소에 주고자 하는 변화
+*     - 제공되는 세 가지 문자열 중 하나를 선택하여 유연하게 사용
+*
+*/
+function commonModalHandler(target, action) {
+    const targetPanel = document.querySelector(target);
+    console.log(targetPanel);
+
+    targetPanel && action == "open"
+    ? targetPanel.classList.add("active")
+    : action == "close"
+    ? targetPanel.classList.remove("active")
+    : action == "toggle"
+    ? targetPanel.classList.toggle("active")
+    : action == "delete" && targetPanel.remove();
+}</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li>
+                                    <h4>
+                                        <span class="badge">3</span>
+                                        pagination 유형
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            <ul class="bullet_list">
+                                                <li>
+                                                    pagination 은 주로 리스트로 노출되는 상품 페이지 하단에 사용됩니다.
+                                                </li>
+                                                <li>
+                                                    "pc유형과 mobile 유형일 경우, 페이지의 숫자"라는 두 개의 조건에 따라 노출되는 UI 가 달라집니다.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div>
+                                                        <img src="./assets/img/img_pagination.png" alt="pagination 유형">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;div class="pagination"&gt;
+    &lt;div class="btn_wrap"&gt;
+        &lt;button class="prev_btn"&gt;이전&lt;/button&gt;
+        &lt;button class="next_btn"&gt;다음&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;ul class="pagination_start only_pc"&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;1&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;span&gt;...&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ul class="pagination_list"&gt;
+        &lt;li&gt;
+            &lt;a href="#" class="active"&gt;6&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;7&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;8&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;9&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;10&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ul class="pagination_last only_pc"&gt;
+        &lt;li&gt;
+            &lt;span&gt;...&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;249&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/*****************************
+*   상품하단의 페이지 숫자   *
+*   .pagination             *
+*****************************/
+.pagination{width: fit-content; position: relative; font-size: 32px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; margin-top: 70px; margin-bottom: 50px;}
+
+    .pagination .btn_wrap{width: 100%; position: absolute; top: 0; left:0;}
+        .pagination .btn_wrap button{width: 55px; height: 55px; position: absolute; background: url(assets/img/shop/icon/icon_pagination_arrow.svg) no-repeat center/15px; overflow: hidden; text-indent: -999999px;top: 0;}
+            .pagination .btn_wrap .prev_btn{left: -55px;}
+            .pagination .btn_wrap .next_btn{right: -55px; transform: rotate(180deg);}
+
+    .pagination .pagination_start,
+    .pagination .pagination_last,
+    .pagination .pagination_list{display: flex; align-items: center; justify-content: flex-start; padding: 6px 0;}
+    .pagination .pagination_last.only_pc,
+    .pagination .pagination_start.only_pc {display: flex !important;}
+        .pagination span,
+        .pagination a{padding: 0 20px; color: #BDBDBD;}
+        .pagination a.active{color: #000; font-weight: 500;}</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li>
+                                    <h4>
+                                        <span class="badge">4</span>
+                                        아코디언 유형
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            <ul class="bullet_list">
+                                                <li>accordion 은 javascript 관점에서 바라보면 modal 과 비슷한 기재로 작동이 되는 UI 입니다.</li>
+                                                <li>BEEKK 내에서는 많이 사용되는 형태의 UI 는 아니고, 아직 작업중입니다.</li>
+                                                <li>추후 리팩토링 가능성이 있습니다.</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div>
+                                                        <img src="./assets/img/img_accordion02.png" alt="accordion 유형">
+                                                    </div>
+                                                    <div>
+                                                        <img src="./assets/img/img_accordion01.png" alt="accordion 유형">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;section class="company_wrap accordion"&gt;
+    &lt;h3&gt;
+        &lt;button class="accordion_title" onclick="accordionHandler(event)"&gt;
+            비크 사업자 정보
+        &lt;/button&gt;
+    &lt;/h3&gt;
+    &lt;ul class="company_contents accordion_contents"&gt;
+        &lt;li&gt;상호 : (주)비크코퍼레이션&lt;/li&gt;
+        &lt;li&gt;대표이사 : 김단비&lt;/li&gt;
+        &lt;li&gt;사업자등록번호 : 120-87-69298&lt;/li&gt;
+        &lt;li&gt;주소 : 서울시 송파구 백제고분로18길 16, 202호(잠실동)&lt;/li&gt;
+        &lt;li&gt;개인정보보호책임자 : 김단비&lt;/li&gt;
+        &lt;li&gt;호스팅서비스 : (주)비크코퍼레이션&lt;/li&gt;
+        &lt;li&gt;이메일 : beekk@beekk.kr &lt;/li&gt;
+        &lt;li&gt;통신판매업신고 : 제2011-서울강남-01864&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/************************
+*       .accordion      *
+*************************/
+.accordion > .accordion_contents{display: none !important;}
+.accordion.active > .accordion_contents{display: block !important;}
+    
+/* accordion override */
+.prod_item .size_wrap .accordion > .accordion_contents{display: none;}
+.prod_item .size_wrap .accordion.active > .accordion_contents{display: block;}
+
+.prod_item .size_wrap .accordion > .accordion_title{position: relative; width: 100%;}
+    .prod_item .size_wrap .option_btn::before,
+    .prod_item .size_wrap .accordion > .accordion_title::before{content: ''; display: inline-block; width: 11px; height: 6px; background: url(assets/img/shop/icon/icon_acorrdion_close.svg) no-repeat center/100%; position: absolute; right: 10px; top: 50%; margin-top: -3px;}
+
+    .prod_item .size_wrap .active > .option_btn::before,
+    .prod_item .size_wrap .active > .accordion_title::before{background: url(assets/img/shop/icon/icon_acorrdion_open.svg) no-repeat center/100%; position: absolute; right: 10px; top: 50%; margin-top: -3px;}
+</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>JS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">// 공통 : Accordion
+function accordionHandler(e) {
+    const acrdWrap = e.target.closest(".accordion");
+    acrdWrap.classList.toggle("active");
+}</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+
+                                </li>
+
+                                <li>
+                                    <h4>
+                                        <span class="badge">5</span>
+                                        TAB 유형
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            <ul class="bullet_list">
+                                                <li>tab은 여러가지 상황에서 많은 양의 컨텐츠를 효율적으로 보여줄 수 있는 UI 입니다.</li>
+                                                <li>tab menu 여러가지 상황에서 많은 양의 컨텐츠를 효율적으로 보여줄 수 있는 UI 입니다.</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div>
+                                                        <img src="./assets/img/img_tab.png" alt="tab 유형">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;div class="tab"&gt;
+    &lt;!-- 탭메뉴 --&gt;
+    &lt;nav&gt;
+        &lt;ul class="tab_menu flex_start"&gt;
+            &lt;li class="active"&gt;
+                &lt;a href="#orderSearch" data-target-tab="0" onclick="tabMenuHandler(event)"&gt;
+                    주문내역에서 검색 
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#storeSearch" data-target-tab="1" onclick="tabMenuHandler(event)"&gt;
+                    스토어에서 검색
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#interestSearch" data-target-tab="2" onclick="tabMenuHandler(event)"&gt;
+                    관심 브랜드
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- 탭 컨텐츠 --&gt;
+    &lt;div class="tab_contents"&gt;
+        &lt;div class="order active" id="orderSearch" data-target-tab="0"&gt;
+            탭1
+        &lt;/div&gt;
+        &lt;div class="store" id="storeSearch" data-target-tab="1"&gt;
+            탭2
+        &lt;/div&gt;
+        &lt;div class="interest" id="interestSearch" data-target-tab="2"&gt;
+            탭3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/******************
+*                 *
+*       .tab      *
+*                 *
+*******************/
+.tab .tab_contents > div{display: none !important;}
+.tab .tab_contents > div.active{display: block !important;}
+</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>JS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">
+// 임시 : tab
+function tabMenuHandler(e) {
+    e.preventDefault();
+
+    const tabMenu = e.target;
+    const targetTab = tabMenu.dataset.targetTab;
+    console.log(targetTab);
+    console.log(tabMenu);
+
+    const tabWrap = tabMenu.closest(".tab");
+    const tabMenus = tabWrap.querySelectorAll(".tab_menu &gt; li");
+    const tabContents = tabWrap.querySelectorAll(".tab_contents &gt; div");
+
+    tabContents.forEach((item, idx) =&gt; {
+    item.classList.remove("active");
+    tabMenus[idx].classList.remove("active");
+
+    if (item.dataset.targetTab == targetTab) {
+        item.classList.add("active");
+        tabMenus[idx].classList.add("active");
+    }
+    });
+}
+
+// 공통 : Tab
+function tabMenuBinder() {
+    const tabMenu = document.body.querySelectorAll(".tab .tab_menu a");
+    tabMenu &amp;&amp;
+    tabMenu.forEach((element) =&gt; {
+        element.addEventListener("click", (event) =&gt; tabMenuHandler(event));
+    });
+}</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+
+                                </li>
+                             </ol>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
 
         <!-- footer start -->
