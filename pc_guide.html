@@ -760,7 +760,1434 @@ function tabMenuBinder() {
                                     </ol>
 
                                 </li>
-                             </ol>
+
+                                <li>
+                                    <h4>
+                                        <span class="badge">6</span>
+                                        GNB
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            <ul class="bullet_list">
+                                                <li>GNB 는 최상단에 붙어서 기능하는 메뉴입니다.</li>
+                                                <li>회사의 로고와 검색창, 장바구니 버튼을 담고 있습니다.</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div class="flex_col_center">
+                                                        <img src="./assets/img/img_gnb01.png" alt="gnb 유형">
+                                                        <img src="./assets/img/img_gnb02.png" alt="gnb 유형">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;!-- gnb start --&gt;
+    &lt;header class="gnb"&gt;
+        &lt;div class="inner flex_between"&gt;
+            &lt;h1 class="flex_center"&gt;
+                &lt;a href="#" class="ham_btn" onclick="lnbHandler()"&gt;
+                    &lt;img src="/assets/img/shop/btn/btn_menu.svg" alt="메뉴 버튼"&gt;
+                &lt;/a&gt;
+                &lt;a href="/shop/pages/main/main.php" class="logo"&gt;
+                    &lt;img src="/assets/img/shop/logo/logo.svg" alt="BEEKK 로고"&gt;
+                    &lt;img src="/assets/img/shop/logo/logo_white.svg" class="only_black" alt="BEEKK 로고"&gt;
+                &lt;/a&gt;
+            &lt;/h1&gt;
+    
+            &lt;div class="util flex_end"&gt;
+                &lt;form action="" class="search_form only_pc"&gt;
+                    &lt;input 
+                        type="text"
+                        name="search"
+                        class="search"
+                        id="search"
+                        onfocus="searchPanelHandler('open')" 
+                        onblur="searchPanelHandler('close')" 
+                        onkeyup="searchPanelHandler('write', event)"
+                        /&gt;
+                    &lt;button class="search_btn"&gt;검색&lt;/button&gt;
+                &lt;/form&gt;
+    
+                &lt;ul class="menu flex_center"&gt;
+                    &lt;li class="only_mobile"&gt;
+                        &lt;button onclick="searchPanelHandler('open')"&gt;
+                            &lt;img src="/assets/img/shop/icon/icon_search.svg" alt="검색 아이콘"&gt;
+                            &lt;img src="/assets/img/shop/icon/icon_search_white.svg" class="only_black" alt="검색 아이콘"&gt;
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+    
+                    &lt;li class="only_pc"&gt;
+                        &lt;a href="/shop/pages/login/signin.php" class="right_br"&gt;
+                            &lt;img src="/assets/img/shop/icon/icon_signout.svg" alt="로그인 아이콘"&gt;
+                            &lt;img src="/assets/img/shop/icon/icon_signout_white.svg" class="only_black" alt="로그인 아이콘"&gt;
+                            로그인
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="/shop/pages/cart/cart.php" class="cart"&gt;
+                            &lt;div class="badge_number_wrap"&gt;
+                                &lt;img src="/assets/img/shop/icon/icon_cart.svg" alt="장바구니 아이콘"&gt;
+                                &lt;img src="/assets/img/shop/icon/icon_cart_white.svg" class="only_black" alt="장바구니 아이콘" &gt;
+                                &lt;span class="badge_number"&gt;12&lt;/span&gt;
+                            &lt;/div&gt;
+                            장바구니
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    
+        &lt;?php include  $_SERVER['DOCUMENT_ROOT'].'/shop/pages/search/search/search_keyword.php'; ?&gt;
+    
+    &lt;/header&gt;
+    &lt;!-- gnb end --&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs"> /************************
+*                       *
+*         .gnb          *
+*                       *
+*************************/
+.gnb{height: 50px; padding: 0 15px;}
+.gnb .inner{padding: 0;}
+.hide_gnb .gnb{display: none;}
+
+    .gnb h1 .ham_btn{display: flex; margin-right: 5px;width: 28px; height: 28px;}
+    .gnb h1 .logo{width: 77px;}
+
+    .gnb .util .menu{width: 100px;}
+        .gnb .util .menu li .cart{text-indent: -99999999999px;}
+            .gnb .util .menu li .cart img{width: 28px; height: 28px;}
+            
+            .gnb .util .menu li.only_mobile{width:25px; display: flex !important; }
+            
+            
+            
+/************************
+*                       *
+*     .gnb.mobile       *
+*                       *
+*************************/
+.gnb.mobile{height: 65px; padding: 10px 30px;}
+.hide_gnb .gnb.mobile{display: flex !important;}
+    .gnb.mobile .back_btn{width: 32px; height: 32px; background-size: 38px; margin-right: 10px;}
+    .gnb.mobile h1{font-size: 20px; font-weight: 500;}
+
+    .gnb.mobile .menu{gap: 10px;}
+        .gnb.mobile .menu .search_btn{width: 32px; height: 32px; position: relative; bottom: unset; right: unset; background-size: 31px;}
+
+        .gnb.mobile .menu .cart{width: 32px; height: 32px;}
+            .gnb.mobile .menu .cart img{width: 30px;}
+            .gnb.mobile .menu .cart .badge_number{right:0;}
+</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>JS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">
+// gnb 효과
+function gnbHandler(e) {
+    const wrapper = document.getElementById("wrapper");
+
+    const scrollY = e.target.scrollTop;
+    const widthX = window.innerWidth;
+
+    if (scrollY > 70) {
+    widthX > 768
+        ? wrapper.classList.add("black")
+        : wrapper.classList.remove("black");
+    wrapper.classList.add("hide_gnb");
+    } else if (scrollY &lt;= 70) {
+    wrapper.classList.remove("black");
+    wrapper.classList.remove("hide_gnb");
+    }
+
+    if (widthX &gt;= 768) {
+    wrapper.classList.remove("black");
+    }
+}
+</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+
+                                </li>
+
+                                <li>
+                                    <h4>
+                                        <span class="badge">7</span>
+                                        LNB
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            <ul class="bullet_list">
+                                                <li>LNB 는 GNB 바로 하단에 붙어있는 메뉴입니다.</li>
+                                                <li>LNB 는 PC 와 MOBILE 의 UI 가 매우 다릅니다.</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div class="flex_col_center">
+                                                        <img src="./assets/img/img_lnb01.png" alt="lnb 유형">
+                                                        <img src="./assets/img/img_lnb02.png" alt="lnb 유형">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs"> &lt;!-- lnb_wrap start --&gt;
+&lt;div class="lnb_wrapper" id="lnbWrap"&gt;
+
+    &lt;!-- * PC LNB --&gt;
+    &lt;nav&gt;
+        &lt;div class="lnb_wrap inner flex_start"&gt;
+            &lt;a href="#" class="ham_btn only_pc" onclick="lnbHandler()"&gt;
+            메뉴 버튼
+            &lt;/a&gt;
+
+            &lt;ul class="lnb flex_start right_br"&gt;
+                &lt;li&gt;
+                    &lt;a href="/shop/pages/update/update.html"&gt;
+                        &lt;div class="badge_dot_wrap"&gt;
+                            UPDATE
+                            &lt;span class="badge_dot"&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        RANKING
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        NEW COORDI
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        LIVE    
+                    &lt;/a&gt;
+                &lt;/li&gt;
+        
+                &lt;li&gt;
+                    &lt;a href="/shop/pages/issue/issue.html"&gt;
+                        ISSUE
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="/shop/pages/brand/brand.html"&gt;
+                        BRAND
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;ul class="flex_start"&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        MENU1
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        MENU2
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;ul class="flex_start"&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        EVENT
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        LOOKBOOK
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class="lnb_modal_wrap"&gt;
+        &lt;div class="lnb_modal_top only_mobile"&gt;
+
+            &lt;button class="close_btn close" onclick="lnbHandler()"&gt;닫기&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="lnb_modal"&gt;
+            &lt;div class="menu_wrap tab"&gt;
+                &lt;ul class="tab_menu"&gt;
+                    &lt;li class="only_mobile"&gt;&lt;a href="#lnbMenu" data-target-tab="0" onclick="tabMenuHandler(event)"&gt;메뉴&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#lnbCategory" data-target-tab="1" onclick="tabMenuHandler(event)"&gt;카테고리&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#lnbBrand" data-target-tab="2"  onclick="tabMenuHandler(event)"&gt;브랜드&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                
+                &lt;div class="tab_contents"&gt;
+                    &lt;div class="lnb_gnb only_mobile"  id="lnbMenu" data-target-tab="0"&gt;
+                        &lt;ul class="custom_menu"&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    ISSUE
+                                    &lt;span&gt;의식있는 소비를 전하는 이벤트&lt;/span&gt;
+                                &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    합리적인 봄 패션
+                                    &lt;span&gt;봄의 히어로, 숏 슬리브의 모든 것&lt;/span&gt;
+                                &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    LUXURY
+                                    &lt;span&gt;비크의 하이엔드 브랜드 큐레이션, 컨시어지&lt;/span&gt;
+                                &lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+
+                        &lt;ul class="default_menu"&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;UPDATE&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;RANKING&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;NEW COORDI&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;LIVE&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;ISSUE&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;BRAND&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+
+                        &lt;div class="recommand_menu"&gt;
+                            &lt;h2&gt;추천서비스&lt;/h2&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_live.svg" alt="라이브"&gt;
+                                        라이브
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_time.svg" alt="타임세일"&gt;
+                                        타임세일
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_gift.svg" alt="선물하기"&gt;
+                                        선물하기
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_funding.svg" alt="펀딩"&gt;
+                                        펀딩
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_donation.svg" alt="기부"&gt;
+                                        기부
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="recommand_brand"&gt;
+                            &lt;h2&gt;추천 브랜드
+
+                                &lt;button class="more_like_btn"&gt;페이지 이동하여 더보기&lt;/button&gt;
+                            &lt;/h2&gt;
+                            &lt;ul class="flex_between"&gt;
+                                &lt;li&gt;
+                                    &lt;img src="/assets/img/shop/visual/brand/best_brand/img_banner01.png" alt="nike"&gt;
+                                    &lt;dl&gt;
+                                        &lt;dt&gt;
+                                            Brand name
+                                        &lt;/dt&gt;
+                                        &lt;dd&gt;
+                                            브랜드명 
+                                        &lt;/dd&gt;
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;img src="/assets/img/shop/visual/brand/best_brand/img_banner02.png" alt="nike"&gt;
+                                    &lt;dl&gt;
+                                        &lt;dt&gt;
+                                            Brand name
+                                        &lt;/dt&gt;
+                                        &lt;dd&gt;
+                                            브랜드명 
+                                        &lt;/dd&gt;
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;img src="/assets/img/shop/visual/brand/best_brand/img_banner03.png" alt="nike"&gt;
+                                    &lt;dl&gt;
+                                        &lt;dt&gt;
+                                            Brand name
+                                        &lt;/dt&gt;
+                                        &lt;dd&gt;
+                                            브랜드명 
+                                        &lt;/dd&gt;
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;img src="/assets/img/shop/visual/brand/best_brand/img_banner04.png" alt="nike"&gt;
+                                    &lt;dl&gt;
+                                        &lt;dt&gt;
+                                            Brand name
+                                        &lt;/dt&gt;
+                                        &lt;dd&gt;
+                                            브랜드명 
+                                        &lt;/dd&gt;
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;img src="/assets/img/shop/visual/brand/best_brand/img_banner05.png" alt="nike"&gt;
+                                    &lt;dl&gt;
+                                        &lt;dt&gt;
+                                            Brand name
+                                        &lt;/dt&gt;
+                                        &lt;dd&gt;
+                                            브랜드명 
+                                        &lt;/dd&gt;
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;img src="/assets/img/shop/visual/brand/best_brand/img_banner05.png" alt="nike"&gt;
+                                    &lt;dl&gt;
+                                        &lt;dt&gt;
+                                            Brand name
+                                        &lt;/dt&gt;
+                                        &lt;dd&gt;
+                                            브랜드명 
+                                        &lt;/dd&gt;
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="payment_banner"&gt;
+                            &lt;img src="/assets/img/shop/visual/common/pay_banner01.png" alt="페이코 결제" /&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="swiper lnb_banner"&gt;
+                            &lt;div class="swiper-wrapper"&gt;
+                                &lt;div class="swiper-slide"&gt;
+                                    &lt;img src="/assets/img/shop/visual/common/lnb_banner01.png" alt="배너"&gt;
+                                &lt;/div&gt;
+                                &lt;div class="swiper-slide"&gt;
+                                    &lt;img src="/assets/img/shop/visual/common/lnb_banner01.png" alt="배너"&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="lnb_category" id="lnbCategory" data-target-tab="1"&gt;
+                        &lt;!-- 1차 메뉴 --&gt;
+                        &lt;ul class="parent_menu"&gt;
+                            &lt;li class="active"&gt;
+                                &lt;a href="#"&gt;
+                                    상의
+                                    &lt;span&gt;top&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    바지
+                                    &lt;span&gt;pants&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    원피스
+                                    &lt;span&gt;onepiece&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    스커트
+                                    &lt;span&gt;skirt&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    가방
+                                    &lt;span&gt;bag&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    스니커즈
+                                    &lt;span&gt;sneakers&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    모자
+                                    &lt;span&gt;headwear&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="#"&gt;
+                                    액세서리
+                                    &lt;span&gt;accessory&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;!-- 2차 메뉴 --&gt;
+                                &lt;div class="children_menu"&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 티셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;반팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;긴팔 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;스웨트 셔츠&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;슬리브리스&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;맨투맨&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;후디  집업&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;니트&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="#"&gt;블라우스&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+
+                        &lt;div class="recommand_menu"&gt;
+                            &lt;h2&gt;추천서비스&lt;/h2&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_live.svg" alt="라이브"&gt;
+                                        라이브
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_time.svg" alt="타임세일"&gt;
+                                        타임세일
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_gift.svg" alt="선물하기"&gt;
+                                        선물하기
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_funding.svg" alt="펀딩"&gt;
+                                        펀딩
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href="#"&gt;
+                                        &lt;img src="/assets/img/shop/icon/icon_menu_donation.svg" alt="기부"&gt;
+                                        기부
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="lnb_brand" id="lnbBrand" data-target-tab="2"&gt;
+                        &lt;form action="" class="search_form only_pc"&gt;
+                            &lt;input 
+                                type="text" 
+                                name="search" 
+                                class="search" 
+                                id="search" 
+                                placeholder="검색어를 입력해주세요"
+                            /&gt;
+                            &lt;button class="search_btn"&gt;검색&lt;/button&gt;
+                        &lt;/form&gt;
+
+                        &lt;ul class="flex_center tags"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;ALL&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Exclusive&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="active"&gt;&lt;a href="#"&gt;Best&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;My brand ♥&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+
+                        &lt;div class="flex_start word_wrap"&gt;
+                            &lt;button class="refresh_btn" id="refreshBtn"&gt;
+                                a-z
+                                &lt;img src="/assets/img/shop/icon/icon_refresh_alphabet.svg" alt="새로고침" /&gt;
+                            &lt;/button&gt;
+                            
+                            &lt;ul class="flex_start word" id="word"&gt;
+                                &lt;li&gt;&lt;button class="all_btn"&gt;ALL&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;A&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;B&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;C&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;D&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;E&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;F&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;G&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;H&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;I&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;J&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;K&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;L&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;M&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;N&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;O&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;P&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;Q&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;R&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;S&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;T&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;U&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;V&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;W&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;X&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;Y&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;Z&lt;/button&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;button&gt;#&lt;/button&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="lnb_brand_list"&gt;
+                            &lt;h5&gt;총 9,832개&lt;/h5&gt;
+                            &lt;ul class="scr_custom"&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="flex_start"&gt;
+                                    &lt;button class="like_btn"&gt;&lt;/button&gt;
+
+                                    &lt;a href="#"&gt;
+                                        &lt;dl&gt;
+                                            &lt;dt&gt;MOHAN&lt;/dt&gt;
+                                            &lt;dd&gt;모한&lt;/dd&gt;
+                                        &lt;/dl&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                
+            &lt;/div&gt;
+
+        
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/*************************
+*                       *
+*         .lnb          *
+*                       *
+*************************/
+.lnb_wrap{height: 60px; padding: 0 10px; display: flex !important; flex-wrap: nowrap; }
+#lnbWrap.active .lnb_wrap{background: #f7f7f7;}
+    
+    .lnb_wrap .ham_btn{width: 32px; height: 32px; background: url(../../img/shop/btn/btn_menu.svg) no-repeat center; overflow: hidden; text-indent: -999999px;}
+    .active .ham_btn{background: url(../../img/shop/icon/icon_close_wh.svg) #E95509 no-repeat center ;}
+
+
+    .lnb_wrap ul{height: 100%;gap: 40px; padding:0 30px;flex-wrap: nowrap; flex:0 0 auto;}
+        .lnb_wrap ul li{flex:0 0 auto; flex-wrap: nowrap; height: 100%; text-align: center; display: flex; align-items: center; justify-content: center;}
+            .lnb_wrap ul li a,
+            .lnb_wrap ul li a *{flex:0 0 auto; font-size: 16px; font-weight: 600;}
+    .lnb.right_br::after{ height: 15px; width: 1px; background: #000; top: 50%; margin-top: -7.5px;}
+
+.lnb_modal_wrap{width: 1180px; position: relative;display: none; margin: 0 auto;}
+    #lnbWrap.active .lnb_modal_wrap{display: block;}
+
+    .lnb_modal{width: fit-content; max-width: 580px; height: 630px; background: #FAFAFA; position: absolute; display:flex; align-items: center; justify-content: space-between; top: 0; left: 0; z-index: 999; border: 1px solid #E0E0E0; font-size: 16px; font-weight: normal;box-shadow: 2px 2px 5px -1px rgb(0 0 0 / 20%);}
+    .black .lnb_modal{position: fixed; top: 70px;z-index: 997;}
+
+    .lnb_modal a{font-weight: 300;}
+    .lnb_modal .menu_wrap{width: 360px; height: 100%; background: #fff; padding: 40px;}
+        .lnb_modal .menu_wrap .tab_menu{display: flex; align-items: center; justify-content: space-between;}
+            .lnb_modal .menu_wrap .tab_menu li{width: 50%; height: 43px;}
+                .lnb_modal .menu_wrap .tab_menu li a{width: 100%; height:100%; padding: 15px 0; display: flex;align-items: center; justify-content: center; font-size: 13px; color: #E0E0E0; border: 1px solid  #E0E0E0;}
+                .lnb_modal .menu_wrap .tab_menu li.active a{background: #000; color: #fff;}
+                    .lnb_modal .menu_wrap .tab_menu li:first-child a{border-right: 0;}
+                    .lnb_modal .menu_wrap .tab_menu li:last-child a{border-left: 0;}
+        
+        .lnb_modal .parent_menu{width: 100%; height: 360px; padding-top: 15px; overflow-y: auto;}
+            .lnb_modal .parent_menu > li{height: 40px;}
+                .lnb_modal .parent_menu li > a{width: 100%; height: 100%; font-size: 16px; display: flex; padding: 10px 0; align-items: flex-end; justify-content: flex-start; gap: 5px;}
+                    .lnb_modal .parent_menu > li:hover > a{background: url(/assets/img/shop/icon/icon_arrow_right_orange.svg) no-repeat right center; color: #E95509;}
+                    .lnb_modal .parent_menu > li > a span{font-size: 13px; color: #BDBDBD;}
+
+        .lnb_modal .children_menu{width: 220px;height: calc(100% + 2px); padding: 40px; display: none; position: absolute; right: -220px; top: -1px; background: #FAFAFA;border: 1px solid #E0E0E0; border-left: 0;box-shadow: 2px 2px 5px -1px rgb(0 0 0 / 20%);}
+        .lnb_modal .parent_menu li:hover .children_menu{display: block;}
+            
+            .lnb_modal .children_menu li > a{padding: 6.5px 0;font-size: 15px;}
+            .lnb_modal .children_menu li:first-child > a{padding-top: 0;}
+
+
+            .lnb_modal .recommand_menu{width: 100%;border-top: 1px solid #eee;}
+            .lnb_modal .recommand_menu h2{width: 100%; font-size: 16px; padding: 30px 0 20px 0;}
+
+            .lnb_modal .recommand_menu ul{width: 100%; display: flex; align-items: center;justify-content: space-between;}
+                .lnb_modal .recommand_menu li{width: 100%;}
+                    .lnb_modal .recommand_menu a{width: 100%;font-size: 12px; text-align: center;display: flex; flex-direction: column; align-items: center; justify-content: center;font-weight: 400 !important;}
+                        .lnb_modal .recommand_menu a img{width: 52px; height: 52px; border: 1px solid #eee; flex: 0 0 auto; border-bottom-left-radius: 10px; margin-bottom: 5px;}
+
+        .lnb_modal .lnb_brand{width: 100%;}
+            
+            .lnb_modal .tags{width: 100%; padding: 20px 0;}
+                .lnb_modal .tags li{position: relative;}
+                    .lnb_modal .tags li::after{content: ''; display: inline-block; width: 1px; height: 13px; background: #E0E0E0; position: absolute; right: 0; top: 5px;}
+                    .lnb_modal .tags li:last-child::after{display: none;}
+
+
+                    .lnb_modal .tags li a{font-size: 13px; color: #BDBDBD;  padding: 0 13px;}
+                        .lnb_modal .tags li.active a{color: #000; }
+                        .lnb_modal .tags li:first-child a{padding-left: 0;}
+                        .lnb_modal .tags li:last-child a{padding-right: 0;}
+            
+            .lnb_modal .lnb_brand .tags{justify-content: center;}
+
+            .lnb_modal .lnb_brand .word_wrap{flex-wrap: wrap;}
+                .lnb_modal .lnb_brand .refresh_btn{width: 54px;height: 24px; border: 0;font-size: 13px; font-weight: 800; display: flex;  align-items: center; justify-content: center; margin: 0 2.5px 2.5px 0;gap: 5px; flex: 0 0 auto;}
+
+                .lnb_modal .lnb_brand .word{flex-wrap: wrap;}
+                .lnb_modal .lnb_brand .word button{width: 24px; height: 24px; color: #D1D1D1; border: 1px solid #D1D1D1; font-size: 13px; display: flex; align-items: center; justify-content: center; margin: 0 2.5px 2.5px 0;}
+                
+    
+                .lnb_modal .lnb_brand .word li:first-child button{width: 54px; background: #000; color: #fff;}
+
+            .lnb_modal .lnb_brand .lnb_brand_list{width: 100%;}
+                .lnb_modal .lnb_brand .lnb_brand_list h5{width: 100%; padding: 20px 0; font-size: 14px;}
+                .lnb_modal .lnb_brand .lnb_brand_list ul{ height: 250px; overflow-y: auto;}
+                    .lnb_modal .lnb_brand .lnb_brand_list li{display: flex;align-items: flex-start; justify-content: flex-start; gap: 5px; padding: 5px 0;}
+                    .lnb_modal .lnb_brand .lnb_brand_list li:first-child{padding-top: 0;}
+                    
+                    .lnb_modal .lnb_brand .lnb_brand_list li .like_btn{width: 20px; height: 20px; background: url(/assets/img/shop/icon/icon_like_white.svg) no-repeat center; position: relative;bottom: unset; right: unset;}
+                    .lnb_modal .lnb_brand .lnb_brand_list li .like_btn.active{background: url(/assets/img/shop/icon/icon_like.svg) no-repeat center/17px;}
+
+                    .lnb_modal .lnb_brand .lnb_brand_list li dt{font-size: 13px;}
+                    .lnb_modal .lnb_brand .lnb_brand_list li dd{font-size: 12px; color: #9E9E9E;}
+</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>JS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">//lnb 효과
+let tmp = false;
+function lnbHandler() {
+    const lnbWrap = document.getElementById("lnbWrap");
+    const lnbTabMenus = Array.prototype.slice.call(
+    lnbWrap.children[1].children[1].children[0].children[0].children
+    );
+    const lnbTabContents = Array.prototype.slice.call(
+    lnbWrap.children[1].children[1].children[0].children[1].children
+    );
+    let innerWidth = window.innerWidth;
+
+    lnbWrap.classList.toggle("active");
+
+    lnbTabMenus.forEach((item, idx) =&gt; {
+    item.classList.remove("active");
+    lnbTabContents[idx].classList.remove("active");
+
+    if (innerWidth &lt;= 768) {
+        if (idx == 0) {
+        item.classList.add("active");
+        lnbTabContents[idx].classList.add("active");
+        }
+    } else if (innerWidth &gt; 768) {
+        if (idx == 1) {
+        item.classList.add("active");
+        lnbTabContents[idx].classList.add("active");
+        }
+    }
+    });
+
+    if (tmp == false) {
+    var swiper = new Swiper(".lnb_banner", {
+        pagination: {
+        el: ".swiper-pagination",
+        },
+    });
+
+    const likeBtn = document.querySelectorAll(".like_btn");
+    likeBtn.forEach((item, idx) =&gt; {
+        item.addEventListener("click", (event) =&gt; {
+        event.target.classList.toggle("active");
+        });
+    });
+
+    const ko = [
+        "ALL",
+        "ㄱ",
+        "ㄴ",
+        "ㄷ",
+        "ㄹ",
+        "ㅁ",
+        "ㅂ",
+        "ㅅ",
+        "ㅇ",
+        "ㅈ",
+        "ㅊ",
+        "ㅋ",
+        "ㅌ",
+        "ㅍ",
+        "ㅎ",
+        "#",
+    ];
+    const en = [
+        "ALL",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        "#",
+    ];
+
+    const refreshBtn = document.getElementById("refreshBtn");
+    let word = document.getElementById("word");
+
+    refreshBtn.addEventListener("click", (event) =&gt; {
+        const alphabetWrap = event.target.parentElement;
+        alphabetWrap.classList.toggle("korean");
+        while (word.hasChildNodes()) {
+        word.removeChild(word.firstChild);
+        }
+
+        if (alphabetWrap.classList.contains("korean")) {
+        makeWordList(ko, word);
+        } else {
+        makeWordList(en, word);
+        }
+    });
+
+    tmp = true;
+    }
+}
+
+//lnb &gt; 키워드 모음 &amp; 알파벳 한영 전환
+function makeWordList(arr, parents) {
+    for (let i = 0; i &lt; arr.length; i++) {
+    let li = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = arr[i];
+    li.appendChild(button);
+    parents.appendChild(li);
+}</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+
+                                </li>
+
+                                <li>
+                                    <h4>
+                                        <span class="badge">8</span>
+                                        BNB
+                                    </h4>
+                                    <ol class="child_list">
+                                        <li>
+                                            <ul class="bullet_list">
+                                                <li>BNB 는 MOBILE 화면에서 하단에 붙어 기능하는 메뉴입니다.</li>
+                                                <li>PC 모드에서는 보이지 않습니다.</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="example_wrap">
+                                                <h5>이미지 예시</h5>
+                                                <div class="img_wrap">
+                                                    <div class="flex_col_center gap_10">
+                                                        <img src="./assets/img/img_bnb01.png" alt="bnb 유형">
+                                                        <img src="./assets/img/img_bnb02.png" alt="bnb 유형">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>HTML</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-html hljs">&lt;!-- bnb_wrap start --&gt;
+    &lt;nav class="bnb_wrap only_mobile"&gt;
+      &lt;div class="beekk"&gt;
+        &lt;ul class="menu_list flex_evenly"&gt;
+          &lt;li&gt;
+            &lt;a href="/shop/pages/main/main.php"&gt;
+              &lt;div class="badge_dot_wrap"&gt;
+                &lt;img src="/assets/img/shop/icon/icon_home_white.svg" alt="홈 화면"&gt;
+                &lt;span class="badge_dot"&gt;&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="#" class="alarm"&gt;
+              &lt;div class="badge_dot_wrap"&gt;
+                &lt;img src="/assets/img/shop/icon/icon_bell_white.svg" alt=""&gt;
+                &lt;span class="badge_dot"&gt;&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="#" class="wish"&gt;
+              &lt;img src="/assets/img/shop/icon/icon_heart_white.svg" alt=""&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="/shop/pages/login/signup/signup.php" class="my_page"&gt;
+              &lt;img src="/assets/img/shop/icon/icon_user_white.svg" alt=""&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    
+      &lt;div class="beekkers display-none"&gt;
+        &lt;ul class="menu_list"&gt;
+          &lt;li&gt;
+            &lt;a href="/shop/pages/main/main.php"&gt;
+              &lt;img src="/assets/img/shop/icon/icon_home_white.svg" alt="홈 화면"&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+    
+            &lt;a href="#" class="alarm "&gt;
+              &lt;img src="/assets/img/shop/icon/icon_bell_white.svg" alt=""&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="#" class="wish"&gt;
+              &lt;img src="/assets/img/shop/icon/icon_heart_white.svg" alt=""&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="/shop/pages/login/signup/signup.php" class="my_page"&gt;
+              &lt;img src="/assets/img/shop/icon/icon_user_white.svg" alt=""&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    
+      &lt;button type="button" class="beekk_btn flex_center" onclick="bnbHandler()"&gt;
+        &lt;img src="/assets/img/shop/icon/icon_bnb_beekk.svg" alt="비커즈 이동"&gt;
+      &lt;/button&gt;
+    &lt;/nav&gt;
+    
+    &lt;div class="modal_wrap bnb" id="bnbWrap"&gt;
+      &lt;div class="modal_bg"&gt;모달 배경, 누르면 닫힙니다&lt;/div&gt;
+      &lt;div class="modal bnb_modal"&gt;
+        &lt;button class="close_btn" onclick="bnbHandler()"&gt;닫기&lt;/button&gt;
+        &lt;a href="/shop/pages/main/main.php" class="beekk_link"&gt;
+          비크로 이동
+        &lt;/a&gt;
+        &lt;a href="/beekkers/index.html" class="beekkers_link"&gt;
+          비커즈로 이동
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;!-- bnb_wrap end --&gt;</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>CSS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-css hljs">/*************************
+*                       *
+*      .bnb_modal       *
+*                       *
+*************************/
+.bnb.modal_wrap{width: 100%; height: 100vh; position: fixed; top: 0; left:0; z-index: 999;}
+    .bnb.modal_wrap .close_btn{width: 100px; height: 6px; border-radius: 15px; position: absolute; background: #E0E0E0; z-index: 11; top: 15px; left: 50%; margin-left: -50px;overflow: hidden; text-indent: -99999px;}
+
+    .bnb.modal_wrap .bnb_modal{width: 100%; height: 200px; background: #FAFAFA; position: absolute; bottom: 0; left: 0; border-top-left-radius: 20px;border-top-right-radius: 20px;display: flex; align-items: center; justify-content: center; gap: 5px; z-index: 10; padding-bottom: 40px;animation-duration: 1s;animation-name: slideUp;}
+    .bnb.modal_wrap .bnb_modal a{width: 120px; height: 50px; overflow: hidden; text-indent: -99999px;border-radius: 5px; border: 1px solid #E0E0E0;}
+        
+        .bnb.modal_wrap .bnb_modal a.beekk_link{background: url(../../img/shop/btn/btn_link_beekk.svg) no-repeat #fff center;}
+        .bnb.modal_wrap .bnb_modal a.beekkers_link{background: url(../../img/shop/btn/btn_link_beekkers.svg) no-repeat #fff center;}
+
+@keyframes slideUp {
+    from {
+        bottom: -200px;
+    }
+    
+    to {
+        bottom: 0;
+    }
+}</code></pre>
+</div>
+</div>
+                                        </li>
+                                        <li>
+<div class="example_wrap">
+<h5>JS</h5>
+<div class="code_wrap">
+<button class="code_toggle_btn">열기</button>                                           
+<pre><code class="language-javascript hljs">// bnb 효과
+function bnbHandler() {
+    const bnbWrap = document.getElementById("bnbWrap");
+    console.log(bnbWrap);
+    console.log(typeof bnbWrap);
+
+    bnbWrap.classList.toggle("active");
+}
+</code></pre>
+</div>
+</div>
+                                        </li>
+                                    </ol>
+
+                                </li>
+
+                            </ol>
                         </div>
                     </article>
                 </div>

@@ -111,10 +111,12 @@ nput[type="text"]:focus,textarea:focus,input[type="file"]:focus,button:focus,inp
 
 .flex_col_center{display: flex; flex-direction: column; align-items: center; }
 
+
+/* gap */
+.gap_10{gap:10px}
+
 /* util ui */
 .badge{display: inline-block; width: 20px; height: 20px; background: #e95509; text-align: center; color: #fff; border-radius: 50%; font-size: 11px; padding: 0;}
-
-
 
 /*mobile reset*/
 @media only screen and (max-width: 400px) {
